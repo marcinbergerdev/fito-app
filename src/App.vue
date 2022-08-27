@@ -1,19 +1,18 @@
 <template>
   <app-header></app-header>
-
 </template>
 
 <script>
-import AppHeader from './components/header/AppHeader.vue';
+import AppHeader from "./components/header/AppHeader.vue";
 export default {
   components: {
-    AppHeader
-  }
+    AppHeader,
+  },
 };
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Indie+Flower&family=Inter:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap");
 
 *,
 *::before,
@@ -22,24 +21,19 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-size: 62.5%;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
-:root{
+:root {
   --white: #fff;
   --black: #000;
 
-
-  --dark: #0C0C0C;
+  --dark: #0c0c0c;
   --dark-light: #181716;
 
   --gray: #232323;
-  --gray-light: #6E6E6E;
+  --gray-light: #6e6e6e;
 
-  --primary-orange: #B07F1A;
+  --primary-orange: #b07f1a;
 }
-
-
-
-
 </style>

@@ -1,23 +1,16 @@
 <template>
   <header class="header">
     <header-logo></header-logo>
-    <nav class="navContainer">
 
-      <ul class="navList">
-        <li>
-          <nav-menu></nav-menu>
-        </li>
-        <li>
-          <header-language></header-language>
-        </li>
-      </ul>
+    <nav class="navMenu">
+      <nav-menu></nav-menu>
 
-      <ul class="registrationList">
-        <li><product-user></product-user></li>
-        <li><user-registration></user-registration></li>
-      </ul>
-
-      <header-hamburger></header-hamburger>
+      <section class="registrationSection">
+        <header-language></header-language>
+        <product-user></product-user>
+        <user-registration></user-registration>
+        <header-hamburger></header-hamburger>
+      </section>
     </nav>
   </header>
 </template>
@@ -47,32 +40,24 @@ export default {
 .header {
   display: flex;
   align-items: center;
-  width: 100%;
   padding: 1rem 1.5rem;
   background-color: var(--black);
 }
 
-.navContainer {
+.navMenu {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
-  width: inherit;
-}
+  width: 100%;
+  margin-left: 10rem;
 
-.navList {
-  display: none;
   @media (min-width: 768px) {
-    display: flex;
-    width: inherit;
     justify-content: space-between;
     align-items: center;
   }
 }
 
-.registrationList {
-  display: none;
-  @media (min-width: 768px) {
-    display: flex;
-  }
+.registrationSection {
+  display: flex;
+  align-items: center;
 }
 </style>
