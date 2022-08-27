@@ -18,6 +18,10 @@ export default {};
 .menuList {
   display: none;
 
+  li{
+    list-style: none;
+  }
+
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
@@ -30,6 +34,7 @@ export default {};
   font-weight: 200;
   text-decoration: none;
   color: var(--white);
+
 
   @media (min-width: 768px) {
     &:hover {

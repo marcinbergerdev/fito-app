@@ -12,8 +12,6 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-
-
 .languageList {
   margin-right: 2rem;
   font-weight: 200;
@@ -23,10 +21,19 @@ export default {};
   border: 1px solid var(--primary-orange);
   outline: none;
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 30px;
+    height: 20px;
+    background-color: red;
+  }
 
-
-  @media(min-width: 768px){
-   cursor: pointer;
+  @media (min-width: 768px) {
+    cursor: pointer;
   }
 }
 </style>

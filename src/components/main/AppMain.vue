@@ -1,5 +1,7 @@
 <template>
-   <div></div>
+   <main class='contentContainer'>
+
+   </main>
 </template>
 
 
@@ -10,5 +12,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
+.contentContainer{
+
+}
 
 </style>
