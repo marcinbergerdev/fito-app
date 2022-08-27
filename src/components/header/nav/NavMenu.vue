@@ -1,5 +1,5 @@
 <template>
-  <ul class='menuList'>
+  <ul class="menuList">
     <li>
       <a class="link" href="#">Home</a>
     </li>
@@ -15,13 +15,12 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.menuList{
+.menuList {
   display: none;
 
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
-
   }
 }
 
@@ -31,5 +30,11 @@ export default {};
   font-weight: 200;
   text-decoration: none;
   color: var(--white);
+
+  @media (min-width: 768px) {
+    &:hover {
+      color: var(--primary-orange);
+    }
+  }
 }
 </style>

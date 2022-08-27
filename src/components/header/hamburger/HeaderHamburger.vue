@@ -28,6 +28,7 @@ export default {
 
 <style lang="scss" scoped>
 .hamburger {
+  margin-left: 3rem;
   background-color: transparent;
   border: 0;
 
