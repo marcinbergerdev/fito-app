@@ -59,4 +59,8 @@ button {
     }
   }
 }
+
+.textColor {
+  color: var(--primary-orange);
+}
 </style>

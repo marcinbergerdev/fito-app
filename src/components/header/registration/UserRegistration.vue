@@ -1,15 +1,17 @@
 <template>
   <ul class="registrationList" :class="activeRegistration">
+
+
     <li class="registrationList__link">
-      <base-button mode="empty">Log in</base-button>
+      <base-button :mode="logIn">Log in</base-button>
     </li>
 
     <li class="registrationList__link">
-      <base-button mode="flat">Sign in</base-button>
+      <base-button :mode="signIn">Sign in</base-button>
     </li>
 
-    <li class="registrationList__link">
-      <base-button hide mode="outline">Sign out</base-button>
+    <li class="registrationList__link" v-if="false">
+      <base-button :mode="signOut">Sign out</base-button>
     </li>
   </ul>
 </template>
@@ -21,6 +23,15 @@ export default {
     activeRegistration() {
       return { activeRegistration: this.$store.getters.mobileMenuActiveStatus };
     },
+    logIn(){
+      return this.$store.getters.mobileMenuActiveStatus ? 'textColor' : 'empty'
+    },
+    signIn(){
+      return this.$store.getters.mobileMenuActiveStatus ? 'textColor' : 'flat'
+    },
+    signOut(){
+      return this.$store.getters.mobileMenuActiveStatus ? 'textColor' : 'outline'
+    }
   },
 };
 </script>
@@ -37,7 +48,6 @@ export default {
       margin-left: 2rem;
       list-style: none;
       font-size: 2rem;
-      color: red;
     }
   }
 }
@@ -50,5 +60,9 @@ export default {
 
   display: flex;
   align-items: center;
+
+  li{
+    margin: 0 10px;
+  }
 }
 </style>

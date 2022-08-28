@@ -16,7 +16,33 @@ export default {
     menuActive() {
       return { menuActive: this.$store.getters.mobileMenuActiveStatus };
     },
-  }
+  },
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+    // userWidth() {
+    //   const userWidth = window.innerWidth;
+
+    //   if (this.menuDesctop) {
+    //     return;
+    //   }
+    //   if (userWidth < 768) {
+    //     this.menuDesctop = false;
+    //   }
+
+    //   if (userWidth >= 768) {
+    //     this.$store.dispatch("toggleHamburger");
+    //     console.log("działa");
+    //     this.menuDesctop = true;
+    //   }
+    // },
+  },
+  mounted() {
+    window.addEventListener("resize", this.userWidth);
+  },
 };
 </script>
 
@@ -63,7 +89,7 @@ body {
   }
 }
 
-.menuActive{
+.menuActive {
   position: relative;
   z-index: -1;
 
