@@ -1,16 +1,16 @@
 <template>
-  <header class="header">
+  <header class="header" :class="headerActivity">
     <header-logo></header-logo>
 
-    <nav class="navMenu">
+    <nav class="navMenu" :class="navMenuActive">
       <nav-menu></nav-menu>
 
-      <section class="registrationSection">
+      <article class="registrationSection">
         <header-language></header-language>
         <product-user></product-user>
         <user-registration></user-registration>
         <header-hamburger></header-hamburger>
-      </section>
+      </article>
     </nav>
   </header>
 </template>
@@ -33,24 +33,47 @@ export default {
     UserRegistration,
     HeaderHamburger,
   },
+  computed: {
+    headerActivity() {
+      return { headerActive: this.$store.getters.mobileMenuActiveStatus };
+    },
+    navMenuActive() {
+      return { navMenuActive: this.$store.getters.mobileMenuActiveStatus };
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+
+@keyframes menuDropDown {
+  from{
+    min-height: 20rem;
+  }
+  to{
+    min-height: 100vh;
+  }
+
+}
+
 .header {
   display: flex;
   align-items: center;
   padding: 1rem 1.5rem;
   background-color: var(--black);
+  animation: menuDropUp;
+  animation: menuDropUp 0.4s ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 .navMenu {
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  margin-left: 10rem;
+  margin-left: 1rem;
 
   @media (min-width: 768px) {
+    margin-left: 10rem;
     justify-content: space-between;
     align-items: center;
   }
@@ -59,5 +82,23 @@ export default {
 .registrationSection {
   display: flex;
   align-items: center;
+}
+
+.headerActive {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: flex-start;
+  padding: 1.9rem 1.5rem;
+  width: 100%;
+  animation: menuDropDown;
+  animation: menuDropDown 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0.8;
+}
+.navMenuActive {
+  margin-left: 0;
 }
 </style>

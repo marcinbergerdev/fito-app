@@ -1,6 +1,9 @@
 <template>
   <app-header></app-header>
-  <router-view></router-view>
+
+  <main class="contentContainer" :class="menuActive">
+    <router-view></router-view>
+  </main>
 </template>
 
 <script>
@@ -9,10 +12,15 @@ export default {
   components: {
     AppHeader,
   },
+  computed: {
+    menuActive() {
+      return { menuActive: this.$store.getters.mobileMenuActiveStatus };
+    },
+  }
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap");
 
 *,
@@ -36,5 +44,29 @@ export default {
   --gray-light: #6e6e6e;
 
   --primary-orange: #b07f1a;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+.contentContainer {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("./assets/mobileBackground.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow: auto;
+
+  @media (min-width: 768px) {
+    background-image: url("./assets/background.jpg");
+  }
+}
+
+.menuActive{
+  position: relative;
+  z-index: -1;
+
+  filter: blur(3px);
 }
 </style>

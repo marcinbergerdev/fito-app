@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-const AppMain = () => import("./components/main/AppMain.vue");
+const HomePage = () => import("./components/main/home/HomePage.vue");
 
 const router = createRouter({
    history: createWebHistory(),
@@ -10,8 +10,8 @@ const router = createRouter({
          redirect: "/home",
       },
       {
-         path: "/home",
-         component: AppMain,
+        path: "/home",
+        component: HomePage,
       },
    ],
 });

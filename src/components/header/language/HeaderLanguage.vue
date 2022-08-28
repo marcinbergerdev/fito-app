@@ -1,5 +1,5 @@
 <template>
-  <select name="languages" id="languages" class="languageList">
+  <select name="languages" id="languages" class="languageList" :class="activeLanguage">
     <option value="en">English</option>
     <option value="de">Deutsch</option>
     <option value="pl">Polish</option>
@@ -8,7 +8,15 @@
 
 
 <script>
-export default {};
+export default {
+  computed: {
+    activeLanguage() {
+      return { activeLanguage: this.$store.getters.mobileMenuActiveStatus };
+    },
+  }
+};
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -35,5 +43,10 @@ export default {};
   @media (min-width: 768px) {
     cursor: pointer;
   }
+}
+
+.activeLanguage{
+  display: none;
+
 }
 </style>

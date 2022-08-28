@@ -1,6 +1,5 @@
 <template>
-  <ul class="registrationList">
-
+  <ul class="registrationList" :class="activeRegistration">
     <li class="registrationList__link">
       <base-button mode="empty">Log in</base-button>
     </li>
@@ -10,14 +9,20 @@
     </li>
 
     <li class="registrationList__link">
-      <base-button hide mode="outline" color="primaryOrange">Sign out</base-button>
+      <base-button hide mode="outline">Sign out</base-button>
     </li>
   </ul>
 </template>
 
 
 <script>
-export default {};
+export default {
+  computed: {
+    activeRegistration() {
+      return { activeRegistration: this.$store.getters.mobileMenuActiveStatus };
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -26,6 +31,7 @@ export default {};
 
   @media (min-width: 768px) {
     display: flex;
+    align-items: center;
 
     &__link {
       margin-left: 2rem;
@@ -34,5 +40,15 @@ export default {};
       color: red;
     }
   }
+}
+
+.activeRegistration{
+ position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+
+  display: flex;
+  align-items: center;
 }
 </style>

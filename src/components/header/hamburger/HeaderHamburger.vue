@@ -1,5 +1,5 @@
 <template>
-  <button class="hamburger" :class="active" @click="toggleMenu">
+  <button class="hamburger" :class="hamburgerActive" @click="toggleMenu">
     <span class="hamburger__box">
       <span class="hamburger__box-line"></span>
     </span>
@@ -8,19 +8,14 @@
 
 <script>
 export default {
-  data() {
-    return {
-      activation: false,
-    };
-  },
   computed: {
-    active() {
-      return { active: this.activation };
+    hamburgerActive() {
+      return { hamburgerActive: this.$store.getters.mobileMenuActiveStatus };
     },
   },
   methods: {
     toggleMenu() {
-      this.activation = !this.activation;
+      this.$store.dispatch("toggleHamburger");
     },
   },
 };
@@ -77,7 +72,7 @@ export default {
   }
 }
 
-.active {
+.hamburgerActive {
   .hamburger {
     &__box {
       &-line {
