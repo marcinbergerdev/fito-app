@@ -17,28 +17,18 @@ export default {
       return { menuActive: this.$store.getters.mobileMenuActiveStatus };
     },
   },
-  data() {
-    return {
-
-    };
-  },
   methods: {
-    // userWidth() {
-    //   const userWidth = window.innerWidth;
+    userWidth() {
+      const currentWidth = window.innerWidth;
+      let active = false;
 
-    //   if (this.menuDesctop) {
-    //     return;
-    //   }
-    //   if (userWidth < 768) {
-    //     this.menuDesctop = false;
-    //   }
+      if(active) return ;
 
-    //   if (userWidth >= 768) {
-    //     this.$store.dispatch("toggleHamburger");
-    //     console.log("działa");
-    //     this.menuDesctop = true;
-    //   }
-    // },
+      if(currentWidth >= 768){
+        active = true;
+        this.$store.dispatch('toggleHamburger', true);
+      }
+    },
   },
   mounted() {
     window.addEventListener("resize", this.userWidth);

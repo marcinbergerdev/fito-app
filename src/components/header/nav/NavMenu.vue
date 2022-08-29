@@ -1,7 +1,6 @@
 <template>
   <ul class="menuList" :class="activeMenu">
 
-    <!-- TUTAJ MUSISZ ZROBIĆ TAK ZE JAK PRZEKORCZY 768PX TO ZNIKA -->
     <li v-if="linkProductVisibility" class="link" :class="linkProduct">
       <Icon class="icon" icon="akar-icons:circle-plus" />
       Add product

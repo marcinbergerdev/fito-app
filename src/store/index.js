@@ -13,14 +13,18 @@ const store = createStore({
     }
   },
   mutations: {
-    toggleHamburger(state){
+    toggleHamburger(state,activity){
+      if(activity){
+        state.mobileMenuActivity = false;
+        return;
+      }
       state.mobileMenuActivity = !state.mobileMenuActivity;
-    }
+    },
   },
   actions: {
-    toggleHamburger(context){
-      context.commit('toggleHamburger');
-    }
+    toggleHamburger(context,activity){
+      context.commit('toggleHamburger',activity);
+    },
   }
 });
 
