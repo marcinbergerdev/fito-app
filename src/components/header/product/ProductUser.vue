@@ -1,5 +1,6 @@
 <template>
-  <a class="link" href="#" :class="activeUser">
+                        <!--Authentication Here  -->
+  <a class="link" href="#" v-if="false">
     <Icon class="icon" icon="ic:baseline-playlist-add" />
   </a>
 </template>
@@ -30,7 +31,4 @@ export default {
   height: 40px;
 }
 
-.activeUser {
-  display: none;
-}
 </style>

@@ -21,12 +21,11 @@ export default {
     userWidth() {
       const currentWidth = window.innerWidth;
       let active = false;
+      if (active) return;
 
-      if(active) return ;
-
-      if(currentWidth >= 768){
+      if (currentWidth >= 768) {
         active = true;
-        this.$store.dispatch('toggleHamburger', true);
+        this.$store.dispatch("toggleHamburger", true);
       }
     },
   },

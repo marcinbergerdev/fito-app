@@ -1,13 +1,12 @@
 <template>
   <ul class="menuList" :class="activeMenu">
-
-    <li v-if="linkProductVisibility" class="link" :class="linkProduct">
+    <li v-if="true" class="link" :class="linkProduct">
       <Icon class="icon" icon="akar-icons:circle-plus" />
       Add product
     </li>
 
     <li>
-      <a class="link" :class='linkMenu' href="#">Home</a>
+      <a class="link" :class="linkMenu" href="#">Home</a>
     </li>
 
     <li>
@@ -26,15 +25,12 @@ export default {
     activeMenu() {
       return { activeMenu: this.$store.getters.mobileMenuActiveStatus };
     },
-    linkProduct(){
+    linkProduct() {
       return { linkProduct: this.$store.getters.mobileMenuActiveStatus };
     },
-    linkProductVisibility(){
-      return this.$store.getters.mobileMenuActiveStatus;
-    },
-    linkMenu(){
+    linkMenu() {
       return { linkMenu: this.$store.getters.mobileMenuActiveStatus };
-    }
+    },
   },
 };
 </script>
@@ -58,7 +54,6 @@ export default {
   font-weight: 200;
   text-decoration: none;
   color: var(--white);
-  transition: 0.1s ease-in-out;
 
   @media (min-width: 768px) {
     &:hover {
@@ -72,13 +67,12 @@ export default {
   align-items: center;
   font-size: 2.5rem;
   font-weight: 400;
-  padding-bottom: 5rem;
+  padding-bottom: 4rem;
 
   .icon {
     font-size: 2rem;
     margin-right: 0.8rem;
   }
-
 }
 
 .linkMenu {
@@ -95,11 +89,12 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  justify-content: space-between;
+  justify-content: space-around;
   min-height: 30%;
 
   .link {
     margin-right: 0;
+    margin: 10px 0;
   }
 
   display: flex;

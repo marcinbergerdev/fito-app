@@ -45,15 +45,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 @keyframes menuDropDown {
-  from{
+  from {
     min-height: 20rem;
   }
-  to{
+  to {
     min-height: 100vh;
   }
-
 }
 
 .header {
@@ -61,9 +59,6 @@ export default {
   align-items: center;
   padding: 1rem 1.5rem;
   background-color: var(--black);
-  animation: menuDropUp;
-  animation: menuDropUp 0.4s ease-in-out;
-  animation-fill-mode: forwards;
 }
 
 .navMenu {
