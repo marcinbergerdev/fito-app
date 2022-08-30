@@ -67,14 +67,17 @@ body {
 
 .contentContainer {
   width: 100%;
-  min-height: 100vh;
-  background-image: url("./assets/mobileBackground.jpg");
-  background-repeat: no-repeat;
+  height: calc(100vh - 5.5rem);
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("./assets/mobileBackground.jpg"), center, no-repeat;
   background-size: 100% 100%;
   overflow: auto;
 
   @media (min-width: 768px) {
-    background-image: url("./assets/background.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("./assets/background.jpg"), center, no-repeat;
+  background-size: 100% 100%;
+    /* do poprawy */
   }
 }
 

@@ -57,7 +57,8 @@ export default {
 .header {
   display: flex;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 0 1.5rem;
+  height: 5.5rem;
   background-color: var(--black);
 }
 
