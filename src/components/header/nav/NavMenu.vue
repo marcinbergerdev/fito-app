@@ -1,6 +1,6 @@
 <template>
   <ul class="menuList" :class="activeMenu">
-    <li v-if="true" class="link" :class="linkProduct">
+    <li v-if="authentication" class="link addProduct" :class="linkProduct">
       <Icon class="icon" icon="akar-icons:circle-plus" />
       Add product
     </li>
@@ -30,6 +30,9 @@ export default {
     },
     linkMenu() {
       return { linkMenu: this.$store.getters.mobileMenuActiveStatus };
+    },
+    authentication() {
+      return this.$store.getters.authentication;
     },
   },
 };
@@ -61,6 +64,14 @@ export default {
     }
   }
 }
+
+.addProduct{
+
+   @media (min-width: 768px) {
+    display: none;
+  }
+}
+
 
 .linkProduct {
   display: flex;

@@ -4,12 +4,16 @@ import { createStore } from 'vuex'
 const store = createStore({
   state(){
     return {
-      mobileMenuActivity: false
+      mobileMenuActivity: false,
+      authentication: true
     }
   },
   getters: {
     mobileMenuActiveStatus(state){
       return state.mobileMenuActivity;
+    },
+    authentication(state){
+      return state.authentication;
     }
   },
   mutations: {
