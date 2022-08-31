@@ -5,7 +5,7 @@ const store = createStore({
   state(){
     return {
       mobileMenuActivity: false,
-      authentication: true
+      authentication: false
     }
   },
   getters: {

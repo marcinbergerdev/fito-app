@@ -1,6 +1,5 @@
 <template>
   <app-header></app-header>
-
   <main class="contentContainer" :class="menuActive">
     <router-view></router-view>
   </main>
@@ -75,8 +74,8 @@ body {
 
   @media (min-width: 768px) {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("./assets/background.jpg"), center, no-repeat;
-  background-size: 100% 100%;
+      url("./assets/background.jpg"), center, no-repeat;
+    background-size: 100% 100%;
     /* do poprawy */
   }
 }
@@ -84,6 +83,7 @@ body {
 .menuActive {
   position: relative;
   z-index: -1;
+  min-height: 100vh;
 
   filter: blur(3px);
 }
