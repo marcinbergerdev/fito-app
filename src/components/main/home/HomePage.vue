@@ -32,8 +32,6 @@
       </section>
     </article>
 
-    <!-- zrob tutaj osobna base card dla tych dwoch -->
-
     <article class="containerInformation">
       <h3 class="containerInformation__description">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum
@@ -107,16 +105,34 @@ export default {
 .containerRedirection {
   display: flex;
   flex-direction: column;
+
   margin: 2rem 0;
   gap: 5rem;
   text-align: center;
+
+  @media (orientation: landscape) {
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 .boxRedirection {
   padding: 0 2rem;
-  font-size: 2.1rem;
+  font-size: 2.3rem;
+  line-height: 1.3;
   &__text {
     margin-bottom: 1.5rem;
+  }
+
+  @media (orientation: landscape) {
+    width: 65%;
+  }
+  @media (min-width: 768px) {
+    width: 30%;
   }
 }
 
@@ -126,6 +142,9 @@ export default {
 
   &__description {
     font-weight: 400;
+  }
+  @media (min-width: 768px) {
+    font-size: 2rem;
   }
 }
 
