@@ -1,5 +1,5 @@
 <template>
-  <button v-if="!hide" :class="[mode, color]">
+  <button v-if="!hide" :class="[mode, color, size]">
     <slot></slot>
   </button>
 </template>
@@ -15,6 +15,10 @@ export default {
       type: String,
       required: false,
     },
+    size: {
+      type: String,
+      required: false,
+    },
     hide: {
       type: [Boolean, String],
       required: false,
@@ -26,7 +30,7 @@ export default {
 <style lang="scss" scoped>
 button {
   font-size: 1.6rem;
-  width: 10rem;
+  width: 9rem;
   padding: 0.8rem 0;
   background-color: transparent;
   color: var(--white);
@@ -59,6 +63,10 @@ button {
       color: var(--primary-orange);
     }
   }
+}
+
+.larger{
+  width: 13rem;
 }
 
 .textColor {
