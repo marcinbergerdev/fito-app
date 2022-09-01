@@ -26,7 +26,7 @@ export default {
 <style lang="scss" scoped>
 button {
   font-size: 1.6rem;
-  width: 13rem;
+  width: 10rem;
   padding: 0.8rem 0;
   background-color: transparent;
   color: var(--white);

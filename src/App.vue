@@ -1,36 +1,13 @@
 <template>
-  <app-header></app-header>
-  <main class="contentContainer" :class="menuActive">
+  <div class="contentContainer mobileTest" >
     <router-view></router-view>
-  </main>
+  </div>
 </template>
 
 <script>
-import AppHeader from "./components/header/AppHeader.vue";
-export default {
-  components: {
-    AppHeader,
-  },
-  computed: {
-    menuActive() {
-      return { menuActive: this.$store.getters.mobileMenuActiveStatus };
-    },
-  },
-  methods: {
-    userWidth() {
-      const currentWidth = window.innerWidth;
-      let active = false;
 
-      if (active) return;
-      if (currentWidth >= 768) {
-        active = true;
-        this.$store.dispatch("toggleHamburger", true);
-      }
-    },
-  },
-  mounted() {
-    window.addEventListener("resize", this.userWidth);
-  },
+export default {
+
 };
 </script>
 
@@ -60,17 +37,12 @@ export default {
   --primary-orange: #b07f1a;
 }
 
-body {
-  overflow-y: hidden;
-}
-
 .contentContainer {
   width: 100%;
-  height: calc(100vh - 5.5rem);
+  min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("./assets/mobileBackground.jpg"), center, no-repeat;
   background-size: 100% 100%;
-  overflow: auto;
 
   @media (min-width: 768px) {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -78,13 +50,5 @@ body {
     background-size: 100% 100%;
     /* do poprawy */
   }
-}
-
-.menuActive {
-  position: relative;
-  z-index: -1;
-  min-height: 100vh;
-
-  filter: blur(3px);
 }
 </style>

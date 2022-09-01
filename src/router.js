@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-const HomePage = () => import("./components/main/home/HomePage.vue");
+const ContentContainer = () => import('./components/ContentContainer.vue');
+
 
 const router = createRouter({
    history: createWebHistory(),
@@ -11,7 +12,7 @@ const router = createRouter({
       },
       {
         path: "/home",
-        component: HomePage,
+        component: ContentContainer,
       },
    ],
 });

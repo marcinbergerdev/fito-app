@@ -12,3 +12,72 @@ export default {
 <style lang="scss" scoped>
 
 </style>
+
+
+
+.homeHeader {
+  text-align: center;
+
+  &__title {
+    font-size: 5rem;
+    font-weight: 200;
+
+    @media (min-width: 768px) {
+      width: 60%;
+      margin: 0 auto;
+      font-size: 7rem;
+      font-weight: 400;
+    }
+    @media (min-width: 1000px) {
+      font-size: 8rem;
+    }
+    @media (min-width: 1440px) {
+      font-size: 10rem;
+    }
+  }
+}
+
+.containerRedirection {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  margin-top: 2rem;
+  text-align: center;
+
+  @media(min-width: 768px){
+    flex-direction: row;
+    justify-content: center;
+    gap: 20rem;
+  }
+
+}
+
+// wez to popraw w sensie tam da dole ten width zobacz czy nie da sie zrobi width: max/min
+.boxRedirection {
+  &__text {
+    font-size: 1.4rem;
+    font-weight: 200;
+  }
+
+  &__link {
+    margin-top: 1rem;
+    @media(min-width: 768px){
+    margin-top: 4rem;
+  }
+
+  }
+
+   @media(min-width: 768px){
+    width: 40rem;    // <------
+  }
+}
+
+.containerInformation {
+  margin-top: 1rem;
+  text-align: center;
+  &__description {
+    font-size: 1rem;
+    font-weight: 200;
+  }
+
+}
