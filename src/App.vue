@@ -1,5 +1,5 @@
 <template>
-  <div class="contentContainer mobileTest" >
+  <div class="content ba mobileTest" >
     <router-view></router-view>
   </div>
 </template>
@@ -34,10 +34,10 @@ export default {
   --gray: #232323;
   --gray-light: #6e6e6e;
 
-  --primary-orange: #b07f1a;
+  --primary-orange: #ff5e00;
 }
 
-.contentContainer {
+.content {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),

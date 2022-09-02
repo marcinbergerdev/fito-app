@@ -6,11 +6,12 @@
     </li>
 
     <li>
-      <a class="link" :class="linkMenu" href="#">Home</a>
+      <router-link to="/home" class="link" :class="linkMenu">Home</router-link>
     </li>
 
     <li>
-      <a class="link" :class="linkMenu" href="#">BMI</a>
+
+      <router-link to="/home/bmi" class="link" :class="linkMenu">BMI</router-link>
     </li>
   </ul>
 </template>
