@@ -1,6 +1,7 @@
 <template>
   <app-header></app-header>
-  <main :class="[placementElement,menuActive]">
+
+  <main :class="[placementElement, menuActive]">
     <router-view></router-view>
   </main>
 </template>
@@ -12,40 +13,45 @@ export default {
   components: {
     AppHeader,
   },
-  data(){
+  data() {
     return {
-      bmiStyleActive: false
-    }
+      bmiStyleActive: false,
+    };
   },
-     methods: {
-       userWidth() {
-         const currentWidth = window.innerWidth;
-         let active = false;
+  methods: {
+    userWidth() {
+      const currentWidth = window.innerWidth;
+      let active = false;
 
-         if (active) return;
-         if (currentWidth >= 768) {
-           active = true;
-           this.$store.dispatch("toggleHamburger", true);
-         }
-       },
-     },
-   computed: {
+      if (active) return;
+      if (currentWidth >= 768) {
+        active = true;
+        this.$store.dispatch("toggleHamburger", true);
+      }
+    },
+  },
+  computed: {
     menuActive() {
       return { menuActive: this.$store.getters.mobileMenuActiveStatus };
     },
     placementElement() {
-    return {mainContainer: !this.bmiStyleActive, bmiCenter: this.bmiStyleActive}
+      return {
+        mainContainer: !this.bmiStyleActive,
+        bmiCenter: this.bmiStyleActive,
+      };
     },
   },
   watch: {
-    $route(rout){
+    $route(rout) {
       const link = rout.path;
-      if(link === '/home/bmi'){
+      if(link) this.$store.dispatch('toggleHamburger', true);
+
+      if (link === "/home/bmi") {
         this.bmiStyleActive = true;
-      }else {
+      } else {
         this.bmiStyleActive = false;
       }
-    }
+    },
   },
   mounted() {
     window.addEventListener("resize", this.userWidth);
@@ -54,28 +60,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.mainContainer,.bmiCenter{
+.mainContainer,
+.bmiCenter {
   display: flex;
   height: calc(100vh - 5.5rem);
   overflow: auto;
 
-    color: var(--white);
-    padding: 3rem;
+  color: var(--white);
+  padding: 3rem;
   @media (min-width: 768px) {
   }
-
 }
-
-
 
 .mainContainer {
   flex-direction: column;
   justify-content: space-between;
-
 }
 
-.bmiCenter{
+.bmiCenter {
   justify-content: center;
   align-items: center;
 }

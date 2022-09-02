@@ -1,5 +1,5 @@
 <template>
-  <header class="homeHeader">
+    <header class="homeHeader">
     <h1 class="homeHeader__title">Take care of your health</h1>
   </header>
 
@@ -45,6 +45,9 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+div{
+  min-height: 100%;
+}
 .homeHeader {
   text-align: center;
   &__title {

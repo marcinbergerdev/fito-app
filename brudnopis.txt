@@ -59,3 +59,9 @@ export default {
   }
 
 }
+
+<router-view v-slot="routerContent">
+      <transition>
+        <component :is="routerContent.Component" ></component>
+      </transition>
+    </router-view>

@@ -60,7 +60,7 @@ export default {
   color: var(--white);
 
   @media (min-width: 768px) {
-    &:hover {
+    &:hover,&.router-link-exact-active {
       color: var(--primary-orange);
     }
   }
