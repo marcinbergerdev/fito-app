@@ -26,12 +26,6 @@ const router = createRouter({
             },
          ],
       },
-
-
-
-
-
-
       {
          path: "/login",
          component: null,

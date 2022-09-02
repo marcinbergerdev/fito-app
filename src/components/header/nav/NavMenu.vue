@@ -6,12 +6,15 @@
     </li>
 
     <li>
-      <router-link to="/home" class="link" :class="linkMenu">Home</router-link>
+      <base-button to="/home" mode="empty" link :styles="linkStyle"
+        >Home</base-button
+      >
     </li>
 
     <li>
-
-      <router-link to="/home/bmi" class="link" :class="linkMenu">BMI</router-link>
+      <base-button to="/home/bmi" mode="empty" link :styles="linkStyle"
+        >Bmi</base-button
+      >
     </li>
   </ul>
 </template>
@@ -29,8 +32,10 @@ export default {
     linkProduct() {
       return { linkProduct: this.$store.getters.mobileMenuActiveStatus };
     },
-    linkMenu() {
-      return { linkMenu: this.$store.getters.mobileMenuActiveStatus };
+    linkStyle() {
+      return this.$store.getters.mobileMenuActiveStatus
+        ? "linkMobile"
+        : "linkDesctop";
     },
     authentication() {
       return this.$store.getters.authentication;
@@ -55,24 +60,22 @@ export default {
 .link {
   margin-right: 5rem;
   font-size: 1.6rem;
-  font-weight: 200;
   text-decoration: none;
   color: var(--white);
 
   @media (min-width: 768px) {
-    &:hover,&.router-link-exact-active {
+    &:hover,
+    &.router-link-exact-active {
       color: var(--primary-orange);
     }
   }
 }
 
-.addProduct{
-
-   @media (min-width: 768px) {
+.addProduct {
+  @media (min-width: 768px) {
     display: none;
   }
 }
-
 
 .linkProduct {
   display: flex;
@@ -93,6 +96,10 @@ export default {
   width: 10rem;
   text-align: center;
   border: 2px solid var(--primary-orange);
+
+  &.router-link-exact-active {
+    color: var(--primary-orange);
+  }
 }
 
 .activeMenu {

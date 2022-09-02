@@ -2,16 +2,16 @@
   <ul class="registrationList" :class="activeRegistration">
 
 
-    <li class="registrationList__link">
-      <base-button :mode="logIn">Log in</base-button>
+    <li class="registrationList__link" v-if="true">
+      <base-button :mode="logIn" link>Log in</base-button>
     </li>
 
-    <li class="registrationList__link">
-      <base-button :mode="signIn">Sign in</base-button>
+    <li class="registrationList__link" v-if="true">
+      <base-button :mode="signIn" link>Sign in</base-button>
     </li>
 
     <li class="registrationList__link" v-if="false">
-      <base-button :mode="signOut">Sign out</base-button>
+      <base-button :mode="signOut" link>Sign out</base-button>
     </li>
   </ul>
 </template>

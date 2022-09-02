@@ -93,7 +93,7 @@ export default {
   animation: menuDropDown;
   animation: menuDropDown 0.4s ease-in-out;
   animation-fill-mode: forwards;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .navMenuActive {
   margin-left: 0;

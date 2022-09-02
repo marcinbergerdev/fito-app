@@ -1,5 +1,5 @@
 <template>
-    <header class="homeHeader">
+  <header class="homeHeader">
     <h1 class="homeHeader__title">Take care of your health</h1>
   </header>
 
@@ -12,9 +12,14 @@
         debitis?
       </p>
 
-      <base-button class="boxRedirection__link" mode="outline" size="larger"
-        >Add Product</base-button
+      <base-button
+        to="/home"
+        mode="outline"
+        size="larger"
+        link
       >
+        Add Product
+      </base-button>
     </section>
 
     <section class="boxRedirection">
@@ -25,9 +30,14 @@
         debitis?
       </p>
 
-      <base-button class="boxRedirection__link" mode="outline" size="larger"
-        >BMI</base-button
+      <base-button
+        to="/home/bmi"
+        mode="outline"
+        size="larger"
+        link
       >
+        BMI
+      </base-button>
     </section>
   </article>
 
@@ -45,7 +55,7 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-div{
+div {
   min-height: 100%;
 }
 .homeHeader {
@@ -92,6 +102,9 @@ div{
   line-height: 1.3;
   &__text {
     margin-bottom: 1.5rem;
+  }
+  &__link a {
+    text-decoration: none;
   }
 
   @media (orientation: landscape) {

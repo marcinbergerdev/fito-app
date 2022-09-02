@@ -1,7 +1,11 @@
 <template>
-  <button v-if="!hide" :class="[mode, color, size]">
+  <button v-if="!link" :class="[mode, color, size]">
     <slot></slot>
   </button>
+
+  <router-link v-if="link" :to="to" :class="[mode, color, size, styles]">
+    <slot></slot>
+  </router-link>
 </template>
 
 <script>
@@ -15,12 +19,21 @@ export default {
       type: String,
       required: false,
     },
+    styles: {
+      type: String,
+      required: false,
+    },
     size: {
       type: String,
       required: false,
     },
-    hide: {
-      type: [Boolean, String],
+    to: {
+      type: String,
+      required: false,
+      default: "/",
+    },
+    link: {
+      type: Boolean,
       required: false,
     },
   },
@@ -28,10 +41,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-button {
-  font-size: 1.6rem;
-  width: 9rem;
+a{
+  display: block;
+  margin: 0 auto;
+  text-decoration: none;
+  text-align: center;
+}
+
+button,a{
   padding: 0.8rem 0;
+  width: 9rem;
+  font-size: 1.6rem;
   background-color: transparent;
   color: var(--white);
   border: 0;
@@ -46,15 +66,28 @@ button {
   }
 }
 
-.outline {
-  border: 2px solid var(--primary-orange);
-  opacity: 0.7;
+.linkDesctop {
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: var(--white);
+
+  @media (min-width: 768px) {
+    &:hover,&.router-link-exact-active {
+      color: var(--primary-orange);
+    }
+  }
 }
 
-.flat {
-  background-color: var(--primary-orange);
-  border-radius: 4px;
-  opacity: 0.8;
+.linkMobile {
+  display: block;
+  padding: 0.5rem;
+  width: 10rem;
+  text-align: center;
+  border: 2px solid var(--primary-orange);
+
+  &.router-link-exact-active{
+    color: var(--primary-orange);
+  }
 }
 
 .empty {
@@ -64,11 +97,19 @@ button {
     }
   }
 }
-
-.larger{
-  width: 13rem;
+.outline {
+  border: 2px solid var(--primary-orange);
+  opacity: 0.7;
+}
+.flat {
+  background-color: var(--primary-orange);
+  border-radius: 4px;
+  opacity: 0.8;
 }
 
+.larger {
+  width: 13rem;
+}
 .textColor {
   color: var(--primary-orange);
 }
