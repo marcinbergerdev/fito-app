@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+ import { createRouter, createWebHistory } from "vue-router";
 
 const ContentContainer = () => import("./components/ContentContainer.vue");
 const HomePage = () => import("./components/main/home/HomePage");

@@ -113,4 +113,19 @@ button,a{
 .textColor {
   color: var(--primary-orange);
 }
+
+.back{
+  align-self: flex-end;
+  margin: 0;
+  width: #{"min(100%, 40px)"};
+}
+
+.calc{
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 80%;
+  border-radius: 2rem;
+}
 </style>

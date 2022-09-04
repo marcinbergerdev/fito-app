@@ -1,5 +1,5 @@
 <template>
-   <a href="#" class='logo'>FitTo</a>
+   <router-link to="/home" class='logo'>FitTo</router-link>
 </template>
 
 

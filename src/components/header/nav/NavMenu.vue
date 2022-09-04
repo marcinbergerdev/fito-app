@@ -80,13 +80,20 @@ export default {
 .linkProduct {
   display: flex;
   align-items: center;
-  font-size: 2.5rem;
+  font-size: 1.7rem;
   font-weight: 400;
   padding-bottom: 4rem;
 
   .icon {
     font-size: 2rem;
     margin-right: 0.8rem;
+  }
+
+  @media (min-width: 355px) {
+    font-size: 2.5rem;
+    .icon {
+      font-size: 2rem;
+    }
   }
 }
 

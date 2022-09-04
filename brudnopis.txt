@@ -65,3 +65,161 @@ export default {
         <component :is="routerContent.Component" ></component>
       </transition>
     </router-view>
+
+
+
+
+
+
+
+    .containerBmi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5rem;
+  color: var(--primary-orange);
+  border: 1px solid var(--primary-orange);
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    cursor: pointer;
+  }
+}
+
+.formContainer {
+  width: #{"min(80%, 40rem)"};
+  padding: 1.5rem;
+
+  text-align: center;
+  background-color: var(--dark);
+  border-radius: 3rem;
+}
+
+.headerTxt {
+  font-weight: 200;
+  font-size: 1.7rem;
+
+  @media (min-width: 768px) {
+    font-size: 4rem;
+  }
+}
+
+.formBox {
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.formBex form, .formGender, .formWeight, .formHeight{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+.formWeight,.formHeight {
+  input{
+    width: #{"max(50%, 100px)"};
+  }
+}
+
+
+.formGender {
+ &__option{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ }
+}
+
+.formWeight {
+
+}
+
+.formHeight {
+
+}
+
+.sendButton {
+  &__calculate {
+  }
+
+  &__icon {
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+
+ <section class="formContainer">
+      <base-button color="textColor" mode="back" link>
+        <span class="back">
+          <Icon class="back__icon" icon="akar-icons:arrow-back" />
+        </span>
+      </base-button>
+
+      <h2 class="headerTxt">Calculate your BMI</h2>
+
+      <div class="formBox">
+        <form @submit.prevent="test">
+
+          <div class="formGender">
+            <label for="">Gender</label>
+
+            <div class='formGender__option'>
+              <label for="male">Male</label>
+              <input id="male" type="checkbox" />
+            </div>
+
+            <div class='formGender__option'>
+              <label for="female">Female</label>
+              <input id="female" type="checkbox" />
+            </div>
+          </div>
+
+          <div class="formWeight">
+            <label for="">Weight</label>
+            <input type="number" />
+            <span>kg</span>
+          </div>
+
+          <div class="formHeight">
+            <label for="">Height</label>
+            <input type="number" />
+            <span>kg</span>
+          </div>
+
+          <button class="sendButton">
+            <span class="sendButton__calculate"
+              ><Icon class="sendButton__icon" icon="ic:outline-calculate"
+            /></span>
+            Calculate
+          </button>
+
+        </form>
+
+      </div>
+    </section>

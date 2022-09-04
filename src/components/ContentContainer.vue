@@ -1,8 +1,12 @@
 <template>
   <app-header></app-header>
 
-  <main :class="[placementElement, menuActive]">
-    <router-view></router-view>
+  <main class="mainContainer">
+    <router-view v-slot="route">
+      <transition name="fade" mode="out-in">
+        <component :is="route.Component"></component>
+      </transition>
+    </router-view>
   </main>
 </template>
 
@@ -29,56 +33,59 @@ export default {
         this.$store.dispatch("toggleHamburger", true);
       }
     },
+    elementsCentering(link) {
+      if (link) this.$store.dispatch("toggleHamburger", true);
+      link === "/home/bmi" || link === "/home/result"
+        ? (this.bmiStyleActive = true)
+        : (this.bmiStyleActive = false);
+    },
   },
   computed: {
     menuActive() {
       return { menuActive: this.$store.getters.mobileMenuActiveStatus };
     },
     placementElement() {
-      return {
-        mainContainer: !this.bmiStyleActive,
-        bmiCenter: this.bmiStyleActive,
-      };
+      return this.bmiStyleActive ? "bmiCenter" : "mainContainer";
     },
   },
   watch: {
-    $route(rout) {
-      const link = rout.path;
-      if(link) this.$store.dispatch('toggleHamburger', true);
-
-      if (link === "/home/bmi") {
-        this.bmiStyleActive = true;
-      } else {
-        this.bmiStyleActive = false;
-      }
+    $route(route) {
+      const link = route.path;
+      this.elementsCentering(link);
     },
   },
   mounted() {
+    const link = this.$route.path;
+    this.elementsCentering(link);
     window.addEventListener("resize", this.userWidth);
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.mainContainer,
-.bmiCenter {
-  display: flex;
-  height: calc(100vh - 5.5rem);
-  overflow: auto;
-
-  color: var(--white);
-  padding: 3rem;
-  @media (min-width: 768px) {
+@keyframes nextPage {
+  from {
+    transform: translateY(-20px);
   }
+  to {
+    transform: translateY(0);
+  }
+}
+.fade-enter-active {
+  animation: 0.25s nextPage;
+}
+.fade-leave-active {
+  animation: 0.25s nextPage alternate-reverse;
 }
 
 .mainContainer {
-  flex-direction: column;
-  justify-content: space-between;
-}
+  height: calc(100vh - 5.5rem);
+  overflow: auto;
+  overflow-x: hidden;
 
-.bmiCenter {
-  justify-content: center;
-  align-items: center;
+  color: var(--white);
+
+  @media (min-width: 768px) {
+  }
 }
 </style>

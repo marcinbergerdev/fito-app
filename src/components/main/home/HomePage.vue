@@ -1,52 +1,44 @@
 <template>
-  <header class="homeHeader">
-    <h1 class="homeHeader__title">Take care of your health</h1>
-  </header>
+  <article class="homePageContainer">
+    <header class="homeHeader">
+      <h1 class="homeHeader__title">Take care of your health</h1>
+    </header>
 
-  <article class="containerRedirection">
-    <section class="boxRedirection">
-      <p class="boxRedirection__text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere
-        accusantium eveniet ex quisquam? Harum, earum aliquid mollitia eius odio
-        ducimus eveniet voluptatum nesciunt consequuntur sunt quam doloribus rem
-        debitis?
-      </p>
+    <section class="containerRedirection">
+      <div class="boxRedirection">
+        <p class="boxRedirection__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere
+          accusantium eveniet ex quisquam? Harum, earum aliquid mollitia eius
+          odio ducimus eveniet voluptatum nesciunt consequuntur sunt quam
+          doloribus rem debitis?
+        </p>
 
-      <base-button
-        to="/home"
-        mode="outline"
-        size="larger"
-        link
-      >
-        Add Product
-      </base-button>
+        <base-button to="/home" mode="outline" size="larger" link>
+          Add Product
+        </base-button>
+      </div>
+
+      <div class="boxRedirection">
+        <p class="boxRedirection__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere
+          accusantium eveniet ex quisquam? Harum, earum aliquid mollitia eius
+          odio ducimus eveniet voluptatum nesciunt consequuntur sunt quam
+          doloribus rem debitis?
+        </p>
+
+        <base-button to="/home/bmi" mode="outline" size="larger" link>
+          BMI
+        </base-button>
+      </div>
     </section>
 
-    <section class="boxRedirection">
-      <p class="boxRedirection__text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere
-        accusantium eveniet ex quisquam? Harum, earum aliquid mollitia eius odio
-        ducimus eveniet voluptatum nesciunt consequuntur sunt quam doloribus rem
-        debitis?
-      </p>
-
-      <base-button
-        to="/home/bmi"
-        mode="outline"
-        size="larger"
-        link
-      >
-        BMI
-      </base-button>
-    </section>
+    <footer class="containerInformation">
+      <h3 class="containerInformation__description">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum
+        voluptatem est vitae nobis dolores culpa necessitatibus.
+      </h3>
+    </footer>
   </article>
-
-  <footer class="containerInformation">
-    <h3 class="containerInformation__description">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum
-      voluptatem est vitae nobis dolores culpa necessitatibus.
-    </h3>
-  </footer>
 </template>
 
 
@@ -55,8 +47,12 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-div {
+.homePageContainer {
   min-height: 100%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .homeHeader {
   text-align: center;
@@ -82,7 +78,7 @@ div {
   display: flex;
   flex-direction: column;
 
-  margin: 2rem 0;
+  margin: 5rem 0 5rem 0;
   gap: 5rem;
   text-align: center;
 
@@ -97,6 +93,7 @@ div {
 }
 
 .boxRedirection {
+  margin-top: 5rem;
   padding: 0 2rem;
   font-size: 2.3rem;
   line-height: 1.3;
