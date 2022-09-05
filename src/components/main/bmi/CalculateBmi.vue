@@ -12,45 +12,40 @@
       </header>
 
       <form @submit.prevent="test">
-        <div class="formBox">
-          <div class="formGender">
-            <label>Gender:</label>
+        <div class="formGender">
+          <label for="gender">Gender:</label>
 
-            <div>
-              <input id="male" type="radio" name="gender" />
-              <label for="male">Male</label>
-            </div>
-
-            <div>
-              <input id="female" type="radio" name="gender" />
-              <label for="female">Female</label>
-            </div>
+          <div>
+            <input id="male" type="radio" name="gender" />
+            <label for="male">Male</label>
           </div>
 
-          <div class="setData">
-            <div class="setData__label">
-              <label>Weight:</label>
-              <label>Height:</label>
-            </div>
-
-            <div class="setData__input">
-              <input id="weight" type="number" />
-              <input id="height" type="number" />
-            </div>
-
-            <div>
-              <span>kg</span>
-              <span>cm</span>
-            </div>
+          <div>
+            <input id="female" type="radio" name="gender" />
+            <label for="female">Female</label>
           </div>
-
-          <base-button mode="calc" size="larger" color="flat">
-            <span class="calcButton">
-              <Icon class="icon" icon="ic:outline-calculate" />
-            </span>
-            Calculate
-          </base-button>
         </div>
+
+        <div class="setData">
+          <div>
+            <label for="weight">Weight:</label>
+            <input type="number" />
+            <span>kg</span>
+          </div>
+
+          <div>
+            <label for="height">Height:</label>
+            <input type="number" />
+            <span>cm</span>
+          </div>
+        </div>
+
+        <base-button mode="calc" size="larger" color="flat">
+          <span class="calcButton">
+            <Icon class="icon" icon="ic:outline-calculate" />
+          </span>
+          Calculate
+        </base-button>
       </form>
     </section>
   </article>
@@ -74,20 +69,25 @@ export default {
 <style lang="scss" scoped>
 .bmiContainer {
   display: flex;
-  padding: 3rem;
   justify-content: center;
   align-items: center;
+  padding: 4rem 0;
   min-height: 100%;
-
 }
+
 .formContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 2rem 3rem 2rem;
-  width: #{"min(100%, 500px)"};
+  padding: 1rem 2rem 4rem 2rem;
+  width: #{"min(80%, 400px)"};
   background-color: var(--dark);
   border-radius: 2rem;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
 }
 
 .backButton {
@@ -100,9 +100,12 @@ export default {
   border: 1px solid var(--primary-orange);
 }
 
-.icon {
-  width: 2rem;
-  height: 2rem;
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
 }
 
 .formHeader {
@@ -119,70 +122,81 @@ export default {
   }
 }
 
-form {
-  min-width: 70%;
-}
-
-.formBox {
-  display: flex;
-  flex-direction: column;
-}
-
 .formGender label,
 .setData label,
 .setData span {
-  font-weight: 200;
   font-size: 1.3rem;
+  font-weight: 200;
 }
 
 .formGender {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-top: 3rem;
+  margin: 3rem 0 0 0;
+  width: 90%;
 
   div {
+    width: 10%;
+
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    input {
-      margin-right: 0.5rem;
+    gap: 0.5rem;
+    margin: 0 0.5rem;
+
+    @media (min-width: 300px) {
+      width: auto;
     }
+  }
+  input {
+
+    @media (min-width: 768px) {
+      cursor: pointer;
+    }
+  }
+
+  @media (min-width: 300px) {
+    flex-direction: row;
   }
 }
 
 .setData {
   display: flex;
-  justify-content: space-around;
-  align-content: center;
-  margin: 2rem 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0 2rem 0;
+  width: 80%;
 
   div {
     display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-  }
+    justify-content: space-between;
+    align-items: center;
 
-  &__label {
-    line-height: 3;
-  }
+    label {
+      width: 50px;
+    }
 
-  &__input {
-    width: 50%;
     input {
-      width: 100%;
+      width: 50%;
+      margin: 0 0.5rem;
       padding: 0.5rem 1rem;
       font-size: 1.1rem;
       outline: none;
       color: var(--white);
       background-color: #ee874b27;
       border: 1px solid #ce4d02a6;
+
+      &:focus {
+        border: 1px solid #e95e0e;
+      }
     }
-    input:focus {
-      border: 1px solid #ce4d02;
+
+    span {
+      width: 10%;
     }
   }
-}
-.calcButton{
-  margin-right: 0.5rem;
 }
 </style>
