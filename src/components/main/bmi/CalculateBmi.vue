@@ -1,54 +1,52 @@
 <template>
-  <article class="bmiContainer">
-    <section class="formContainer">
-      <base-button to="/home" link mode="back">
-        <span class="backButton">
-          <Icon class="icon" icon="akar-icons:arrow-back" />
+  <base-calculate size="calc">
+    <base-button to="/home" link mode="back">
+      <span class="backButton">
+        <Icon class="icon" icon="akar-icons:arrow-back" />
+      </span>
+    </base-button>
+
+    <header class="formHeader">
+      <h1 class="formHeader__text">Calculate your BMI</h1>
+    </header>
+
+    <form @submit.prevent="calcBmi">
+      <div class="formGender">
+        <label for="gender">Gender:</label>
+
+        <div>
+          <input id="male" type="radio" name="gender" />
+          <label for="male">Male</label>
+        </div>
+
+        <div>
+          <input id="female" type="radio" name="gender" />
+          <label for="female">Female</label>
+        </div>
+      </div>
+
+      <div class="setData">
+        <div>
+          <label for="weight">Weight:</label>
+          <input type="number" />
+          <span>kg</span>
+        </div>
+
+        <div>
+          <label for="height">Height:</label>
+          <input type="number" />
+          <span>cm</span>
+        </div>
+      </div>
+
+      <base-button mode="calc" size="larger" color="flat">
+        <span class="calcButton">
+          <Icon class="icon" icon="ic:outline-calculate" />
         </span>
+        Calculate
       </base-button>
-
-      <header class="formHeader">
-        <h1 class="formHeader__text">Calculate your BMI</h1>
-      </header>
-
-      <form @submit.prevent="test">
-        <div class="formGender">
-          <label for="gender">Gender:</label>
-
-          <div>
-            <input id="male" type="radio" name="gender" />
-            <label for="male">Male</label>
-          </div>
-
-          <div>
-            <input id="female" type="radio" name="gender" />
-            <label for="female">Female</label>
-          </div>
-        </div>
-
-        <div class="setData">
-          <div>
-            <label for="weight">Weight:</label>
-            <input type="number" />
-            <span>kg</span>
-          </div>
-
-          <div>
-            <label for="height">Height:</label>
-            <input type="number" />
-            <span>cm</span>
-          </div>
-        </div>
-
-        <base-button mode="calc" size="larger" color="flat">
-          <span class="calcButton">
-            <Icon class="icon" icon="ic:outline-calculate" />
-          </span>
-          Calculate
-        </base-button>
-      </form>
-    </section>
-  </article>
+    </form>
+  </base-calculate>
 </template>
 
 <script>
@@ -59,32 +57,14 @@ export default {
     Icon,
   },
   methods: {
-    test() {
-      console.log("sd");
+    calcBmi() {
+      this.$router.push("/home/result");
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.bmiContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 0;
-  min-height: 100%;
-}
-
-.formContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem 2rem 4rem 2rem;
-  width: #{"min(80%, 400px)"};
-  background-color: var(--dark);
-  border-radius: 2rem;
-}
-
 .icon {
   width: 2rem;
   height: 2rem;
@@ -151,7 +131,6 @@ form {
     }
   }
   input {
-
     @media (min-width: 768px) {
       cursor: pointer;
     }

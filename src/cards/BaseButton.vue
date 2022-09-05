@@ -128,4 +128,10 @@ button,a{
   width: 80%;
   border-radius: 2rem;
 }
+
+.small{
+  width: 60%;
+  border-radius: 2rem;
+  background-color: var(--primary-orange);
+}
 </style>

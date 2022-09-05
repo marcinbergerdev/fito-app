@@ -76,7 +76,7 @@ export default {
   .hamburger {
     &__box {
       &-line {
-        transform: translateY(9px) rotate(45deg);
+        transform: translateY(9px) rotate(-45deg);
         transition: all 0.3s 0.1s ease-in-out;
 
         &::before {
@@ -86,7 +86,7 @@ export default {
         }
 
         &::after {
-          transform: translateY(-18px) rotate(90deg);
+          transform: translateY(-18px) rotate(-90deg);
           transition: all 0.3s ease-in-out;
         }
       }

@@ -3,6 +3,7 @@
 const ContentContainer = () => import("./components/ContentContainer.vue");
 const HomePage = () => import("./components/main/home/HomePage");
 const CalculateBmi = () => import("./components/main/bmi/CalculateBmi");
+const ResultBmi = () => import("./components/main/bmi/ResultBmi");
 
 const router = createRouter({
    history: createWebHistory(),
@@ -23,6 +24,10 @@ const router = createRouter({
             {
                path: "bmi",
                component: CalculateBmi,
+            },
+            {
+               path: "result",
+               component: ResultBmi,
             },
          ],
       },
