@@ -20,7 +20,7 @@
 import HeaderLogo from "./logo/HeaderLogo.vue";
 import NavMenu from "./nav/NavMenu.vue";
 import HeaderLanguage from "./language/HeaderLanguage.vue";
-import UserNav from "./product/UserNav.vue";
+import UserNav from "./userNav/UserNav.vue";
 import UserRegistration from "./registration/UserRegistration.vue";
 import HeaderHamburger from "./hamburger/HeaderHamburger.vue";
 
