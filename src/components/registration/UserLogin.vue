@@ -1,6 +1,6 @@
 <template>
   <article class="registrationContainer">
-    <base-registration view="cardView">
+    <base-registration color="default">
       <form @submit.prevent="userLogin">
         <label>Log in</label>
         <div>
@@ -11,7 +11,7 @@
       </form>
     </base-registration>
 
-    <base-registration view="mobileHidden cardView">
+    <base-registration view="mobileHidden" color="primary">
       <header>
         <h2>Sign up</h2>
         <p>You don't have an account yet?</p>
