@@ -8,6 +8,7 @@ import store from './store/index.js';
 
 const BaseButton = defineAsyncComponent(() => import('./cards/BaseButton.vue'));
 const BaseCalculate = defineAsyncComponent(() => import('./cards/BaseCalculate.vue'));
+const BaseRegistration = defineAsyncComponent(() => import('./cards/BaseRegistration.vue'));
 
 
 
@@ -17,6 +18,7 @@ app.use(store)
 
 app.component("base-button", BaseButton);
 app.component("base-calculate", BaseCalculate);
+app.component("base-registration", BaseRegistration);
 
 
 

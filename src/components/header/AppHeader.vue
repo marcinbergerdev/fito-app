@@ -7,7 +7,7 @@
 
       <article class="registrationSection">
         <header-language></header-language>
-        <product-user></product-user>
+        <user-nav></user-nav>
         <user-registration></user-registration>
         <header-hamburger></header-hamburger>
       </article>
@@ -20,7 +20,7 @@
 import HeaderLogo from "./logo/HeaderLogo.vue";
 import NavMenu from "./nav/NavMenu.vue";
 import HeaderLanguage from "./language/HeaderLanguage.vue";
-import ProductUser from "./product/ProductUser.vue";
+import UserNav from "./product/UserNav.vue";
 import UserRegistration from "./registration/UserRegistration.vue";
 import HeaderHamburger from "./hamburger/HeaderHamburger.vue";
 
@@ -29,7 +29,7 @@ export default {
     HeaderLogo,
     NavMenu,
     HeaderLanguage,
-    ProductUser,
+   UserNav,
     UserRegistration,
     HeaderHamburger,
   },

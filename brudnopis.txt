@@ -140,3 +140,14 @@ form {
       <span>cm</span>
     </div>
 </div>
+
+
+
+.registrationCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: #{"min(45%, 40rem)"};
+  min-height: 40vh;
+}

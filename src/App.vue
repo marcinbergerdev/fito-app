@@ -1,5 +1,5 @@
 <template>
-  <div class="content mobileTest" >
+  <div class="content" >
     <router-view></router-view>
   </div>
 </template>
@@ -44,5 +44,14 @@
     background-size: 100% 100%;
     /* do poprawy */
   }
+}
+
+//Log in - Sign in Container Global Styles
+.registrationContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  min-height: 100vh;
 }
 </style>

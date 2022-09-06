@@ -49,7 +49,7 @@ a{
 }
 
 button,a{
-  padding: 0.8rem 0;
+  padding: 0.6rem 0;
   width: 9rem;
   font-size: 1.6rem;
   background-color: transparent;
@@ -98,7 +98,7 @@ button,a{
   }
 }
 .outline {
-  border: 2px solid var(--primary-orange);
+  border: 1px solid var(--primary-orange);
   opacity: 0.7;
 }
 .flat {

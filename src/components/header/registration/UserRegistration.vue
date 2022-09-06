@@ -1,17 +1,15 @@
 <template>
   <ul class="registrationList" :class="activeRegistration">
-
-
-    <li class="registrationList__link" v-if="true">
-      <base-button :mode="logIn" link>Log in</base-button>
+    <li class="registrationList__link" v-if="!authentication">
+      <base-button link to="/login" :mode="logIn">Log in</base-button>
     </li>
 
-    <li class="registrationList__link" v-if="true">
-      <base-button :mode="signIn" link>Sign in</base-button>
+    <li class="registrationList__link" v-if="!authentication">
+      <base-button link to="/registration"  :mode="signIn">Sign in</base-button>
     </li>
 
-    <li class="registrationList__link" v-if="false">
-      <base-button :mode="signOut" link>Sign out</base-button>
+    <li class="registrationList__link" v-if="authentication">
+      <base-button link to="/home" :mode="signOut" color="textColor">Sign out</base-button>
     </li>
   </ul>
 </template>
@@ -23,15 +21,18 @@ export default {
     activeRegistration() {
       return { activeRegistration: this.$store.getters.mobileMenuActiveStatus };
     },
-    logIn(){
-      return this.$store.getters.mobileMenuActiveStatus ? 'textColor' : 'empty'
+    logIn() {
+      return this.$store.getters.mobileMenuActiveStatus ? "textColor" : "empty";
     },
-    signIn(){
-      return this.$store.getters.mobileMenuActiveStatus ? 'textColor' : 'flat'
+    signIn() {
+      return this.$store.getters.mobileMenuActiveStatus ? "textColor" : "flat";
     },
-    signOut(){
-      return this.$store.getters.mobileMenuActiveStatus ? 'textColor' : 'outline'
-    }
+    signOut() {
+      return this.$store.getters.mobileMenuActiveStatus ? "textColor" : "outline";
+    },
+    authentication() {
+      return this.$store.getters.authentication;
+    },
   },
 };
 </script>
@@ -52,8 +53,8 @@ export default {
   }
 }
 
-.activeRegistration{
- position: absolute;
+.activeRegistration {
+  position: absolute;
   top: 90%;
   left: 50%;
   transform: translate(-50%, -90%);
@@ -61,7 +62,7 @@ export default {
   display: flex;
   align-items: center;
 
-  li{
+  li {
     margin: 0 10px;
   }
 }

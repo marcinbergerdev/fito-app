@@ -5,6 +5,9 @@ const HomePage = () => import("./components/main/home/HomePage");
 const CalculateBmi = () => import("./components/main/bmi/CalculateBmi");
 const ResultBmi = () => import("./components/main/bmi/ResultBmi");
 
+const UserLogin = () => import("./components/registration/UserLogin");
+const UserRegistration = () => import("./components/registration/UserRegistration");
+
 const router = createRouter({
    history: createWebHistory(),
    routes: [
@@ -33,11 +36,11 @@ const router = createRouter({
       },
       {
          path: "/login",
-         component: null,
+         component: UserLogin,
       },
       {
          path: "/registration",
-         component: null,
+         component: UserRegistration,
       },
       // {
       //    path: "/:notFound(.*)",
