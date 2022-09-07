@@ -46,6 +46,10 @@
   }
 }
 
+
+
+
+
 //Log in - Sign in Container Global Styles
 .registrationContainer{
   display: flex;
@@ -54,4 +58,23 @@
   width: auto;
   min-height: 100vh;
 }
+
+
+
+
+// Global button back
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+// .backButton {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 2px 0;
+//   border-radius: 5rem;
+//   color: var(--primary-orange);
+//   border: 1px solid var(--primary-orange);
+// }
 </style>

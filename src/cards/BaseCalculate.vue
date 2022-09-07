@@ -11,10 +11,10 @@ export default {
   props: {
     size: {
       type: String,
-      required: false
-    }
-  }
-}
+      required: false,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -27,6 +27,7 @@ export default {
 }
 
 .formContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +37,7 @@ export default {
 }
 
 .calc {
-  padding: 1rem 2rem 4rem 2rem;
+  padding: 5rem 2rem 3rem 2rem;
 }
 .result {
   padding: 3rem;

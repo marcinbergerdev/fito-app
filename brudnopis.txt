@@ -151,3 +151,113 @@ form {
   width: #{"min(45%, 40rem)"};
   min-height: 40vh;
 }
+
+
+.linkDesctop {
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: var(--white);
+
+  @media (min-width: 768px) {
+    &:hover,
+    &.router-link-exact-active {
+      color: var(--primary-orange);
+    }
+  }
+}
+
+.linkMobile {
+  display: block;
+  padding: 0.5rem;
+  width: 10rem;
+  text-align: center;
+  border: 2px solid var(--primary-orange);
+
+  &.router-link-exact-active {
+    color: var(--primary-orange);
+  }
+}
+
+.empty {
+  @media (min-width: 768px) {
+    &:hover {
+      color: var(--primary-orange);
+    }
+  }
+}
+.outline {
+  border: 1px solid var(--primary-orange);
+  opacity: 0.7;
+}
+.flat {
+  background-color: var(--primary-orange);
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+.larger {
+  width: 13rem;
+}
+.textColor {
+  color: var(--primary-orange);
+}
+
+.back {
+  align-self: flex-end;
+  margin: 0;
+  width: #{"min(100%, 40px)"};
+}
+
+.calc {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 80%;
+  border-radius: 2rem;
+}
+
+.small {
+  width: 60%;
+  border-radius: 2rem;
+  background-color: var(--primary-orange);
+}
+
+
+
+.desctop {
+  display: none;
+
+  @media (min-width: 768px) {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    display: block;
+  }
+}
+
+a {
+  display: block;
+  margin: 0 auto;
+  text-decoration: none;
+  text-align: center;
+}
+
+button,
+a {
+  padding: 0.6rem 0;
+  width: 9rem;
+  font-size: 1.6rem;
+  background-color: transparent;
+  color: var(--white);
+  border: 0;
+  transition: 0.1s ease-in-out;
+
+  @media (min-width: 768px) {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

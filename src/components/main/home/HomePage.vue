@@ -13,7 +13,7 @@
           doloribus rem debitis?
         </p>
 
-        <base-button to="/home" mode="outline" size="larger" link>
+        <base-button link to="/home" mode="homePageButton" type="outline">
           Add Product
         </base-button>
       </div>
@@ -26,7 +26,7 @@
           doloribus rem debitis?
         </p>
 
-        <base-button to="/home/bmi" mode="outline" size="larger" link>
+        <base-button link to="/home/bmi" mode="homePageButton" type="outline">
           BMI
         </base-button>
       </div>

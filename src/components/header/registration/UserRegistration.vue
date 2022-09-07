@@ -1,15 +1,17 @@
 <template>
   <ul class="registrationList" :class="activeRegistration">
     <li class="registrationList__link" v-if="!authentication">
-      <base-button link to="/login" :mode="logIn">Log in</base-button>
+      <base-button link to="/login" mode="logInBtn">Log in</base-button>
     </li>
 
     <li class="registrationList__link" v-if="!authentication">
-      <base-button link to="/registration"  :mode="signIn">Sign in</base-button>
+      <base-button link to="/registration" mode="signInBtn"
+        >Sign in</base-button
+      >
     </li>
 
     <li class="registrationList__link" v-if="authentication">
-      <base-button link to="/home" :mode="signOut" color="textColor">Sign out</base-button>
+      <base-button link to="/home" mode="signOutBtn">Sign out</base-button>
     </li>
   </ul>
 </template>
@@ -28,7 +30,9 @@ export default {
       return this.$store.getters.mobileMenuActiveStatus ? "textColor" : "flat";
     },
     signOut() {
-      return this.$store.getters.mobileMenuActiveStatus ? "textColor" : "outline";
+      return this.$store.getters.mobileMenuActiveStatus
+        ? "textColor"
+        : "outline";
     },
     authentication() {
       return this.$store.getters.authentication;
@@ -44,6 +48,7 @@ export default {
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
+    margin-left: 2rem;
 
     &__link {
       margin-left: 2rem;
@@ -61,9 +66,10 @@ export default {
 
   display: flex;
   align-items: center;
+  gap: 2rem;
 
-  li {
-    margin: 0 10px;
+  @media (min-width: 280px) {
+    gap: 4rem;
   }
 }
 </style>

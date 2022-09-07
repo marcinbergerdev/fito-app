@@ -1,33 +1,25 @@
 <template>
-  <ul class="menuList" :class="activeMenu">
-    <li v-if="authentication" class="link addProduct" :class="linkProduct">
-      <Icon class="icon" icon="akar-icons:circle-plus" />
+  <ul class="menuList" :class="menuListMobile">
+    <li v-if="true" class="link addProduct" :class="linkProduct">
+      <app-icon class="icon" icon="akar-icons:circle-plus" />
       Add product
     </li>
 
     <li>
-      <base-button to="/home" mode="empty" link :styles="linkStyle"
-        >Home</base-button
-      >
+      <base-button link to="/home" mode="navMenuOption">Home</base-button>
     </li>
 
     <li>
-      <base-button to="/home/bmi" mode="empty" link :styles="linkStyle"
-        >Bmi</base-button
-      >
+      <base-button link to="/home/bmi" mode="navMenuOption">BMI</base-button>
     </li>
   </ul>
 </template>
 
 <script>
-import { Icon } from "@iconify/vue";
 export default {
-  components: {
-    Icon,
-  },
   computed: {
-    activeMenu() {
-      return { activeMenu: this.$store.getters.mobileMenuActiveStatus };
+    menuListMobile() {
+      return { menuListMobile: this.$store.getters.mobileMenuActiveStatus };
     },
     linkProduct() {
       return { linkProduct: this.$store.getters.mobileMenuActiveStatus };
@@ -49,6 +41,10 @@ export default {
   display: none;
   li {
     list-style: none;
+    margin: 2rem 0;
+    @media (min-width: 768px) {
+      margin-left: 4rem;
+    }
   }
 
   @media (min-width: 768px) {
@@ -109,12 +105,15 @@ export default {
   }
 }
 
-.activeMenu {
+.menuListMobile {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
   min-height: 30%;
 
@@ -122,9 +121,5 @@ export default {
     margin-right: 0;
     margin: 10px 0;
   }
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 </style>

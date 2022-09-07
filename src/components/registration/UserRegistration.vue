@@ -7,7 +7,7 @@
           <input type="text" placeholder="password" />
           <input type="text" placeholder="confirm password" />
         </div>
-        <button>Register</button>
+        <base-button mode="flat">Register</base-button>
       </form>
 
 

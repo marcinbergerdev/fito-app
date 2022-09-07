@@ -10,21 +10,23 @@
     </div>
 
     <ul class="resultList">
-      <li class="resultList__ranges" v-for="(range,id) in ranges" :key="id">
-        <p> {{ range }}</p>
+      <li class="resultList__ranges" v-for="(range, id) in ranges" :key="id">
+        <p>{{ range }}</p>
       </li>
     </ul>
 
-    <base-button to="/home/bmi" mode="calc" size="small" link>Back</base-button>
+    <base-button link to="/home/bmi" mode="bmiButton" type="flat"
+      >Back</base-button
+    >
   </base-calculate>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 export default {
   computed: {
-   ...mapGetters(["ranges"])
-  }
+    ...mapGetters(["ranges"]),
+  },
 };
 </script>
 
@@ -57,7 +59,7 @@ export default {
   line-height: 1.5;
   margin-bottom: 2rem;
 
-  li:first-child{
+  li:first-child {
     font-weight: 700;
     line-height: 2;
   }

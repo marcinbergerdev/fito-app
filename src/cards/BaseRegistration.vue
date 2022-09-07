@@ -23,6 +23,7 @@ export default {
 
 <style lang="scss" scoped>
 .registrationCard {
+  position: relative;
    display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,10 +48,17 @@ export default {
   border-radius: 1.5rem 0 0 1.5rem;
 }
 
+
+
+
 .primary {
   background-color: var(--primary-orange);
   border-radius: 0 1.5rem 1.5rem 0;
 }
+
+
+
+
 
 .mobileHidden {
   display: none;

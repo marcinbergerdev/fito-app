@@ -1,10 +1,14 @@
 <template>
   <base-calculate size="calc">
-    <base-button to="/home" link mode="back">
+
+
+    <base-button link to="/home" mode="backButton">
       <span class="backButton">
-        <Icon class="icon" icon="akar-icons:arrow-back" />
+        <app-icon class="icon" icon="akar-icons:arrow-back" />
       </span>
     </base-button>
+
+
 
     <header class="formHeader">
       <h1 class="formHeader__text">Calculate your BMI</h1>
@@ -39,9 +43,9 @@
         </div>
       </div>
 
-      <base-button mode="calc" size="larger" color="flat">
+      <base-button mode="bmiButton" type="flat">
         <span class="calcButton">
-          <Icon class="icon" icon="ic:outline-calculate" />
+          <app-icon class="icon" icon="ic:outline-calculate" />
         </span>
         Calculate
       </base-button>
@@ -50,12 +54,8 @@
 </template>
 
 <script>
-import { Icon } from "@iconify/vue";
 
 export default {
-  components: {
-    Icon,
-  },
   methods: {
     calcBmi() {
       this.$router.push("/home/result");
@@ -65,21 +65,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon {
-  width: 2rem;
-  height: 2rem;
-}
-
-.backButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2px 0;
-  border-radius: 5rem;
-  color: var(--primary-orange);
-  border: 1px solid var(--primary-orange);
-}
-
 form {
   display: flex;
   flex-direction: column;
@@ -177,5 +162,8 @@ form {
       width: 10%;
     }
   }
+}
+.calcButton{
+  margin-right: 0.5rem;
 }
 </style>
