@@ -1,43 +1,33 @@
 <template>
   <article class="registrationContainer">
-    <base-registration color="default">
-
-
-      <base-button link to="/home" mode="backButton" type="hide">
+    <base-registration radius="logInRadius">
+      <base-button link to="/home" mode="backButton">
         <span class="backButton">
           <app-icon class="icon" icon="akar-icons:arrow-back" />
         </span>
       </base-button>
 
+      <!-- Global Styles in App.vue -->
+      <form @submit.prevent="userLogin" class="formContainer">
+        <label>Log in</label>
 
+        <div class="registerInputs">
+          <input type="text" placeholder="user name" />
+          <input type="text" placeholder="password" />
+        </div>
 
-      <form @submit.prevent="userLogin">
-          <label>Log in</label>
-
-          <div class="loginInputs">
-            <input type="text" placeholder="user name" />
-            <input type="text" placeholder="password" />
-          </div>
-
-          <base-button type="flat">Log in</base-button>
+        <base-button type="flat">Log in</base-button>
       </form>
-
     </base-registration>
 
-
-
-
-    <base-registration view="mobileHidden" color="primary">
-      <header>
+    <base-registration view="mobileHidden" radius="signUpRadius">
+      <header class="singUpInfo">
         <h2>Sign up</h2>
         <p>You don't have an account yet?</p>
       </header>
 
-      <base-button type="signInOutline">Sign up</base-button>
+      <base-button link to="/registration" type="signInOutline">Sign up</base-button>
     </base-registration>
-
-
-
   </article>
 </template>
 
@@ -48,5 +38,25 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+.singUpInfo {
+  font-size: 2rem;
+  text-align: center;
 
+  h2 {
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  p {
+    color: var(--primary-orange);
+    margin-bottom: 1rem;
+    @media (min-width: 768px) {
+      color: var(--dark);
+    }
+  }
+}
 </style>

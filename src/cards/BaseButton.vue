@@ -45,20 +45,25 @@ button {
   color: var(--white);
   border: 0;
   transition: 0.1s ease-in-out;
+
+  @media (min-width: 768px) {
+    opacity: 0.8;
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+    }
+  }
 }
 
 .homePageButton {
   display: block;
   margin: 0 auto;
-  width: 17rem;
+  width: #{"min(100%, 17rem)"};
   padding: 0.6rem 0;
 
   @media (min-width: 768px) {
     transition: 0.2s ease-in-out;
-    opacity: 0.7;
     &:hover {
-      margin-top: 3rem;
-      opacity: 1;
       border: 2px solid var(--primary-orange);
     }
   }
@@ -73,14 +78,13 @@ button {
   border: 1px solid var(--primary-orange);
   &:hover,
   &.router-link-exact-active {
+    opacity: 1;
     color: var(--primary-orange);
   }
 
   @media (min-width: 768px) {
     width: auto;
     border: 0;
-    opacity: 0.8;
-
     &:hover {
       color: var(--primary-orange);
     }
@@ -96,10 +100,6 @@ button {
   @media (min-width: 768px) {
     padding: 0.6rem 1rem;
     color: var(--white);
-    opacity: 0.8;
-    &:hover {
-      opacity: 1;
-    }
   }
 }
 .signInBtn {
@@ -120,10 +120,11 @@ button {
   position: absolute;
   top: 2rem;
   right: 2rem;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.2rem 0.7rem;
+  padding: 0.4rem 0.7rem 0.2rem 0.7rem;
   border-radius: 5rem;
   color: var(--primary-orange);
   border: 1px solid var(--primary-orange);
@@ -139,7 +140,7 @@ button {
 .flat,
 .signInOutline {
   border-radius: 5rem;
-  padding: 0.6rem 2.5rem;
+  padding: 0.8rem 2.7rem;
 }
 .flat {
   background-color: var(--primary-orange);
@@ -157,11 +158,5 @@ button {
 
 .outline {
   border: 2px solid var(--primary-orange);
-}
-.hide {
-  display: none;
-  @media (min-width: 768px) {
-    display: block;
-  }
 }
 </style>

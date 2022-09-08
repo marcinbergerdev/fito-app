@@ -1,5 +1,5 @@
 <template>
-  <div class="content" >
+  <div class="appContainer" >
     <router-view></router-view>
   </div>
 </template>
@@ -28,10 +28,10 @@
   --gray: #232323;
   --gray-light: #6e6e6e;
 
-  --primary-orange: #ff5e00;
+  --primary-orange: #c94d05;
 }
 
-.content {
+.appContainer {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -46,21 +46,14 @@
   }
 }
 
-
-
-
-
 //Log in - Sign in Container Global Styles
 .registrationContainer{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
   min-height: 100vh;
 }
-
-
-
 
 // Global button back
 .icon {
@@ -68,13 +61,41 @@
   height: 2rem;
 }
 
-// .backButton {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   padding: 2px 0;
-//   border-radius: 5rem;
-//   color: var(--primary-orange);
-//   border: 1px solid var(--primary-orange);
-// }
+// Global Styles For Registration LogIn/SignIn
+.formContainer,
+.registerInputs{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.formContainer {
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 50vh;
+  gap: 3rem;
+
+  label {
+    font-size: 2.7rem;
+    color: var(--white);
+    gap: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    min-height: 100%;
+  }
+}
+
+.registerInputs {
+  gap: 1rem;
+  input {
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: #c94d051c;
+    border: 1px solid var(--primary-orange);
+    outline: none;
+    color: var(--white);
+  }
+}
+
 </style>
