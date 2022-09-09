@@ -120,7 +120,6 @@ button {
   position: absolute;
   top: 2rem;
   right: 2rem;
-  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,11 +129,26 @@ button {
   border: 1px solid var(--primary-orange);
 }
 
-.bmiButton {
+.bmiButton,.addProduct {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 0.5rem;
   margin-top: 2rem;
+}
+
+
+.productListsIcon {
+  display: none;
+  color: var(--white);
+  transition: 0.1s ease-in-out;
+
+  &:hover {
+    color: var(--primary-orange);
+  }
+  @media (min-width: 768px) {
+    display: block;
+    padding-top: 0.7rem;
+  }
 }
 
 .flat,

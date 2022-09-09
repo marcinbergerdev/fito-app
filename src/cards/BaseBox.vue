@@ -1,5 +1,5 @@
 <template>
-  <article class="bmiContainer">
+  <article class="boxContainer">
     <section class="formContainer" :class="size">
       <slot></slot>
     </section>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.bmiContainer {
+.boxContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,6 +38,9 @@ export default {
 
 .calc {
   padding: 5rem 2rem 3rem 2rem;
+}
+.smallPadding {
+  padding: 2rem;
 }
 .result {
   padding: 3rem;

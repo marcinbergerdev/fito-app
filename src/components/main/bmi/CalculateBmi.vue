@@ -1,14 +1,11 @@
 <template>
-  <base-calculate size="calc">
-
+  <base-box size="calc">
 
     <base-button link to="/home" mode="backButton">
       <span class="backButton">
         <app-icon class="icon" icon="akar-icons:arrow-back" />
       </span>
     </base-button>
-
-
 
     <header class="formHeader">
       <h1 class="formHeader__text">Calculate your BMI</h1>
@@ -44,13 +41,13 @@
       </div>
 
       <base-button mode="bmiButton" type="flat">
-        <span class="calcButton">
+        <span>
           <app-icon class="icon" icon="ic:outline-calculate" />
         </span>
         Calculate
       </base-button>
     </form>
-  </base-calculate>
+  </base-box>
 </template>
 
 <script>
@@ -162,8 +159,5 @@ form {
       width: 10%;
     }
   }
-}
-.calcButton{
-  margin-right: 0.5rem;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <ul class="menuList" :class="menuListMobile">
-    <li v-if="true" class="link addProduct" :class="linkProduct">
+    <li v-if="authentication" class="link addProduct" :class="linkProduct">
       <app-icon class="icon" icon="akar-icons:circle-plus" />
       Add product
     </li>
@@ -114,7 +114,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-end;
   min-height: 30%;
 
   .link {

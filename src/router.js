@@ -7,6 +7,7 @@ const ResultBmi = () => import("./components/main/bmi/ResultBmi");
 
 const UserLogin = () => import("./components/registration/UserLogin");
 const UserRegistration = () => import("./components/registration/UserRegistration");
+const NewProduct = () => import("./components/main/addProduct/NewProduct.vue");
 
 const router = createRouter({
    history: createWebHistory(),
@@ -31,6 +32,10 @@ const router = createRouter({
             {
                path: "result",
                component: ResultBmi,
+            },
+            {
+               path: "product",
+               component: NewProduct,
             },
          ],
       },

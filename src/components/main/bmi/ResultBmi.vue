@@ -1,5 +1,5 @@
 <template>
-  <base-calculate size="result">
+  <base-box size="result">
     <header class="resultHeader">
       <h2 class="resultHeader__text">BMI Result</h2>
     </header>
@@ -18,7 +18,7 @@
     <base-button link to="/home/bmi" mode="bmiButton" type="flat"
       >Back</base-button
     >
-  </base-calculate>
+  </base-box>
 </template>
 
 <script>

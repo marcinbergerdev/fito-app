@@ -8,8 +8,8 @@
       </base-button>
 
       <!-- Global Styles in App.vue -->
-      <form @submit.prevent="userRegistration" class="formContainer">
-        <label>Sign up</label>
+      <form @submit.prevent="userRegistration" class="formBox">
+        <h2 class='formBox__header'>Sign up</h2>
 
         <div class="registerInputs">
           <input type="text" placeholder="user name" />

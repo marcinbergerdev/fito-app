@@ -1,13 +1,11 @@
 <template>
-  <a class="link" href="#" v-if="true">
-    <app-icon class="icon" icon="ic:baseline-playlist-add" />
-  </a>
+  <base-button link to="/home/product" mode="productListsIcon" v-if="authentication">
+    <app-icon class="productListIcon" icon="ic:baseline-playlist-add" />
+  </base-button>
 </template>
 
 
 <script>
-
-
 export default {
   computed: {
     activeUser() {
@@ -21,23 +19,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.link {
-  display: none;
-  color: var(--white);
-  transition: .1s ease-in-out;
-
-  &:hover{
-    color: var(--primary-orange);
-  }
-   @media (min-width: 768px) {
-    display: block;
-  }
-
+.productListIcon {
+  width: 4rem;
+  height: 4rem;
 }
-
-.icon {
-  width: 40px;
-  height: 40px;
-}
-
 </style>

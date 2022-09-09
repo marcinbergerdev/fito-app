@@ -1,5 +1,7 @@
 <template>
   <article class="registrationContainer">
+
+
     <base-registration radius="logInRadius">
       <base-button link to="/home" mode="backButton">
         <span class="backButton">
@@ -8,8 +10,8 @@
       </base-button>
 
       <!-- Global Styles in App.vue -->
-      <form @submit.prevent="userLogin" class="formContainer">
-        <label>Log in</label>
+      <form @submit.prevent="userLogin" class="formBox">
+        <h2 class='formBox__header'>Log in</h2>
 
         <div class="registerInputs">
           <input type="text" placeholder="user name" />

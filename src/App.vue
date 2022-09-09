@@ -1,5 +1,5 @@
 <template>
-  <div class="appContainer" >
+  <div class="appContainer">
     <router-view></router-view>
   </div>
 </template>
@@ -47,7 +47,7 @@
 }
 
 //Log in - Sign in Container Global Styles
-.registrationContainer{
+.registrationContainer {
   position: relative;
   display: flex;
   justify-content: center;
@@ -62,26 +62,28 @@
 }
 
 // Global Styles For Registration LogIn/SignIn
-.formContainer,
-.registerInputs{
+.formBox,
+.registerInputs {
   display: flex;
   flex-direction: column;
   width: 80%;
 }
-
-.formContainer {
+.formBox {
   justify-content: space-evenly;
   align-items: center;
+  width: 100%;
   min-height: 50vh;
   gap: 3rem;
 
-  label {
+  &__header {
     font-size: 2.7rem;
+    font-weight: 200;
     color: var(--white);
     gap: 5rem;
   }
 
   @media (min-width: 768px) {
+    width: 100%;
     min-height: 100%;
   }
 }
@@ -95,7 +97,11 @@
     border: 1px solid var(--primary-orange);
     outline: none;
     color: var(--white);
+    border: 1px solid #ce4d02a6;
+
+    &:focus {
+      border: 1px solid #e95e0e;
+    }
   }
 }
-
 </style>

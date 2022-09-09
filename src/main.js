@@ -9,7 +9,7 @@ import store from './store/index.js';
 import { Icon } from "@iconify/vue";
 
 const BaseButton = defineAsyncComponent(() => import('./cards/BaseButton.vue'));
-const BaseCalculate = defineAsyncComponent(() => import('./cards/BaseCalculate.vue'));
+const BaseBox = defineAsyncComponent(() => import('./cards/BaseBox.vue'));
 const BaseRegistration = defineAsyncComponent(() => import('./cards/BaseRegistration.vue'));
 
 
@@ -20,7 +20,7 @@ app.use(store)
 
 app.component("app-icon", Icon);
 app.component("base-button", BaseButton);
-app.component("base-calculate", BaseCalculate);
+app.component("base-box", BaseBox);
 app.component("base-registration", BaseRegistration);
 
 
