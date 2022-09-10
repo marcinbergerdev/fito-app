@@ -29,6 +29,10 @@
   --gray-light: #6e6e6e;
 
   --primary-orange: #c94d05;
+
+  --primary-border: #ce4d02a6;
+  --primary-borderFocus: #e95e0e;
+  --primary-borderBg: #c94d051c;
 }
 
 .appContainer {
@@ -93,14 +97,13 @@
   input {
     padding: 1rem;
     font-size: 1.5rem;
-    background-color: #c94d051c;
-    border: 1px solid var(--primary-orange);
-    outline: none;
     color: var(--white);
-    border: 1px solid #ce4d02a6;
+    background-color: var(--primary-borderBg);
+    border: 1px solid var(--primary-border);
+    outline: none;
 
     &:focus {
-      border: 1px solid #e95e0e;
+      border: 1px solid var(--primary-borderFocus);
     }
   }
 }

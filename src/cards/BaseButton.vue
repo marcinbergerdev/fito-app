@@ -150,6 +150,7 @@ button {
     padding-top: 0.3rem;
   }
 }
+
 @keyframes borderAnimate {
   0% {
     transform: rotate(0deg);
@@ -158,7 +159,6 @@ button {
     transform: rotate(360deg);
   }
 }
-
 .iconBorder {
   position: relative;
   display: flex;
@@ -174,7 +174,7 @@ button {
   }
 
   &::before {
-    width: 30%;
+    width: 40%;
     height: 150%;
     background-color: var(--primary-orange);
     animation: borderAnimate 2s linear infinite;

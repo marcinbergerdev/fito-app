@@ -1,6 +1,5 @@
 <template>
   <base-box size="calc">
-
     <base-button link to="/home" mode="backButton">
       <span class="backButton">
         <app-icon class="icon" icon="akar-icons:arrow-back" />
@@ -51,7 +50,6 @@
 </template>
 
 <script>
-
 export default {
   methods: {
     calcBmi() {
@@ -145,16 +143,15 @@ form {
       margin: 0 0.5rem;
       padding: 0.5rem 1rem;
       font-size: 1.1rem;
-      outline: none;
       color: var(--white);
-      background-color: #ee874b27;
-      border: 1px solid #ce4d02a6;
+      background-color: var(--primary-borderBg);
+      border: 1px solid var(--primary-border);
+      outline: none;
 
       &:focus {
-        border: 1px solid #e95e0e;
+        border: 1px solid var(--primary-borderFocus);
       }
     }
-
     span {
       width: 10%;
     }

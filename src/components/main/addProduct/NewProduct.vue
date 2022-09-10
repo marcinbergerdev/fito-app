@@ -1,11 +1,10 @@
 <template>
   <base-box size="smallPadding">
-
     <base-button mode="iconBorder">
-        <app-icon class="addPhotoIcon" icon="ic:outline-add-photo-alternate" />
+      <app-icon class="addPhotoIcon" icon="ic:outline-add-photo-alternate" />
     </base-button>
 
-    <form @submit.prevent="addProduct" class="productFormContainer">
+    <form @submit.prevent="addProduct">
       <div class="productName">
         <label for="name">Product Name</label>
         <input id="name" type="text" />
@@ -13,40 +12,39 @@
 
       <div class="productScale">
         <div>
-          <label for="kcal">Kcal</label>
-          <input id="kcal" type="text" />
-        </div>
-
-        <div>
           <label for="gram">Grams</label>
-          <input id="gram" type="text" />
+          <input id="gram" type="number" />
+        </div>
+        <div>
+          <label for="kcal">Kcal</label>
+          <input id="kcal" type="number" />
         </div>
       </div>
 
       <div class="productIngredients">
         <div>
           <label for="fat">Fat</label>
-          <input id="fat" type="text" />
+          <input id="fat" type="number" />
         </div>
 
         <div>
           <label for="carbs">Carbs</label>
-          <input id="carbs" type="text" />
+          <input id="carbs" type="number" />
         </div>
 
         <div>
           <label for="protein">Protein</label>
-          <input id="protein" type="text" />
+          <input id="protein" type="number" />
         </div>
 
         <div>
           <label for="salt">Salt</label>
-          <input id="salt" type="text" />
+          <input id="salt" type="number" />
         </div>
 
         <div>
           <label for="fiber">Fiber</label>
-          <input id="fiber" type="text" />
+          <input id="fiber" type="number" />
         </div>
       </div>
 
@@ -94,24 +92,97 @@ export default {
   height: 6rem;
 }
 
-.productFormContainer {
+form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-}
+  width: 90%;
 
-.productName {
-}
-
-.productScale {
   div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 200;
+    }
+
+    input {
+      padding: 0.4rem 1rem;
+      font-size: 1.4rem;
+      outline: none;
+      color: var(--white);
+      background-color: var(--primary-borderBg);
+      border: 1px solid var(--primary-border);
+
+      &:focus {
+        border: 1px solid var(--primary-borderFocus);
+      }
+      @media (min-width: 768px) {
+        cursor: pointer;
+      }
+    }
   }
 }
 
+.productName,
+.productScale,
+.productIngredients,
+.productCategory {
+  margin-top: 3rem;
+}
+
+.productName {
+  width: 100%;
+  gap: 1.5rem 0;
+  label {
+    font-size: 1.7rem;
+  }
+  input {
+    width: 70%;
+  }
+}
+
+.productScale {
+  width: 70%;
+  flex-direction: row;
+  div {
+    input {
+      width: #{"min(6rem, 100%)"};
+    }
+  }
+}
+
+.productIngredients,
+.productCategory {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
 .productIngredients {
+  gap: 1rem 3rem;
+
+  div {
+    width: 75px;
+    input {
+      width: 100%;
+    }
+  }
 }
 .productCategory {
+  gap: 1rem 1.5rem;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
