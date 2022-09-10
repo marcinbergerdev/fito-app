@@ -129,13 +129,13 @@ button {
   border: 1px solid var(--primary-orange);
 }
 
-.bmiButton,.addProduct {
+.bmiButton,
+.addProduct {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
   margin-top: 2rem;
 }
-
 
 .productListsIcon {
   display: none;
@@ -147,7 +147,53 @@ button {
   }
   @media (min-width: 768px) {
     display: block;
-    padding-top: 0.7rem;
+    padding-top: 0.3rem;
+  }
+}
+@keyframes borderAnimate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.iconBorder {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 1rem;
+  background-color: var(--dark);
+
+  &::before,&::after{
+    content: "";
+    position: absolute;
+  }
+
+  &::before {
+    width: 30%;
+    height: 150%;
+    background-color: var(--primary-orange);
+    animation: borderAnimate 2s linear infinite;
+  }
+
+  &::after {
+    width: 95%;
+    height: 95%;
+    background-color: var(--dark);
+  }
+
+  &:hover {
+    cursor: pointer;
+    &::before {
+      width: 100%;
+      height: 100%;
+      animation: none;
+      transition: 0.3s ease-in-out;
+    }
   }
 }
 

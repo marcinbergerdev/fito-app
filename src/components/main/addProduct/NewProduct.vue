@@ -1,10 +1,11 @@
 <template>
   <base-box size="smallPadding">
-    <base-button>
-      <app-icon icon="ic:outline-add-photo-alternate" />
+
+    <base-button mode="iconBorder">
+        <app-icon class="addPhotoIcon" icon="ic:outline-add-photo-alternate" />
     </base-button>
 
-    <form @submit.prevent="addProduct">
+    <form @submit.prevent="addProduct" class="productFormContainer">
       <div class="productName">
         <label for="name">Product Name</label>
         <input id="name" type="text" />
@@ -86,21 +87,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.addPhotoIcon {
+  position: relative;
+  z-index: 1;
+  width: 6rem;
+  height: 6rem;
+}
+
+.productFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .productName {
 }
+
 .productScale {
-
-
   div {
-
   }
 }
 
-
 .productIngredients {
-
-
-
 }
 .productCategory {
 }
