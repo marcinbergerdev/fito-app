@@ -40,7 +40,7 @@ export default {
   padding: 5rem 2rem 3rem 2rem;
 }
 .smallPadding {
-  padding: 2rem;
+  padding: 3rem 2rem;
 }
 .result {
   padding: 3rem;

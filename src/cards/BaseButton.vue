@@ -168,7 +168,8 @@ button {
   padding: 1rem;
   background-color: var(--dark);
 
-  &::before,&::after{
+  &::before,
+  &::after {
     content: "";
     position: absolute;
   }
@@ -177,7 +178,7 @@ button {
     width: 40%;
     height: 150%;
     background-color: var(--primary-orange);
-    animation: borderAnimate 2s linear infinite;
+    animation: borderAnimate 7s linear infinite;
   }
 
   &::after {
@@ -213,6 +214,26 @@ button {
   @media (min-width: 768px) {
     border: 1px solid var(--dark);
     color: var(--dark);
+  }
+}
+
+.addProductLink {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  padding-bottom: 4rem;
+  font-size: 1.5rem;
+
+  &.router-link-exact-active {
+    color: var(--primary-orange);
+  }
+
+  @media (min-width: 355px) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
   }
 }
 

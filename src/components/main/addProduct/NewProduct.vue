@@ -97,14 +97,12 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 100%;
 
   div {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.5rem 0;
 
     label {
       text-align: center;
@@ -134,55 +132,47 @@ form {
 .productScale,
 .productIngredients,
 .productCategory {
-  margin-top: 3rem;
-}
-
-.productName {
-  width: 100%;
-  gap: 1.5rem 0;
-  label {
-    font-size: 1.7rem;
-  }
-  input {
-    width: 70%;
-  }
-}
-
-.productScale {
-  width: 70%;
-  flex-direction: row;
-  div {
-    input {
-      width: #{"min(6rem, 100%)"};
-    }
-  }
-}
-
-.productIngredients,
-.productCategory {
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-flow: row wrap;
 }
 
-.productIngredients {
-  gap: 1rem 3rem;
+.productName {
+  flex-direction: column;
+  gap: 1.5rem 0;
+  margin: 2rem 0;
 
-  div {
-    width: 75px;
-    input {
-      width: 100%;
-    }
+  label {
+    font-size: 1.7rem;
+  }
+
+  input {
+    width: 100%;
   }
 }
-.productCategory {
-  gap: 1rem 1.5rem;
 
+.productScale,
+.productIngredients {
+  gap: 1rem;
   div {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: #{"min(9rem, 40%)"};
+    input {
+      width: 80%;
+    }
   }
+}
+
+.productIngredients {
+  flex-flow: row wrap;
+  margin: 3rem 0;
+}
+
+.productCategory {
+  justify-content: space-between;
+  width: #{"min(100%, 20rem)"};
 }
 </style>

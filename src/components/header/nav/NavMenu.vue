@@ -1,8 +1,10 @@
 <template>
   <ul class="menuList" :class="menuListMobile">
-    <li v-if="authentication" class="link addProduct" :class="linkProduct">
-      <app-icon class="icon" icon="akar-icons:circle-plus" />
-      Add product
+    <li v-if="authentication" :class="addProductLinkOption">
+      <base-button link to="/home/product" type="addProductLink">
+        <app-icon class="icon" icon="akar-icons:circle-plus" />
+        Add product
+      </base-button>
     </li>
 
     <li>
@@ -21,8 +23,10 @@ export default {
     menuListMobile() {
       return { menuListMobile: this.$store.getters.mobileMenuActiveStatus };
     },
-    linkProduct() {
-      return { linkProduct: this.$store.getters.mobileMenuActiveStatus };
+    addProductLinkOption() {
+      return {
+        addProductLinkOption: this.$store.getters.mobileMenuActiveStatus,
+      };
     },
     linkStyle() {
       return this.$store.getters.mobileMenuActiveStatus
@@ -53,33 +57,7 @@ export default {
   }
 }
 
-.link {
-  margin-right: 5rem;
-  font-size: 1.6rem;
-  text-decoration: none;
-  color: var(--white);
-
-  @media (min-width: 768px) {
-    &:hover,
-    &.router-link-exact-active {
-      color: var(--primary-orange);
-    }
-  }
-}
-
-.addProduct {
-  @media (min-width: 768px) {
-    display: none;
-  }
-}
-
-.linkProduct {
-  display: flex;
-  align-items: center;
-  font-size: 1.7rem;
-  font-weight: 400;
-  padding-bottom: 4rem;
-
+.addProductLinkOption {
   .icon {
     font-size: 2rem;
     margin-right: 0.8rem;
