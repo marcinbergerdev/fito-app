@@ -11,6 +11,7 @@ import { Icon } from "@iconify/vue";
 const BaseButton = defineAsyncComponent(() => import('./cards/BaseButton.vue'));
 const BaseBox = defineAsyncComponent(() => import('./cards/BaseBox.vue'));
 const BaseRegistration = defineAsyncComponent(() => import('./cards/BaseRegistration.vue'));
+const BaseModal = defineAsyncComponent(() => import('./cards/BaseModal.vue'));
 
 
 
@@ -22,6 +23,7 @@ app.component("app-icon", Icon);
 app.component("base-button", BaseButton);
 app.component("base-box", BaseBox);
 app.component("base-registration", BaseRegistration);
+app.component("base-modal", BaseModal);
 
 
 

@@ -218,6 +218,14 @@ button {
   }
 }
 
+.dialogConfirm{
+  margin: 0 1rem 0.8rem 0;
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  background-color: var(--dark);
+  border-radius: 5rem;
+}
+
 
 
 

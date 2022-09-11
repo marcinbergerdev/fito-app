@@ -5,7 +5,7 @@ const store = createStore({
   state(){
     return {
       mobileMenuActivity: false,
-      authentication: true,
+      authentication: false,
       bmiResultRanges: [
         "BMI Value ranges:",
         "16 - 16.99 - emaciation",

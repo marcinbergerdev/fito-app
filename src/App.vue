@@ -2,6 +2,10 @@
   <div class="appContainer">
     <router-view></router-view>
   </div>
+
+  <base-modal title="lorem, dupa i rozporem" confirm="Cancel" v-if="true">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, accusantium?</p>
+  </base-modal>
 </template>
 
 
