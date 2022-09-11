@@ -198,6 +198,30 @@ button {
   }
 }
 
+.addProductLink {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  margin-bottom: 4rem;
+  font-size: 1.5rem;
+
+  &.router-link-exact-active {
+    color: var(--primary-orange);
+  }
+
+  @media (min-width: 355px) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+
+
+
+
 .flat,
 .signInOutline {
   border-radius: 5rem;
@@ -216,27 +240,6 @@ button {
     color: var(--dark);
   }
 }
-
-.addProductLink {
-  display: flex;
-  align-items: center;
-  font-weight: 400;
-  padding-bottom: 4rem;
-  font-size: 1.5rem;
-
-  &.router-link-exact-active {
-    color: var(--primary-orange);
-  }
-
-  @media (min-width: 355px) {
-    font-size: 2.5rem;
-  }
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-}
-
 .outline {
   border: 2px solid var(--primary-orange);
 }
