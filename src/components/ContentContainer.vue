@@ -17,11 +17,6 @@ export default {
   components: {
     AppHeader,
   },
-  data() {
-    return {
-      bmiStyleActive: false,
-    };
-  },
   methods: {
     userWidth() {
       const currentWidth = window.innerWidth;
@@ -35,17 +30,6 @@ export default {
     },
     elementsCentering(link) {
       if (link) this.$store.dispatch("toggleHamburger", true);
-      link === "/home/bmi" || link === "/home/result"
-        ? (this.bmiStyleActive = true)
-        : (this.bmiStyleActive = false);
-    },
-  },
-  computed: {
-    menuActive() {
-      return { menuActive: this.$store.getters.mobileMenuActiveStatus };
-    },
-    placementElement() {
-      return this.bmiStyleActive ? "bmiCenter" : "mainContainer";
     },
   },
   watch: {

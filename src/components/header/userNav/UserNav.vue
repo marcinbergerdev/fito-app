@@ -1,5 +1,5 @@
 <template>
-  <base-button link to="/home/product" mode="productListsIcon" v-if="authentication">
+  <base-button link to="/home/myProduct" mode="productListsIcon" v-if="authentication">
     <app-icon class="productListIcon" icon="ic:baseline-playlist-add" />
   </base-button>
 </template>

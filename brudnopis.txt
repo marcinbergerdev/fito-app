@@ -1,3 +1,6 @@
- <!-- <base-modal title="lorem, dupa i rozporem" confirm="Cancel" v-if="true">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, accusantium?</p>
-  </base-modal>
+  <!-- <base-modal :show="!!this.error" title="lorem, dupa i rozporem" confirm="Cancel" @close="closeError">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
+      accusantium?
+    </p>
+  </base-modal> -->

@@ -1,7 +1,7 @@
 <template>
   <ul class="menuList" :class="menuListMobile">
     <li v-if="authentication" :class="addProductLinkOption">
-      <base-button link to="/home/product" type="addProductLink">
+      <base-button link to="/home/myProduct" type="addProductLink">
         <app-icon class="icon" icon="akar-icons:circle-plus" />
         Add product
       </base-button>

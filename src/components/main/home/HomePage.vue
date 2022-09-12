@@ -13,7 +13,7 @@
           doloribus rem debitis?
         </p>
 
-        <base-button link to="/home" mode="homePageButton" type="outline">
+        <base-button link to="/home/product" mode="homePageButton" type="outline">
           Add Product
         </base-button>
       </div>

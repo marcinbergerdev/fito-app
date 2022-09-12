@@ -3,10 +3,22 @@
     <router-view></router-view>
   </div>
 
-  <base-modal title="lorem, dupa i rozporem" confirm="Cancel" v-if="true">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, accusantium?</p>
-  </base-modal>
+
+
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      error: null,
+    };
+  },
+  methods: {
+
+  },
+};
+</script>
 
 
 <style lang="scss">
@@ -38,6 +50,8 @@
   --primary-borderFocus: #e95e0e;
   --primary-borderBg: #c94d051c;
 }
+
+
 
 .appContainer {
   width: 100%;

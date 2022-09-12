@@ -1,26 +1,28 @@
 <template>
   <teleport to="body">
-    <div class="backDrop"></div>
+    <div class="backDrop" v-if="show" @click="test1"></div>
 
-    <dialog open>
-      <header class="dialogHeader">
-        <slot name="header">
-          <h2 class="dialogHeader__text">
-            {{ title }}
-          </h2>
-        </slot>
-      </header>
+      <dialog open v-if="show">
+        <header class="dialogHeader">
+          <slot name="header">
+            <h2 class="dialogHeader__text">
+              {{ title }}
+            </h2>
+          </slot>
+        </header>
 
-      <section class="dialogDescription">
-        <slot></slot>
-      </section>
+        <section class="dialogDescription">
+          <slot></slot>
+        </section>
 
-      <menu class="confirmBox">
-        <slot name="action">
-          <base-button mode="dialogConfirm">{{ confirm }}</base-button>
-        </slot>
-      </menu>
-    </dialog>
+        <menu class="confirmBox">
+          <slot name="action">
+            <base-button mode="dialogConfirm" @click="test1">{{
+              confirm
+            }}</base-button>
+          </slot>
+        </menu>
+      </dialog>
   </teleport>
 </template>
 
@@ -28,6 +30,10 @@
 <script>
 export default {
   props: {
+    show: {
+      type: Boolean,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -37,11 +43,47 @@ export default {
       required: true,
     },
   },
+  emits: ["close"],
+  methods: {
+    test1() {
+      this.$emit("close");
+    },
+  },
 };
 </script>
 
 
 <style lang="scss" scoped>
+// @keyframes modalScale {
+//   0% {
+//     transform: scale(0.5);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }
+
+// .dialog-enter-from,
+// .dialog-leave-to {
+//   opacity: 0;
+//   transform: scale(0.8);
+//     transform: translate(-50%, -50%);
+// }
+
+// .dialog-enter-active {
+//   transition: all 0.3s ease-out;
+// }
+
+// .dialog-leave-active {
+//   transition: all 0.3s ease-in;
+// }
+
+// .dialog-enter-to,
+// .dialog-leave-from {
+//   opacity: 1;
+//   transform: scale(1);
+// }
+
 .backDrop,
 dialog {
   position: absolute;

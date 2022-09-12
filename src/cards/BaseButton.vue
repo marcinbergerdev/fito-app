@@ -3,7 +3,7 @@
     <slot></slot>
   </button>
 
-  <router-link v-if="link" :to="to" :class="[place, mode, type]">
+  <router-link v-else :to="to" :class="[place, mode, type]">
     <slot></slot>
   </router-link>
 </template>
@@ -224,6 +224,19 @@ button {
   font-size: 1.4rem;
   background-color: var(--dark);
   border-radius: 5rem;
+}
+
+.filters{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 1.4rem;
+  border: 1px solid var(--white);
+
+  @media(min-width: 768px){
+    display: none;
+  }
 }
 
 
