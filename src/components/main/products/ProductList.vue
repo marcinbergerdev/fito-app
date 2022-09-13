@@ -2,16 +2,25 @@
   <article class="productListContainer">
     <section class="myListNavigation">
       <div class="navSection">
-        <base-button link to="/home/myProduct">
+        <base-button
+          link
+          to="/home/myProduct"
+          place="addProductBtnPosition"
+          type="myListOutline"
+        >
           <app-icon class="icon" icon="akar-icons:circle-plus" />
           Add product
         </base-button>
 
-        <input type="text" />
+        <input type="text" placeholder="Search..." />
       </div>
 
       <div class="filterSection">
-        <base-button mode="filters" @click="showFilters">
+        <base-button
+          place="myListHidden"
+          type="myListOutline"
+          @click="showFilters"
+        >
           <app-icon class="filterIcon" icon="bi:filter-left" />
           Filters
         </base-button>
@@ -51,14 +60,14 @@ export default {
     userWidth() {
       const userWidth = window.innerWidth;
 
-      if (this.filtersVisibility) return;
-
-      if (userWidth >= 768) {
-        this.filtersVisibility = true;
+      if (this.filtersVisibility) {
+        if (userWidth < 768) return (this.filtersVisibility = false);
       }
+      if (userWidth >= 768) this.filtersVisibility = true;
     },
   },
   mounted() {
+    this.userWidth();
     window.addEventListener("resize", this.userWidth);
   },
 };
@@ -66,49 +75,112 @@ export default {
 
 <style lang="scss" scoped>
 .filterIcon {
-  margin-top: 0.3rem;
-  width: 2rem;
-  height: 2rem;
+  font-size: 1.7rem;
 }
 
 .productListContainer {
   width: 100%;
+  padding: 1.5rem;
   height: inherit;
   background-color: var(--dark-light);
 }
 
 .myListNavigation {
+  position: relative;
   display: flex;
   justify-content: space-between;
+  gap: 0 1rem;
 }
 
 .navSection {
   display: flex;
   flex-direction: column-reverse;
+  width: 100%;
 
   input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 1.4rem;
+    color: var(--white);
+    background-color: transparent;
+    border: 1px solid var(--white);
+    outline: none;
+  }
+
+  @media (min-width: 768px) {
+    width: auto;
+    flex-direction: row;
+    gap: 0 2rem;
+    input {
+      width: auto;
+      opacity: 0.8;
+      &:focus {
+        opacity: 1;
+      }
+    }
   }
 }
 
 .filterSection {
   position: relative;
+
+  @media (min-width: 768px) {
+    min-width: 20%;
+  }
 }
 
 .filterList {
   position: absolute;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+
+  margin-top: 0.8rem;
+  padding: 1rem;
+  width: 11rem;
+  background-color: var(--dark-light);
+  border: 1px solid var(--white);
 
   &__option {
+    display: flex;
+    align-items: center;
     list-style: none;
+    gap: 0 0.5rem;
+
+    input,
+    label {
+      @media (min-width: 768px) {
+        cursor: pointer;
+      }
+    }
+
     input {
+      width: 1.7rem;
+      height: 1.7rem;
     }
 
     label {
+      font-size: 1.2rem;
+    }
+
+    @media (min-width: 768px) {
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
   @media (min-width: 768px) {
     position: static;
-    display: block;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 0 2rem;
+    width: 100%;
+    margin: 0;
   }
 }
 </style>

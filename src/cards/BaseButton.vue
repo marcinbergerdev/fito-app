@@ -218,7 +218,7 @@ button {
   }
 }
 
-.dialogConfirm{
+.dialogConfirm {
   margin: 0 1rem 0.8rem 0;
   padding: 0.5rem 1rem;
   font-size: 1.4rem;
@@ -226,22 +226,33 @@ button {
   border-radius: 5rem;
 }
 
-.filters{
+.myListOutline {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.3rem 0.5rem;
+  padding: 0.7rem 1rem;
   font-size: 1.4rem;
   border: 1px solid var(--white);
+}
 
-  @media(min-width: 768px){
-    display: none;
+.addProductBtnPosition {
+  position: absolute;
+  bottom: -7vh;
+  left: 0;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    position: static;
+    width: auto;
   }
 }
 
-
-
-
+.myListHidden {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
 
 .flat,
 .signInOutline {
