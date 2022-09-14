@@ -4,11 +4,10 @@
       <div class="navSection">
         <base-button
           link
-          to="/home/myProduct"
+          to="/home/product"
           place="addProductBtnPosition"
           type="myListOutline"
-        >
-          <app-icon class="icon" icon="akar-icons:circle-plus" />
+          ><app-icon class="icon" icon="akar-icons:circle-plus" />
           Add product
         </base-button>
 
@@ -43,14 +42,117 @@
         </ul>
       </div>
     </section>
+
+    <ul class='productsList'>
+      <product-item
+        v-for="product in products"
+        :key="product.id"
+        :id="product.id"
+        :name="product.name"
+        :gram="product.gram"
+        :kcal="product.kcal"
+        :nutritional-values="product.nutritionalValues"
+      ></product-item>
+    </ul>
   </article>
 </template>
 
 <script>
+import ProductItem from "../products/ProductItem.vue";
+
 export default {
+  components: {
+    ProductItem,
+  },
   data() {
     return {
       filtersVisibility: false,
+      products: [
+        {
+          id: 1,
+          name: "Corn",
+          gram: 100,
+          kcal: 1100,
+          nutritionalValues: [
+            {
+              name: "Fat",
+              value: 12.0,
+            },
+            {
+              name: "Carbs",
+              value: 19.0,
+            },
+            {
+              name: "Protein",
+              value: 12.0,
+            },
+            {
+              name: "Salt",
+              value: 2.0,
+            },
+            {
+              name: "Fiber",
+              value: 10.0,
+            },
+          ],
+        },
+        {
+          id: 2,
+          name: "Corn",
+          gram: 100,
+          kcal: 1100,
+          nutritionalValues: [
+            {
+              name: "Fat",
+              value: 12.0,
+            },
+            {
+              name: "Carbs",
+              value: 19.0,
+            },
+            {
+              name: "Protein",
+              value: 12.0,
+            },
+            {
+              name: "Salt",
+              value: 2.0,
+            },
+            {
+              name: "Fiber",
+              value: 10.0,
+            },
+          ],
+        },
+        {
+          id: 3,
+          name: "Corn",
+          gram: 100,
+          kcal: 1100,
+          nutritionalValues: [
+            {
+              name: "Fat",
+              value: 12.0,
+            },
+            {
+              name: "Carbs",
+              value: 19.0,
+            },
+            {
+              name: "Protein",
+              value: 12.0,
+            },
+            {
+              name: "Salt",
+              value: 2.0,
+            },
+            {
+              name: "Fiber",
+              value: 10.0,
+            },
+          ],
+        },
+      ],
     };
   },
   methods: {
@@ -99,12 +201,16 @@ export default {
 
   input {
     width: 100%;
-    padding: 0.7rem 1rem;
+    padding: 1.2rem 1rem;
     font-size: 1.4rem;
     color: var(--white);
     background-color: transparent;
     border: 1px solid var(--white);
     outline: none;
+
+    @media (min-width: 768px) {
+      padding: 0.5rem 1rem;
+    }
   }
 
   @media (min-width: 768px) {
@@ -182,5 +288,10 @@ export default {
     width: 100%;
     margin: 0;
   }
+}
+
+.productsList{
+  text-align: center;
+margin-top: 10rem;
 }
 </style>

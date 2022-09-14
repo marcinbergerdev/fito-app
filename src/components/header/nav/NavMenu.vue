@@ -2,8 +2,8 @@
   <ul class="menuList" :class="menuListMobile">
     <li v-if="authentication" :class="addProductLinkOption">
       <base-button link to="/home/myProduct" type="addProductLink">
-        <app-icon class="icon" icon="akar-icons:circle-plus" />
-        Add product
+        <app-icon class="icon" icon="fluent:apps-list-detail-20-regular" />
+        My products
       </base-button>
     </li>
 
@@ -59,7 +59,8 @@ export default {
 
 .addProductLinkOption {
   .icon {
-    font-size: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     margin-right: 0.8rem;
   }
 

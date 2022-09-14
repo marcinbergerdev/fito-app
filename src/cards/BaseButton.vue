@@ -220,10 +220,14 @@ button {
 
 .dialogConfirm {
   margin: 0 1rem 0.8rem 0;
-  padding: 0.5rem 1rem;
+  padding: 1.2rem 1rem;
   font-size: 1.4rem;
   background-color: var(--dark);
   border-radius: 5rem;
+
+  @media (min-width: 768px) {
+     padding: 0.5rem 1rem;
+  }
 }
 
 .myListOutline {
@@ -231,14 +235,18 @@ button {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.7rem 1rem;
+  padding: 1.2rem 1rem;
   font-size: 1.4rem;
   border: 1px solid var(--white);
+
+   @media (min-width: 768px) {
+     padding: 0.5rem 1rem;
+  }
 }
 
 .addProductBtnPosition {
   position: absolute;
-  bottom: -7vh;
+  bottom: -6rem;
   left: 0;
   width: 100%;
 
