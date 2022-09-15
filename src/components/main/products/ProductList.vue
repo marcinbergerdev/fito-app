@@ -238,6 +238,151 @@ export default {
             },
           ],
         },
+        {
+          id: 6,
+          name: "Banana",
+          gram: 100,
+          kcal: 500,
+          img: "",
+          nutritionalValues: [
+            {
+              name: "Fat",
+              value: 2.0,
+            },
+            {
+              name: "Carbs",
+              value: 9.0,
+            },
+            {
+              name: "Protein",
+              value: 42.0,
+            },
+            {
+              name: "Salt",
+              value: 3.0,
+            },
+            {
+              name: "Fiber",
+              value: 20.0,
+            },
+          ],
+        },
+        {
+          id: 6,
+          name: "Banana",
+          gram: 100,
+          kcal: 500,
+          img: "",
+          nutritionalValues: [
+            {
+              name: "Fat",
+              value: 2.0,
+            },
+            {
+              name: "Carbs",
+              value: 9.0,
+            },
+            {
+              name: "Protein",
+              value: 42.0,
+            },
+            {
+              name: "Salt",
+              value: 3.0,
+            },
+            {
+              name: "Fiber",
+              value: 20.0,
+            },
+          ],
+        },
+        {
+          id: 6,
+          name: "Banana",
+          gram: 100,
+          kcal: 500,
+          img: "",
+          nutritionalValues: [
+            {
+              name: "Fat",
+              value: 2.0,
+            },
+            {
+              name: "Carbs",
+              value: 9.0,
+            },
+            {
+              name: "Protein",
+              value: 42.0,
+            },
+            {
+              name: "Salt",
+              value: 3.0,
+            },
+            {
+              name: "Fiber",
+              value: 20.0,
+            },
+          ],
+        },
+        {
+          id: 6,
+          name: "Banana",
+          gram: 100,
+          kcal: 500,
+          img: "",
+          nutritionalValues: [
+            {
+              name: "Fat",
+              value: 2.0,
+            },
+            {
+              name: "Carbs",
+              value: 9.0,
+            },
+            {
+              name: "Protein",
+              value: 42.0,
+            },
+            {
+              name: "Salt",
+              value: 3.0,
+            },
+            {
+              name: "Fiber",
+              value: 20.0,
+            },
+          ],
+        },
+        {
+          id: 6,
+          name: "Banana",
+          gram: 100,
+          kcal: 500,
+          img: "",
+          nutritionalValues: [
+            {
+              name: "Fat",
+              value: 2.0,
+            },
+            {
+              name: "Carbs",
+              value: 9.0,
+            },
+            {
+              name: "Protein",
+              value: 42.0,
+            },
+            {
+              name: "Salt",
+              value: 3.0,
+            },
+            {
+              name: "Fiber",
+              value: 20.0,
+            },
+          ],
+        },
       ],
     };
   },
@@ -268,7 +413,7 @@ export default {
 
 .productListContainer {
   width: 100%;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 0 1.5rem;
   height: inherit;
   background-color: var(--dark-light);
 }
@@ -376,6 +521,8 @@ export default {
   }
 }
 
+
+
 .productsList {
   display: flex;
   flex-direction: column;
@@ -391,9 +538,11 @@ export default {
     align-items: flex-start;
     justify-content: space-between;
     flex-flow: wrap row;
-    margin: initial 10rem;
-    gap: 0 3rem;
-    margin: 10rem 4rem;
+    gap: 5rem 10rem;
+    padding: 0 2rem;
+    height: calc(100% - 3.9rem - 8rem - 15px);
   }
 }
+
+// shadow box for product list up
 </style>
