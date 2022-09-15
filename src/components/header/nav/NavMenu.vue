@@ -1,6 +1,6 @@
 <template>
   <ul class="menuList" :class="menuListMobile">
-    <li v-if="authentication" :class="addProductLinkOption">
+    <li v-if="authentication" :class="addProductLinkIcon">
       <base-button link to="/home/myProduct" type="addProductLink">
         <app-icon class="icon" icon="fluent:apps-list-detail-20-regular" />
         My products
@@ -23,9 +23,9 @@ export default {
     menuListMobile() {
       return { menuListMobile: this.$store.getters.mobileMenuActiveStatus };
     },
-    addProductLinkOption() {
+    addProductLinkIcon() {
       return {
-        addProductLinkOption: this.$store.getters.mobileMenuActiveStatus,
+        addProductLinkIcon: this.$store.getters.mobileMenuActiveStatus,
       };
     },
     linkStyle() {
@@ -57,18 +57,11 @@ export default {
   }
 }
 
-.addProductLinkOption {
+.addProductLinkIcon {
   .icon {
     width: 2.5rem;
     height: 2.5rem;
     margin-right: 0.8rem;
-  }
-
-  @media (min-width: 355px) {
-    font-size: 2.5rem;
-    .icon {
-      font-size: 2rem;
-    }
   }
 }
 

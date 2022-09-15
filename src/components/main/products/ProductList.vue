@@ -25,25 +25,19 @@
         </base-button>
 
         <ul class="filterList" v-if="filtersVisibility">
-          <li class="filterList__option">
+          <li
+            class="filterList__option"
+            v-for="(filter, id) in filters"
+            :key="id"
+          >
             <input type="checkbox" />
-            <label for="">Fruit</label>
-          </li>
-
-          <li class="filterList__option">
-            <input type="checkbox" />
-            <label for="">Vegetables</label>
-          </li>
-
-          <li class="filterList__option">
-            <input type="checkbox" />
-            <label for="">Sweets</label>
+            <label for="">{{ filter }}</label>
           </li>
         </ul>
       </div>
     </section>
 
-    <ul class='productsList'>
+    <ul class="productsList">
       <product-item
         v-for="product in products"
         :key="product.id"
@@ -51,6 +45,7 @@
         :name="product.name"
         :gram="product.gram"
         :kcal="product.kcal"
+        :product-img="product.img"
         :nutritional-values="product.nutritionalValues"
       ></product-item>
     </ul>
@@ -67,12 +62,14 @@ export default {
   data() {
     return {
       filtersVisibility: false,
+      filters: ["Fruit", "Vegetables", "Sweets"],
       products: [
         {
           id: 1,
-          name: "Corn",
+          name: "Potato",
           gram: 100,
           kcal: 1100,
+          img: "https://ocdn.eu/pulscms-transforms/1/GkCk9kpTURBXy9hMjZmNTc5NjZlNWU5YTNmYmU1MjJhNGI3YWEwNmZiMi5qcGeTlQMAHc0D6M0CMpMFzQMUzQG8kwmmYTgzYWYwBoGhMAU/czy-mozna-jesc-zielone-ziemniaki.webp",
           nutritionalValues: [
             {
               name: "Fat",
@@ -98,17 +95,18 @@ export default {
         },
         {
           id: 2,
-          name: "Corn",
+          name: "Mandarin",
           gram: 100,
-          kcal: 1100,
+          kcal: 400,
+          img: "",
           nutritionalValues: [
             {
               name: "Fat",
-              value: 12.0,
+              value: 2.0,
             },
             {
               name: "Carbs",
-              value: 19.0,
+              value: 8.0,
             },
             {
               name: "Protein",
@@ -116,7 +114,36 @@ export default {
             },
             {
               name: "Salt",
-              value: 2.0,
+              value: 21.0,
+            },
+            {
+              name: "Fiber",
+              value: 100.0,
+            },
+          ],
+        },
+        {
+          id: 3,
+          name: "Mango",
+          gram: 100,
+          kcal: 700,
+          img: "",
+          nutritionalValues: [
+            {
+              name: "Fat",
+              value: 112.0,
+            },
+            {
+              name: "Carbs",
+              value: 4.0,
+            },
+            {
+              name: "Protein",
+              value: 3.0,
+            },
+            {
+              name: "Salt",
+              value: 7.0,
             },
             {
               name: "Fiber",
@@ -125,10 +152,11 @@ export default {
           ],
         },
         {
-          id: 3,
-          name: "Corn",
+          id: 4,
+          name: "Orange",
           gram: 100,
-          kcal: 1100,
+          kcal: 2100,
+          img: "",
           nutritionalValues: [
             {
               name: "Fat",
@@ -136,19 +164,77 @@ export default {
             },
             {
               name: "Carbs",
-              value: 19.0,
+              value: 23.0,
             },
             {
               name: "Protein",
-              value: 12.0,
+              value: 34.0,
             },
             {
               name: "Salt",
-              value: 2.0,
+              value: 0.0,
             },
             {
               name: "Fiber",
               value: 10.0,
+            },
+          ],
+        },
+        {
+          id: 5,
+          name: "Apple",
+          gram: 100,
+          kcal: 400,
+          img: "",
+          nutritionalValues: [
+            {
+              name: "Fat",
+              value: 1.0,
+            },
+            {
+              name: "Carbs",
+              value: 54.0,
+            },
+            {
+              name: "Protein",
+              value: 34.0,
+            },
+            {
+              name: "Salt",
+              value: 22.0,
+            },
+            {
+              name: "Fiber",
+              value: 10.0,
+            },
+          ],
+        },
+        {
+          id: 6,
+          name: "Banana",
+          gram: 100,
+          kcal: 500,
+          img: "",
+          nutritionalValues: [
+            {
+              name: "Fat",
+              value: 2.0,
+            },
+            {
+              name: "Carbs",
+              value: 9.0,
+            },
+            {
+              name: "Protein",
+              value: 42.0,
+            },
+            {
+              name: "Salt",
+              value: 3.0,
+            },
+            {
+              name: "Fiber",
+              value: 20.0,
             },
           ],
         },
@@ -290,8 +376,24 @@ export default {
   }
 }
 
-.productsList{
+.productsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 8rem;
+  height: calc(100% - 4.3rem - 8rem);
+  overflow: auto;
   text-align: center;
-margin-top: 10rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-flow: wrap row;
+    margin: initial 10rem;
+    gap: 0 3rem;
+    margin: 10rem 4rem;
+  }
 }
 </style>

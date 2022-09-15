@@ -209,7 +209,7 @@ button {
     color: var(--primary-orange);
   }
 
-  @media (min-width: 355px) {
+  @media (min-width: 365px) {
     font-size: 2.5rem;
   }
 
@@ -238,6 +238,8 @@ button {
   padding: 1.2rem 1rem;
   font-size: 1.4rem;
   border: 1px solid var(--white);
+
+  //use global keyfremase
 
    @media (min-width: 768px) {
      padding: 0.5rem 1rem;
