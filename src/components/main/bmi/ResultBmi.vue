@@ -22,10 +22,20 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 export default {
-  computed: {
-    ...mapGetters(["ranges"]),
+  data(){
+    return{
+       ranges: [
+        "BMI Value ranges:",
+        "16 - 16.99 - emaciation",
+        "17 - 18.49 - underweight",
+        "18.5 - 24.99 - normal value",
+        "25 - 29.99 - overweight",
+        "30 - 34.99 - 1st degree of obesity",
+        "35 - 39.99 - grade II obesity",
+        "over 40 - extreme obesity",
+      ]
+    }
   },
 };
 </script>

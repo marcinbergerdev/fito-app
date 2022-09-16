@@ -125,4 +125,9 @@ export default {
     }
   }
 }
+
+.errorMessage{
+  font-size: 1.3rem;
+  color: var(--primary-orange);;
+}
 </style>

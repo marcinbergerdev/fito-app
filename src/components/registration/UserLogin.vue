@@ -1,7 +1,5 @@
 <template>
   <article class="registrationContainer">
-
-
     <base-registration radius="logInRadius">
       <base-button link to="/home" mode="backButton">
         <span class="backButton">
@@ -10,16 +8,20 @@
       </base-button>
 
       <!-- Global Styles in App.vue -->
-      <form @submit.prevent="userLogin" class="formBox">
-        <h2 class='formBox__header'>Log in</h2>
+      <Form @submit="formSubmit" class="formBox">
+        <h2 class="formBox__header">Log in</h2>
 
         <div class="registerInputs">
-          <input type="text" placeholder="user name" />
-          <input type="text" placeholder="password" />
+          <Field name="login" type="text" :rules="validateLogin" placeholder="user name" />
+          <ErrorMessage class='errorMessage' name="login" />
+
+          <Field name="password" type="password" :rules="validateLogin" placeholder="password" />
+          <ErrorMessage class='errorMessage' name="password" />
+
         </div>
 
         <base-button type="flat">Log in</base-button>
-      </form>
+      </Form>
     </base-registration>
 
     <base-registration view="mobileHidden" radius="signUpRadius">
@@ -28,7 +30,9 @@
         <p>You don't have an account yet?</p>
       </header>
 
-      <base-button link to="/registration" type="signInOutline">Sign up</base-button>
+      <base-button link to="/registration" type="signInOutline"
+        >Sign up</base-button
+      >
     </base-registration>
   </article>
 </template>
@@ -36,7 +40,28 @@
 
 
 <script>
-export default {};
+import { Form, Field, ErrorMessage, } from "vee-validate";
+
+export default {
+  components: {
+    Form,
+    Field,
+    ErrorMessage,
+  },
+  methods: {
+    formSubmit(values) {
+      console.log(values);
+    },
+    validateLogin(value) {
+      // if the field is empty
+      if (!value) {
+        return "This field is required";
+      }
+      // All is good
+      return true;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

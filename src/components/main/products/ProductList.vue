@@ -412,10 +412,13 @@ export default {
 }
 
 .productListContainer {
-  width: 100%;
-  padding: 1.5rem 1.5rem 0 1.5rem;
+  padding-top: 1.5rem;
   height: inherit;
   background-color: var(--dark-light);
+
+  @media (min-width: 768px) {
+    padding: 1.5rem 0 0 0;
+  }
 }
 
 .myListNavigation {
@@ -423,6 +426,14 @@ export default {
   display: flex;
   justify-content: space-between;
   gap: 0 1rem;
+  width: 95%;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    margin: 0;
+    padding: 0 1.5rem;
+  }
 }
 
 .navSection {
@@ -469,6 +480,7 @@ export default {
 .filterList {
   position: absolute;
   right: 0;
+  z-index: 10;
 
   display: flex;
   flex-direction: column;
@@ -521,28 +533,27 @@ export default {
   }
 }
 
-
-
 .productsList {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   margin-top: 8rem;
+  padding-top: 2rem;
   height: calc(100% - 4.3rem - 8rem);
   overflow: auto;
   text-align: center;
+  box-shadow: inset 0 -2px 30px rgba(0, 0, 0, 0.4);
 
   @media (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
     flex-flow: wrap row;
-    gap: 5rem 10rem;
-    padding: 0 2rem;
-    height: calc(100% - 3.9rem - 8rem - 15px);
+    gap: 5rem 9rem;
+    margin-top: 3rem;
+    padding: 2rem 2rem 0 2rem;
+    height: calc(100% - 3.9rem - 3rem);
   }
 }
-
-// shadow box for product list up
 </style>
