@@ -7,61 +7,61 @@
     <form @submit.prevent="addProduct">
       <div class="productName">
         <label for="name">Product Name</label>
-        <input id="name" type="text" />
+        <input id="name" type="text" placeholder="Product name..." v-model="productName" />
       </div>
 
       <div class="productScale">
         <div>
           <label for="gram">Grams</label>
-          <input id="gram" type="number" />
+          <input id="gram" type="number" step="0.1" placeholder="0.0" v-model="gram" />
         </div>
         <div>
           <label for="kcal">Kcal</label>
-          <input id="kcal" type="number" />
+          <input id="kcal" type="number" step="0.1" placeholder="0.0" v-model="kcal" />
         </div>
       </div>
 
       <div class="productIngredients">
         <div>
           <label for="fat">Fat</label>
-          <input id="fat" type="number" />
+          <input id="fat" type="number" step="0.1" placeholder="0.0" v-model="fat" />
         </div>
 
         <div>
           <label for="carbs">Carbs</label>
-          <input id="carbs" type="number" />
+          <input id="carbs" type="number" step="0.1" placeholder="0.0" v-model="carbs" />
         </div>
 
         <div>
           <label for="protein">Protein</label>
-          <input id="protein" type="number" />
+          <input id="protein" type="number" step="0.1" placeholder="0.0" v-model="protein" />
         </div>
 
         <div>
           <label for="salt">Salt</label>
-          <input id="salt" type="number" />
+          <input id="salt" type="number" step="0.1" placeholder="0.0" v-model="salt" />
         </div>
 
         <div>
           <label for="fiber">Fiber</label>
-          <input id="fiber" type="number" />
+          <input id="fiber" type="number" step="0.1" placeholder="0.0" v-model="fiber" />
         </div>
       </div>
 
       <div class="productCategory">
         <div>
           <label for="fruit">Fruit</label>
-          <input id="fruit" name="category" type="radio" />
+          <input id="fruit" value="Fruit" type="radio" v-model="selectedCategory" />
         </div>
 
         <div>
           <label for="vegetable">Vegetables</label>
-          <input id="vegetable" name="category" type="radio" />
+          <input id="vegetable" value="Vegetable" type="radio" v-model="selectedCategory"/>
         </div>
 
         <div>
           <label for="sweet">Sweets</label>
-          <input id="sweet" name="category" type="radio" />
+          <input id="sweet" value="Sweets" type="radio" v-model="selectedCategory" />
         </div>
       </div>
 
@@ -78,8 +78,38 @@
 
 <script>
 export default {
+  data() {
+    return {
+      productName: "Potato",
+      img: 'goto',
+      gram: 100,
+      kcal: 200,
+      fat: 2.4,
+      carbs: 34,
+      protein: 2.6,
+      salt: 0.1,
+      fiber: 0.3,
+      selectedCategory: ""
+    };
+  },
   methods: {
-    addProduct() {},
+    addProduct() {
+      this.$store.dispatch({
+        type: 'addNewProduct',
+        value: {
+          productName: this.productName,
+          img: this.img,
+          gram: this.gram,
+          kcal: this.kcal,
+          fat: this.fat,
+          carbs: this.carbs,
+          protein: this.protein,
+          salt: this.salt,
+          fiber: this.fiber,
+          selectedCategory: this.selectedCategory
+        }
+      });
+    },
   },
 };
 </script>

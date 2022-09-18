@@ -12,8 +12,8 @@
         <h2 class="formBox__header">Log in</h2>
 
         <div class="registerInputs">
-          <Field name="login" type="text" :rules="validateLogin" placeholder="user name" />
-          <ErrorMessage class='errorMessage' name="login" />
+          <Field name="email" type="email" :rules="validateEmail" placeholder="user name" />
+          <ErrorMessage class='errorMessage' name="email" />
 
           <Field name="password" type="password" :rules="validateLogin" placeholder="password" />
           <ErrorMessage class='errorMessage' name="password" />
@@ -49,13 +49,29 @@ export default {
     ErrorMessage,
   },
   methods: {
-    formSubmit(values) {
-      console.log(values);
+    formSubmit(value) {
+      this.$store.dispatch('login', value);
+    },
+     validateEmail(value) {
+      // if the field is empty
+      if (!value) {
+        return "This field is required";
+      }
+      // if the field is not a valid email
+      const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+      if (!regex.test(value)) {
+        return "This field must be a valid email";
+      }
+      // All is good
+      return true;
     },
     validateLogin(value) {
       // if the field is empty
       if (!value) {
         return "This field is required";
+      }
+      if (value.length < 6) {
+        return "The password should have min 6 characters";
       }
       // All is good
       return true;

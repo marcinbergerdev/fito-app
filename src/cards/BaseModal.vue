@@ -32,15 +32,15 @@ export default {
   props: {
     show: {
       type: Boolean,
-      required: true,
+      required: false,
     },
     title: {
       type: String,
-      required: true,
+      required: false,
     },
     confirm: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   emits: ["close"],
