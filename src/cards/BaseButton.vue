@@ -226,7 +226,7 @@ button {
   border-radius: 5rem;
 
   @media (min-width: 768px) {
-     padding: 0.5rem 1rem;
+    padding: 0.8rem 1.2rem;
   }
 }
 
@@ -241,8 +241,8 @@ button {
 
   //use global keyfremase
 
-   @media (min-width: 768px) {
-     padding: 0.5rem 1rem;
+  @media (min-width: 768px) {
+    padding: 0.5rem 1rem;
   }
 }
 

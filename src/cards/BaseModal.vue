@@ -1,7 +1,8 @@
 <template>
   <teleport to="body">
-    <div class="backDrop" v-if="show" @click="test1"></div>
+    <div class="backDrop" v-if="show" @click="closeModal"></div>
 
+    <transition name="dialog">
       <dialog open v-if="show">
         <header class="dialogHeader">
           <slot name="header">
@@ -17,12 +18,13 @@
 
         <menu class="confirmBox">
           <slot name="action">
-            <base-button mode="dialogConfirm" @click="test1">{{
+            <base-button mode="dialogConfirm" @click="closeModal">{{
               confirm
             }}</base-button>
           </slot>
         </menu>
       </dialog>
+    </transition>
   </teleport>
 </template>
 
@@ -32,7 +34,7 @@ export default {
   props: {
     show: {
       type: Boolean,
-      required: false,
+      required: true,
     },
     title: {
       type: String,
@@ -45,7 +47,7 @@ export default {
   },
   emits: ["close"],
   methods: {
-    test1() {
+    closeModal() {
       this.$emit("close");
     },
   },
@@ -63,34 +65,28 @@ export default {
 //   }
 // }
 
-// .dialog-enter-from,
-// .dialog-leave-to {
-//   opacity: 0;
-//   transform: scale(0.8);
-//     transform: translate(-50%, -50%);
-// }
+.dialog-enter-from,
+.dialog-leave-to {
+  transform: scale(0.8);
+}
 
-// .dialog-enter-active {
-//   transition: all 0.3s ease-out;
-// }
+.dialog-enter-active {
+  transition: all 0.3s ease-out;
+}
 
-// .dialog-leave-active {
-//   transition: all 0.3s ease-in;
-// }
+.dialog-leave-active {
+  transition: all 0.1s ease-in;
+}
 
-// .dialog-enter-to,
-// .dialog-leave-from {
-//   opacity: 1;
-//   transform: scale(1);
-// }
-
-.backDrop,
-dialog {
-  position: absolute;
+.dialog-enter-to,
+.dialog-leave-from {
+  transform: scale(1);
 }
 
 .backDrop {
+  position: fixed;
   top: 0;
+  z-index: 50;
   width: 100%;
   min-height: 100vh;
   background-color: var(--dark);
@@ -98,27 +94,37 @@ dialog {
 }
 
 dialog {
-  top: 50%;
-  left: 50%;
+  position: fixed;
+  top: 35vh;
+  left: 10%;
   z-index: 100;
-  transform: translate(-50%, -50%);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   width: #{"min(80%, 40rem)"};
+
   background-color: #646464;
-  overflow: hidden;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.26);
   border-radius: 1.5rem;
   border: 0;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    left: calc(50% - 20rem);
+  }
+}
+
+.dialogHeader,
+.dialogDescription {
+  width: 100%;
+  color: var(--white);
 }
 
 .dialogHeader {
   padding: 2rem 1.5rem;
-  width: 100%;
   background-color: var(--dark);
-  color: var(--white);
   border-radius: 1rem 1rem 0 0;
   &__text {
     font-size: 1.6rem;
@@ -127,10 +133,10 @@ dialog {
 }
 
 .dialogDescription {
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem 1rem 1.5rem;
+  text-align: center;
   font-size: 2rem;
   font-weight: 200;
-  color: var(--white);
 }
 
 .confirmBox {

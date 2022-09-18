@@ -12,6 +12,7 @@ const BaseButton = defineAsyncComponent(() => import('./cards/BaseButton.vue'));
 const BaseBox = defineAsyncComponent(() => import('./cards/BaseBox.vue'));
 const BaseRegistration = defineAsyncComponent(() => import('./cards/BaseRegistration.vue'));
 const BaseModal = defineAsyncComponent(() => import('./cards/BaseModal.vue'));
+const BaseSpinner = defineAsyncComponent(() => import('./cards/BaseSpinner.vue'));
 
 
 
@@ -24,6 +25,7 @@ app.component("base-button", BaseButton);
 app.component("base-box", BaseBox);
 app.component("base-registration", BaseRegistration);
 app.component("base-modal", BaseModal);
+app.component("base-spinner", BaseSpinner);
 
 
 

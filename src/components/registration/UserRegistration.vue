@@ -1,5 +1,13 @@
 <template>
 
+<base-modal :show="modalActivity" title="Success!" confirm="Okay" @close="closeModal">
+  <p>Account has been created</p>
+</base-modal>
+
+<!-- <base-modal :show="modalActivity" title="Loading..." confirm="Okay" @close="closeModal">
+  <base-spinner></base-spinner>
+</base-modal> -->
+
   <article class="registrationContainer">
     <base-registration radius="singleCard">
       <base-button link to="/home" mode="backButton">
@@ -59,11 +67,29 @@ export default {
   data() {
     return {
       inputPassword: "",
+      modalActivity: false,
+      isLoading: false
     };
   },
   methods: {
-    formSubmit(value) {
+    async formSubmit(value) {
       this.$store.dispatch("registration", value);
+      this.modalActivity = true;
+
+      // try{
+      //   console.log('działa1');
+
+      // }catch{
+      //   console.log('działa');
+      // }
+
+
+
+
+
+
+
+
     },
 
     validateEmail(value) {
@@ -98,6 +124,10 @@ export default {
       // All is good
       return true;
     },
+    closeModal(){
+      this.$router.replace('/login')
+      this.modalActivity = false;
+    }
   },
 };
 </script>
