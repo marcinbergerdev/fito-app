@@ -1,12 +1,21 @@
 <template>
+  <base-modal
+    :show="success"
+    :title="afterSigUpTitle"
+    confirm="Okay"
+    @close="closeModal"
+  >
+    <p>{{ afterSigUpInformation }}</p>
+  </base-modal>
 
-<base-modal :show="modalActivity" title="Success!" confirm="Okay" @close="closeModal">
-  <p>Account has been created</p>
-</base-modal>
-
-<!-- <base-modal :show="modalActivity" title="Loading..." confirm="Okay" @close="closeModal">
-  <base-spinner></base-spinner>
-</base-modal> -->
+  <base-modal
+    :show="isLoading"
+    title="Loading..."
+    confirm="Okay"
+    @close="closeModal"
+  >
+    <base-spinner></base-spinner>
+  </base-modal>
 
   <article class="registrationContainer">
     <base-registration radius="singleCard">
@@ -67,29 +76,23 @@ export default {
   data() {
     return {
       inputPassword: "",
-      modalActivity: false,
-      isLoading: false
+      success: false,
+      isLoading: false,
+      error: false,
     };
   },
   methods: {
     async formSubmit(value) {
-      this.$store.dispatch("registration", value);
-      this.modalActivity = true;
+      this.isLoading = true;
 
-      // try{
-      //   console.log('działa1');
+      try {
+        await this.$store.dispatch("registration", value);
+      } catch (error) {
+        this.error = error || "Something goes wrong, try again.";
+      }
 
-      // }catch{
-      //   console.log('działa');
-      // }
-
-
-
-
-
-
-
-
+      this.isLoading = false;
+      this.success = true;
     },
 
     validateEmail(value) {
@@ -124,10 +127,18 @@ export default {
       // All is good
       return true;
     },
-    closeModal(){
-      this.$router.replace('/login')
+    closeModal() {
+      this.$router.replace("/login");
       this.modalActivity = false;
-    }
+    },
   },
+  computed: {
+    afterSigUpTitle(){
+      return this.error ? 'Error' : 'Success!';
+    },
+    afterSigUpInformation(){
+      return this.error ? this.error : "Account has been created";
+    }
+  }
 };
 </script>
