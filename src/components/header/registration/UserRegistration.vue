@@ -1,17 +1,17 @@
 <template>
   <ul class="registrationList" :class="activeRegistration">
-    <li class="registrationList__link" v-if="!authentication">
+    <li class="registrationList__link" v-if="!isLoggedIn">
       <base-button link to="/login" mode="logInBtn">Log in</base-button>
     </li>
 
-    <li class="registrationList__link" v-if="!authentication">
+    <li class="registrationList__link" v-if="!isLoggedIn">
       <base-button link to="/registration" mode="signInBtn"
         >Sign in</base-button
       >
     </li>
 
-    <li class="registrationList__link" v-if="authentication">
-      <base-button link to="/home" mode="signOutBtn">Sign out</base-button>
+    <li class="registrationList__link" v-if="isLoggedIn">
+      <base-button to="/home" mode="signOutBtn" @click="logout">Sign out</base-button>
     </li>
   </ul>
 </template>
@@ -19,6 +19,11 @@
 
 <script>
 export default {
+  methods: {
+    logout(){
+      this.$store.dispatch('logout');
+    }
+  },
   computed: {
     activeRegistration() {
       return { activeRegistration: this.$store.getters.mobileMenuActiveStatus };
@@ -34,8 +39,9 @@ export default {
         ? "textColor"
         : "outline";
     },
-    authentication() {
-      return this.$store.getters.authentication;
+
+    isLoggedIn(){
+      return (this.$store.getters.userId && this.$store.getters.isAuthenticated)
     },
   },
 };

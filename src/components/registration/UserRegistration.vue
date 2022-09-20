@@ -1,6 +1,6 @@
 <template>
   <base-modal
-    :show="success"
+    :show="successModal"
     :title="afterSigUpTitle"
     confirm="Okay"
     @close="closeModal"
@@ -76,7 +76,7 @@ export default {
   data() {
     return {
       inputPassword: "",
-      success: false,
+      successModal: false,
       isLoading: false,
       error: false,
     };
@@ -92,7 +92,7 @@ export default {
       }
 
       this.isLoading = false;
-      this.success = true;
+      this.successModal = true;
     },
 
     validateEmail(value) {
@@ -133,12 +133,12 @@ export default {
     },
   },
   computed: {
-    afterSigUpTitle(){
-      return this.error ? 'Error' : 'Success!';
+    afterSigUpTitle() {
+      return this.error ? "Error" : "Success!";
     },
-    afterSigUpInformation(){
+    afterSigUpInformation() {
       return this.error ? this.error : "Account has been created";
-    }
-  }
+    },
+  },
 };
 </script>

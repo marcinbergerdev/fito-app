@@ -1,5 +1,10 @@
 <template>
-  <base-button link to="/home/myProduct" mode="productListsIcon" v-if="authentication">
+  <base-button
+    link
+    to="/home/myProduct"
+    mode="productListsIcon"
+    v-if="isLoggedIn"
+  >
     <app-icon class="productListIcon" icon="ic:baseline-playlist-add" />
   </base-button>
 </template>
@@ -11,8 +16,8 @@ export default {
     activeUser() {
       return { activeUser: this.$store.getters.mobileMenuActiveStatus };
     },
-    authentication() {
-      return this.$store.getters.authentication;
+    isLoggedIn() {
+      return this.$store.getters.userId && this.$store.getters.token;
     },
   },
 };

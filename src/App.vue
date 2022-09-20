@@ -11,13 +11,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-    };
-  },
-  methods: {
-
-  },
+  created(){
+    this.$store.dispatch('tryLogin');
+  }
 };
 </script>
 

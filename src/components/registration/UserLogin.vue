@@ -17,7 +17,7 @@
 
           <Field name="password" type="password" :rules="validateLogin" placeholder="password" />
           <ErrorMessage class='errorMessage' name="password" />
-
+          <p></p>
         </div>
 
         <base-button type="flat">Log in</base-button>
@@ -48,9 +48,23 @@ export default {
     Field,
     ErrorMessage,
   },
+  data(){
+    return {
+      error: null
+    }
+  },
   methods: {
-    formSubmit(value) {
-      this.$store.dispatch('login', value);
+    async formSubmit(value) {
+      try{
+        await this.$store.dispatch('login', value);
+      }catch(error){
+        this.error = error;
+      }
+
+
+
+      this.$router.replace('/home');
+
     },
      validateEmail(value) {
       // if the field is empty

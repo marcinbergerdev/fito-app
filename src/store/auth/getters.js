@@ -1,11 +1,13 @@
 export default {
-  authentication(state){
-    return state.authentication;
-  },
   userId(state){
+    console.log(state.userId);
     return state.userId
   },
   token(state){
-    state.token;
-  }
+    console.log(state.token);
+    return state.token;
+  },
+  isAuthenticated(state) {
+    return !!state.token;
+  },
 }

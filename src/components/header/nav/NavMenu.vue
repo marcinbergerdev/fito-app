@@ -1,6 +1,6 @@
 <template>
   <ul class="menuList" :class="menuListMobile">
-    <li v-if="authentication" :class="addProductLinkIcon">
+    <li v-if="isLoggedIn" :class="addProductLinkIcon">
       <base-button link to="/home/myProduct" type="addProductLink">
         <app-icon class="icon" icon="fluent:apps-list-detail-20-regular" />
         My products
@@ -31,10 +31,10 @@ export default {
     linkStyle() {
       return this.$store.getters.mobileMenuActiveStatus
         ? "linkMobile"
-        : "linkDesctop";
+        : "linkDesktop";
     },
-    authentication() {
-      return this.$store.getters.authentication;
+    isLoggedIn() {
+      return this.$store.getters.userId && this.$store.getters.isAuthenticated;
     },
   },
 };
