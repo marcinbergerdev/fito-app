@@ -1,6 +1,5 @@
 export default {
   setUser(state, data){
-    console.log(data);
     state.userId = data.localId;
     state.token = data.idToken;
     state.tokenExpiration = data.expiresIn;

@@ -57,9 +57,9 @@ export default {
    },
 
    logout(context){
-      localStorage.removeItem('userId')
-      localStorage.removeItem('token')
-      localStorage.removeItem('expiresIn')
+      localStorage.removeItem('userId');
+      localStorage.removeItem('token');
+      localStorage.removeItem('expiresIn');
       context.commit('logout');
    }
 };

@@ -11,7 +11,7 @@
     </li>
 
     <li class="registrationList__link" v-if="isLoggedIn">
-      <base-button to="/home" mode="signOutBtn" @click="logout">Sign out</base-button>
+      <base-button mode="signOutBtn" @click="logout">Sign out</base-button>
     </li>
   </ul>
 </template>
@@ -22,6 +22,7 @@ export default {
   methods: {
     logout(){
       this.$store.dispatch('logout');
+      this.$router.replace('/home');
     }
   },
   computed: {

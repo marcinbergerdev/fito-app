@@ -7,65 +7,127 @@
     <form @submit.prevent="addProduct">
       <div class="productName">
         <label for="name">Product Name</label>
-        <input id="name" type="text" placeholder="Product name..." v-model="productName" />
+        <input
+          id="name"
+          type="text"
+          placeholder="Product name..."
+          v-model="productName"
+        />
       </div>
 
       <div class="productScale">
         <div>
           <label for="gram">Grams</label>
-          <input id="gram" type="number" step="0.1" placeholder="0.0" v-model="gram" />
+          <input
+            id="gram"
+            type="number"
+            step="0.1"
+            placeholder="0.0"
+            v-model="gram"
+          />
         </div>
         <div>
           <label for="kcal">Kcal</label>
-          <input id="kcal" type="number" step="0.1" placeholder="0.0" v-model="kcal" />
+          <input
+            id="kcal"
+            type="number"
+            step="0.1"
+            placeholder="0.0"
+            v-model="kcal"
+          />
         </div>
       </div>
 
       <div class="productIngredients">
         <div>
           <label for="fat">Fat</label>
-          <input id="fat" type="number" step="0.1" placeholder="0.0" v-model="fat" />
+          <input
+            id="fat"
+            type="number"
+            step="0.1"
+            placeholder="0.0"
+            v-model="fat"
+          />
         </div>
 
         <div>
           <label for="carbs">Carbs</label>
-          <input id="carbs" type="number" step="0.1" placeholder="0.0" v-model="carbs" />
+          <input
+            id="carbs"
+            type="number"
+            step="0.1"
+            placeholder="0.0"
+            v-model="carbs"
+          />
         </div>
 
         <div>
           <label for="protein">Protein</label>
-          <input id="protein" type="number" step="0.1" placeholder="0.0" v-model="protein" />
+          <input
+            id="protein"
+            type="number"
+            step="0.1"
+            placeholder="0.0"
+            v-model="protein"
+          />
         </div>
 
         <div>
           <label for="salt">Salt</label>
-          <input id="salt" type="number" step="0.1" placeholder="0.0" v-model="salt" />
+          <input
+            id="salt"
+            type="number"
+            step="0.1"
+            placeholder="0.0"
+            v-model="salt"
+          />
         </div>
 
         <div>
           <label for="fiber">Fiber</label>
-          <input id="fiber" type="number" step="0.1" placeholder="0.0" v-model="fiber" />
+          <input
+            id="fiber"
+            type="number"
+            step="0.1"
+            placeholder="0.0"
+            v-model="fiber"
+          />
         </div>
       </div>
 
       <div class="productCategory">
         <div>
           <label for="fruit">Fruit</label>
-          <input id="fruit" value="Fruit" type="radio" v-model="selectedCategory" />
+          <input
+            id="fruit"
+            value="Fruit"
+            type="radio"
+            v-model="selectedCategory"
+          />
         </div>
 
         <div>
           <label for="vegetable">Vegetables</label>
-          <input id="vegetable" value="Vegetable" type="radio" v-model="selectedCategory"/>
+          <input
+            id="vegetable"
+            value="Vegetable"
+            type="radio"
+            v-model="selectedCategory"
+          />
         </div>
 
         <div>
           <label for="sweet">Sweets</label>
-          <input id="sweet" value="Sweets" type="radio" v-model="selectedCategory" />
+          <input
+            id="sweet"
+            value="Sweets"
+            type="radio"
+            v-model="selectedCategory"
+          />
         </div>
       </div>
 
-      <base-button mode="addProduct" type="flat">
+      <base-button mode="addProduct" type="flat" @click="newProduct">
         <span>
           <app-icon class="icon" icon="akar-icons:circle-plus" />
         </span>
@@ -80,8 +142,8 @@
 export default {
   data() {
     return {
+      img: "",
       productName: "Potato",
-      img: 'goto',
       gram: 100,
       kcal: 200,
       fat: 2.4,
@@ -89,16 +151,17 @@ export default {
       protein: 2.6,
       salt: 0.1,
       fiber: 0.3,
-      selectedCategory: ""
+      selectedCategory: "",
     };
   },
   methods: {
-    addProduct() {
+
+    newProduct() {
       this.$store.dispatch({
-        type: 'addNewProduct',
+        type: "addNewProduct",
         value: {
-          productName: this.productName,
           img: this.img,
+          name: this.productName,
           gram: this.gram,
           kcal: this.kcal,
           fat: this.fat,
@@ -106,8 +169,8 @@ export default {
           protein: this.protein,
           salt: this.salt,
           fiber: this.fiber,
-          selectedCategory: this.selectedCategory
-        }
+          selectedCategory: this.selectedCategory,
+        },
       });
     },
   },
