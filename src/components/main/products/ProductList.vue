@@ -41,7 +41,7 @@
       <product-item
         v-for="product in products"
         :key="product.id"
-        :id="product.id"
+        :id="product.name"
         :name="product.name"
         :gram="product.gram"
         :kcal="product.kcal"
@@ -63,37 +63,6 @@ export default {
     return {
       filtersVisibility: false,
       filters: ["Fruit", "Vegetables", "Sweets"],
-      products: [
-        {
-          id: 1,
-          name: "Potato",
-          gram: 100,
-          kcal: 1100,
-          img: "https://ocdn.eu/pulscms-transforms/1/GkCk9kpTURBXy9hMjZmNTc5NjZlNWU5YTNmYmU1MjJhNGI3YWEwNmZiMi5qcGeTlQMAHc0D6M0CMpMFzQMUzQG8kwmmYTgzYWYwBoGhMAU/czy-mozna-jesc-zielone-ziemniaki.webp",
-          nutritionalValues: [
-            {
-              name: "Fat",
-              value: 12.0,
-            },
-            {
-              name: "Carbs",
-              value: 19.0,
-            },
-            {
-              name: "Protein",
-              value: 12.0,
-            },
-            {
-              name: "Salt",
-              value: 2.0,
-            },
-            {
-              name: "Fiber",
-              value: 10.0,
-            },
-          ],
-        },
-      ],
     };
   },
   methods: {
@@ -108,11 +77,22 @@ export default {
       }
       if (userWidth >= 768) this.filtersVisibility = true;
     },
+    loadProducts(){
+      this.$store.dispatch('loadProducts');
+    }
+  },
+  computed: {
+    products(){
+      return this.$store.getters.allProducts;
+    }
   },
   mounted() {
     this.userWidth();
     window.addEventListener("resize", this.userWidth);
   },
+  created(){
+    this.loadProducts();
+  }
 };
 </script>
 

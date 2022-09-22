@@ -1,5 +1,11 @@
 export default {
-  addNewProduct(state, payload){
-    console.log(state, payload);
+  addNewProduct(state, data){
+    console.log(state, data);
+  },
+  loadProducts(state, data){
+    state.products = data;
+  },
+  clearProductList(state){
+    state.products = [];
   }
 }
