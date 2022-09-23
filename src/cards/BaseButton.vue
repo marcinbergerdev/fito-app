@@ -265,6 +265,13 @@ button {
   }
 }
 
+
+.deleteCard{
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+}
+
 .flat,
 .signInOutline {
   border-radius: 5rem;

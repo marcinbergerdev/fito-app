@@ -1,11 +1,9 @@
 export default {
-  addNewProduct(state, data){
-    console.log(state, data);
-  },
-  loadProducts(state, data){
-    state.products = data;
-  },
-  clearProductList(state){
-    state.products = [];
-  }
-}
+   addNewProduct() {},
+   loadProducts(state, data) {
+      state.products = Object.values(data);
+   },
+   clearProductList(state) {
+      state.products = {};
+   },
+};

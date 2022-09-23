@@ -1,7 +1,7 @@
 export default {
    async addNewProduct(context, data) {
       const userId = context.rootState.auth.userId;
-      const token = context.rootState.auth.token;
+      const token = context.rootState.auth.token;  0
 
       const newProduct = {
          img: data.value.img,
@@ -68,8 +68,27 @@ export default {
          const error = new Error(responseData.message || "Data Base Fails!");
          throw error;
       }
-
       context.commit("loadProducts", responseData);
+   },
+   async deleteProduct(context, id){
+      const userId = context.rootState.auth.userId;
+      console.log(userId);
+      console.log(id);
+
+      const response = await fetch(
+         `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${id}`,
+         {
+            method: 'DELETE',
+         }
+      );
+
+      const responseData = response.json();
+
+      if(!response.ok){
+         const error = new Error(responseData.message || "Sorry, you can't delete this data!. Try later");
+         throw error
+      }
+      console.log(response);
    },
    clearProductList(context) {
       context.commit("clearProductList");

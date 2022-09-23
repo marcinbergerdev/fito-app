@@ -39,8 +39,8 @@
 
     <ul class="productsList">
       <product-item
-        v-for="product in products"
-        :key="product.id"
+        v-for="(product,index) in products"
+        :key="index"
         :id="product.name"
         :name="product.name"
         :gram="product.gram"
@@ -238,7 +238,7 @@ export default {
   @media (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: center;
     flex-flow: wrap row;
     gap: 5rem 9rem;
     margin-top: 3rem;

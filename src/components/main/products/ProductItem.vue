@@ -1,5 +1,9 @@
 <template>
   <li class="productCard">
+    <base-button mode='deleteCard' @click="deleteProduct">
+      <app-icon class='delete' icon="ic:baseline-delete-forever" />
+    </base-button>
+
     <header class="productName">
       <h2>{{ name }}</h2>
     </header>
@@ -57,10 +61,23 @@ export default {
       required: true,
     },
   },
+  methods: {
+    deleteProduct(){
+      this.$store.dispatch('deleteProduct', this.id);
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
+
+.delete{
+  width: 3.5rem;
+  height: 3.5rem;
+  color: rgb(255, 44, 44);
+  background-color: rgba(0, 0, 0, 0.849);
+}
+
 .productCard {
   position: relative;
   margin-bottom: 2rem;
@@ -79,7 +96,7 @@ export default {
     height: 100%;
     opacity: 0.26;
     z-index: 0;
-    // background-image: url("https://ocdn.eu/pulscms-transforms/1/GkCk9kpTURBXy9hMjZmNTc5NjZlNWU5YTNmYmU1MjJhNGI3YWEwNmZiMi5qcGeTlQMAHc0D6M0CMpMFzQMUzQG8kwmmYTgzYWYwBoGhMAU/czy-mozna-jesc-zielone-ziemniaki.webp");
+    background-image: url("https://ocdn.eu/pulscms-transforms/1/GkCk9kpTURBXy9hMjZmNTc5NjZlNWU5YTNmYmU1MjJhNGI3YWEwNmZiMi5qcGeTlQMAHc0D6M0CMpMFzQMUzQG8kwmmYTgzYWYwBoGhMAU/czy-mozna-jesc-zielone-ziemniaki.webp");
     background-size: 100% 100%;
 
   }
