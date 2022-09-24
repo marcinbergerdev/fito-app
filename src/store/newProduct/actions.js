@@ -72,11 +72,12 @@ export default {
    },
    async deleteProduct(context, id){
       const userId = context.rootState.auth.userId;
+      const token = context.rootState.auth.token;
       console.log(userId);
       console.log(id);
 
       const response = await fetch(
-         `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${id}`,
+         `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${id}.json?auth=${token}`,
          {
             method: 'DELETE',
          }
@@ -88,7 +89,6 @@ export default {
          const error = new Error(responseData.message || "Sorry, you can't delete this data!. Try later");
          throw error
       }
-      console.log(response);
    },
    clearProductList(context) {
       context.commit("clearProductList");

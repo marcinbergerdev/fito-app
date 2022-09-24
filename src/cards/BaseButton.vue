@@ -239,7 +239,7 @@ button {
   font-size: 1.4rem;
   border: 1px solid var(--white);
 
-  //use global keyfremase
+  //use global keyframes
 
   @media (min-width: 768px) {
     padding: 0.5rem 1rem;
