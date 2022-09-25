@@ -1,7 +1,8 @@
 export default {
    async addNewProduct(context, data) {
       const userId = context.rootState.auth.userId;
-      const token = context.rootState.auth.token;  0
+      const token = context.rootState.auth.token;
+      let selectedProducts = context.state.products
 
       const newProduct = {
          img: data.value.img,
@@ -32,11 +33,12 @@ export default {
          ],
          selectedCategory: data.value.selectedCategory,
       };
+      selectedProducts.push(newProduct)
 
-      const API_LINK = `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${data.value.name}.json?auth=${token}`;
+      const API_LINK = `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}.json?auth=${token}`;
       const response = await fetch(API_LINK, {
          method: "PUT",
-         body: JSON.stringify(newProduct),
+         body: JSON.stringify(selectedProducts),
       });
 
       const responseData = await response.json();
@@ -47,9 +49,9 @@ export default {
          );
          throw error;
       }
-
-      context.commit("addNewProduct");
    },
+
+
 
    async loadProducts(context) {
       const userId = context.rootState.auth.userId;
@@ -68,28 +70,37 @@ export default {
          const error = new Error(responseData.message || "Data Base Fails!");
          throw error;
       }
+
+      if(!responseData) return
       context.commit("loadProducts", responseData);
    },
+
+
+
    async deleteProduct(context, id){
       const userId = context.rootState.auth.userId;
       const token = context.rootState.auth.token;
-      console.log(userId);
-      console.log(id);
+      const products = context.state.products;
+      products.splice(id, 1);
 
-      const response = await fetch(
-         `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${id}.json?auth=${token}`,
-         {
-            method: 'DELETE',
-         }
-      );
+      const API_LINK = `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}.json?auth=${token}`;
+      const response = await fetch(API_LINK, {
+         method: "PUT",
+         body: JSON.stringify(products),
+      });
 
-      const responseData = response.json();
+      const responseData = await response.json();
 
-      if(!response.ok){
-         const error = new Error(responseData.message || "Sorry, you can't delete this data!. Try later");
-         throw error
+      if (!response.ok) {
+         const error = new Error(
+            responseData.message || "Adding new product not correct!"
+         );
+         throw error;
       }
+      context.commit("loadProducts", products);
    },
+
+
    clearProductList(context) {
       context.commit("clearProductList");
    },

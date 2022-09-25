@@ -38,10 +38,14 @@
     </section>
 
     <ul class="productsList">
+      <li v-if="isEmpty">
+        <p class='emptyList'>your product lists in empty...</p>
+      </li>
+
       <product-item
         v-for="(product,index) in products"
         :key="index"
-        :id="product.name"
+        :id="index"
         :name="product.name"
         :gram="product.gram"
         :kcal="product.kcal"
@@ -84,7 +88,10 @@ export default {
   computed: {
     products(){
       return this.$store.getters.allProducts;
-    }
+    },
+    isEmpty(){
+      return this.$store.getters.allProducts.length <= 0;
+    },
   },
   mounted() {
     this.userWidth();
@@ -223,6 +230,11 @@ export default {
   }
 }
 
+.emptyList{
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
 .productsList {
   display: flex;
   flex-direction: column;
@@ -234,6 +246,9 @@ export default {
   overflow: auto;
   text-align: center;
   box-shadow: inset 0 -2px 30px rgba(0, 0, 0, 0.4);
+  li{
+    list-style: none;
+  }
 
   @media (min-width: 768px) {
     flex-direction: row;

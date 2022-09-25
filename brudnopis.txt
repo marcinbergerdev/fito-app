@@ -7,3 +7,26 @@
 
 
     // const dates = Object.values(responseData);
+
+
+
+      // async deleteProduct(context, id){
+   //    const userId = context.rootState.auth.userId;
+   //    const token = context.rootState.auth.token;
+   //    console.log(userId);
+   //    console.log(id);
+
+   //    const response = await fetch(
+   //       `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${id}.json?auth=${token}`,
+   //       {
+   //          method: 'DELETE',
+   //       }
+   //    );
+
+   //    const responseData = response.json();
+
+   //    if(!response.ok){
+   //       const error = new Error(responseData.message || "Sorry, you can't delete this data!. Try later");
+   //       throw error
+   //    }
+   // },
