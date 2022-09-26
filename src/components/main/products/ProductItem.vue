@@ -27,7 +27,7 @@
         :key="id"
       >
         <span> {{ value.name }} </span>
-        <span> {{ value.value.toFixed(1) }} g </span>
+        <span> {{ value.value.toFixed(1) }} g</span>
       </li>
     </ul>
   </li>
@@ -105,7 +105,7 @@ export default {
     height: 100%;
     opacity: 0.26;
     z-index: 0;
-    background-image: url("https://ocdn.eu/pulscms-transforms/1/GkCk9kpTURBXy9hMjZmNTc5NjZlNWU5YTNmYmU1MjJhNGI3YWEwNmZiMi5qcGeTlQMAHc0D6M0CMpMFzQMUzQG8kwmmYTgzYWYwBoGhMAU/czy-mozna-jesc-zielone-ziemniaki.webp");
+    // background-image: url("https://ocdn.eu/pulscms-transforms/1/GkCk9kpTURBXy9hMjZmNTc5NjZlNWU5YTNmYmU1MjJhNGI3YWEwNmZiMi5qcGeTlQMAHc0D6M0CMpMFzQMUzQG8kwmmYTgzYWYwBoGhMAU/czy-mozna-jesc-zielone-ziemniaki.webp");
     background-size: 100% 100%;
   }
 }

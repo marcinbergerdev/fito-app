@@ -2,7 +2,7 @@
   <base-box size="smallPadding">
     <base-modal
       :show="productAdded"
-      title="New Product"
+      title="Success!"
       confirm="Ok"
       @close="closeModal"
     >
@@ -107,31 +107,11 @@
       </div>
 
       <div class="productCategory">
-        <div>
-          <label for="fruit">Fruit</label>
+        <div v-for="(category, index) in categories" :key="index">
+          <label :for="category.id">{{ category.name }}</label>
           <input
-            id="fruit"
-            value="Fruit"
-            type="radio"
-            v-model="selectedCategory"
-          />
-        </div>
-
-        <div>
-          <label for="vegetable">Vegetables</label>
-          <input
-            id="vegetable"
-            value="Vegetable"
-            type="radio"
-            v-model="selectedCategory"
-          />
-        </div>
-
-        <div>
-          <label for="sweet">Sweets</label>
-          <input
-            id="sweet"
-            value="Sweets"
+            :id="category.id"
+            :value="category.name"
             type="radio"
             v-model="selectedCategory"
           />
@@ -165,6 +145,24 @@ export default {
       selectedCategory: "",
       productAdded: false,
       isInputEmpty: false,
+      categories: [
+        {
+          id: "fruit",
+          name: 'Fruit'
+        },
+        {
+          id: "sweet",
+          name: 'Sweet'
+        },
+        {
+          id: "vegetable",
+          name: 'Vegetable'
+        },
+        {
+          id: "spices",
+          name: 'Spices'
+        }
+      ]
     };
   },
   methods: {

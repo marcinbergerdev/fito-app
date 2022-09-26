@@ -2,6 +2,7 @@ export default {
    async addNewProduct(context, data) {
       const userId = context.rootState.auth.userId;
       const token = context.rootState.auth.token;
+      console.log(context.state.products);
       let selectedProducts = context.state.products
 
       const newProduct = {
