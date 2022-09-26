@@ -12,7 +12,6 @@
     :show="isLoading"
     title="Loading..."
     confirm="Okay"
-    @close="closeModal"
   >
     <base-spinner></base-spinner>
   </base-modal>

@@ -55,10 +55,9 @@ export default {
 
    async loadProducts(context) {
       const userId = context.rootState.auth.userId;
-      const token = context.rootState.auth.token;
 
       const response = await fetch(
-         `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}.json?auth=${token}`,
+         `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}.json`,
          {
             method: "GET",
          }

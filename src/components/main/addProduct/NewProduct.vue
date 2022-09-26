@@ -1,5 +1,14 @@
 <template>
   <base-box size="smallPadding">
+    <base-modal
+      :show="productAdded"
+      title="New Product"
+      confirm="Ok"
+      @close="closeModal"
+    >
+      <p>Product Added!</p>
+    </base-modal>
+
     <base-button mode="iconBorder">
       <app-icon class="addPhotoIcon" icon="ic:outline-add-photo-alternate" />
     </base-button>
@@ -9,10 +18,12 @@
         <label for="name">Product Name</label>
         <input
           id="name"
+          :class="emptyInputMessage"
           type="text"
           placeholder="Product name..."
           v-model="productName"
         />
+        <p v-if="isInputEmpty">you need product name</p>
       </div>
 
       <div class="productScale">
@@ -143,20 +154,27 @@ export default {
   data() {
     return {
       img: "",
-      productName: "Potato",
-      gram: 100,
-      kcal: 200,
-      fat: 2.4,
-      carbs: 34,
-      protein: 2.6,
-      salt: 0.1,
-      fiber: 0.3,
+      productName: "",
+      gram: 0,
+      kcal: 0,
+      fat: 0,
+      carbs: 0,
+      protein: 0,
+      salt: 0,
+      fiber: 0,
       selectedCategory: "",
+      productAdded: false,
+      isInputEmpty: false,
     };
   },
   methods: {
-
     newProduct() {
+      if (this.productName === "") {
+        this.isInputEmpty = true;
+        return;
+      }
+
+      this.productAdded = true;
       this.$store.dispatch({
         type: "addNewProduct",
         value: {
@@ -172,6 +190,30 @@ export default {
           selectedCategory: this.selectedCategory,
         },
       });
+    },
+    closeModal() {
+      (this.img = ""),
+        (this.productName = ""),
+        (this.gram = 0),
+        (this.kcal = 0),
+        (this.fat = 0),
+        (this.carbs = 0),
+        (this.protein = 0),
+        (this.salt = 0),
+        (this.fiber = 0),
+        (this.selectedCategory = ""),
+        (this.productAdded = false),
+        (this.isInputEmpty = false);
+    },
+  },
+  computed: {
+    emptyInputMessage() {
+      return { emptyInput: this.isInputEmpty };
+    },
+  },
+  watch: {
+    productName(inputValue) {
+      if (inputValue) this.isInputEmpty = false;
     },
   },
 };
@@ -233,15 +275,30 @@ form {
 
 .productName {
   flex-direction: column;
-  gap: 1.5rem 0;
-  margin: 2rem 0;
+  margin: 2.5rem 0;
 
   label {
+    margin-bottom: 1rem;
     font-size: 1.7rem;
   }
 
   input {
     width: 100%;
+  }
+
+  p {
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    align-self: flex-start;
+    color: rgb(226, 10, 10);
+  }
+}
+.emptyInput {
+  border: 1px solid rgb(226, 10, 10);
+
+  &::placeholder {
+    font-weight: 200;
+    color: rgb(226, 10, 10);
   }
 }
 
