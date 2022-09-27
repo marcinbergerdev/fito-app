@@ -57,13 +57,19 @@ export default {
     async formSubmit(value) {
       try{
         await this.$store.dispatch('login', value);
+
+        const redirectUrl = '/' + (this.$route.query.redirect || 'home')
+        console.log(redirectUrl);
+
+        this.$router.replace(redirectUrl);
+
       }catch(error){
         this.error = error;
       }
 
 
 
-      this.$router.replace('/home');
+
 
     },
      validateEmail(value) {

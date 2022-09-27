@@ -13,7 +13,7 @@
           doloribus rem debitis?
         </p>
 
-        <base-button link to="/home/product" mode="homePageButton" type="outline">
+        <base-button link :to="isLoggedIn" mode="homePageButton" type="outline">
           Add Product
         </base-button>
       </div>
@@ -43,7 +43,15 @@
 
 
 <script>
-export default {};
+export default {
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated
+        ? "/home/product"
+        : "/login?redirect=home/product";
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
