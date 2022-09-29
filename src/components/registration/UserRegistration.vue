@@ -127,7 +127,7 @@ export default {
       return true;
     },
     closeModal() {
-      this.$router.replace("/login");
+      this.$router.replace("/home");
       this.modalActivity = false;
     },
   },

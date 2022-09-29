@@ -46,9 +46,7 @@
 export default {
   computed: {
     isLoggedIn() {
-      return this.$store.getters.isAuthenticated
-        ? "/home/product"
-        : "/login?redirect=home/product";
+      return this.$store.getters.isAuthenticated ? "/home/product" : "/login?redirect=home/product";
     },
   },
 };

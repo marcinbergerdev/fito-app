@@ -21,6 +21,7 @@
         </div>
 
         <base-button type="flat">Log in</base-button>
+        <!-- <base-button link :to="this.$route.query.redirect ? '/home/product' : '/home'" type="flat">Log in</base-button> -->
       </Form>
     </base-registration>
 
@@ -57,11 +58,9 @@ export default {
     async formSubmit(value) {
       try{
         await this.$store.dispatch('login', value);
-
         const redirectUrl = '/' + (this.$route.query.redirect || 'home')
-        console.log(redirectUrl);
 
-        this.$router.replace(redirectUrl);
+        this.$router.push(redirectUrl);
 
       }catch(error){
         this.error = error;
