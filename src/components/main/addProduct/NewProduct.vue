@@ -9,9 +9,16 @@
       <p>Product Added!</p>
     </base-modal>
 
-    <base-button mode="iconBorder">
+    <base-button mode="iconBorder" @click="selectImage">
       <app-icon class="addPhotoIcon" icon="ic:outline-add-photo-alternate" />
     </base-button>
+
+    <transition name="selectImage" mode="out-in">
+      <new-image
+        v-if="setImageActivity"
+        @closeSelection="closeSelection"
+      ></new-image>
+    </transition>
 
     <form @submit.prevent="addProduct">
       <div class="productName">
@@ -130,9 +137,15 @@
 
 
 <script>
+import NewImage from "./NewImage.vue";
+
 export default {
+  components: {
+    NewImage,
+  },
   data() {
     return {
+      setImageActivity: false,
       img: "",
       productName: "",
       gram: 0,
@@ -148,21 +161,21 @@ export default {
       categories: [
         {
           id: "fruit",
-          name: 'Fruit'
+          name: "Fruit",
         },
         {
           id: "sweet",
-          name: 'Sweet'
+          name: "Sweet",
         },
         {
           id: "vegetable",
-          name: 'Vegetable'
+          name: "Vegetable",
         },
         {
           id: "spices",
-          name: 'Spices'
-        }
-      ]
+          name: "Spices",
+        },
+      ],
     };
   },
   methods: {
@@ -203,6 +216,12 @@ export default {
         (this.productAdded = false),
         (this.isInputEmpty = false);
     },
+    selectImage() {
+      this.setImageActivity = true;
+    },
+    closeSelection() {
+      this.setImageActivity = false;
+    },
   },
   computed: {
     emptyInputMessage() {
@@ -218,6 +237,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@keyframes selectImgAnimation {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: translateY(1);
+  }
+}
+
+.selectImage-enter-active {
+  animation: 0.4s selectImgAnimation ease-out;
+}
+
+.selectImage-leave-active {
+  animation: 0.4s selectImgAnimation alternate-reverse ease-in;
+}
+
 .addPhotoIcon {
   position: relative;
   z-index: 1;
@@ -293,11 +329,6 @@ form {
 }
 .emptyInput {
   border: 1px solid rgb(226, 10, 10);
-
-  &::placeholder {
-    font-weight: 200;
-    color: rgb(226, 10, 10);
-  }
 }
 
 .productScale,

@@ -142,6 +142,10 @@ button {
   color: var(--white);
   transition: 0.1s ease-in-out;
 
+  &.router-link-exact-active {
+    color: var(--primary-orange);
+  }
+
   &:hover {
     color: var(--primary-orange);
   }

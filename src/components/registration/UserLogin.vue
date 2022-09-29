@@ -12,11 +12,21 @@
         <h2 class="formBox__header">Log in</h2>
 
         <div class="registerInputs">
-          <Field name="email" type="email" :rules="validateEmail" placeholder="user name" />
-          <ErrorMessage class='errorMessage' name="email" />
+          <Field
+            name="email"
+            type="email"
+            :rules="validateEmail"
+            placeholder="user name"
+          />
+          <ErrorMessage class="errorMessage" name="email" />
 
-          <Field name="password" type="password" :rules="validateLogin" placeholder="password" />
-          <ErrorMessage class='errorMessage' name="password" />
+          <Field
+            name="password"
+            type="password"
+            :rules="validateLogin"
+            placeholder="password"
+          />
+          <ErrorMessage class="errorMessage" name="password" />
           <p></p>
         </div>
 
@@ -41,7 +51,7 @@
 
 
 <script>
-import { Form, Field, ErrorMessage, } from "vee-validate";
+import { Form, Field, ErrorMessage } from "vee-validate";
 
 export default {
   components: {
@@ -49,29 +59,22 @@ export default {
     Field,
     ErrorMessage,
   },
-  data(){
+  data() {
     return {
-      error: null
-    }
+      error: null,
+    };
   },
   methods: {
     async formSubmit(value) {
-      try{
-        await this.$store.dispatch('login', value);
-        const redirectUrl = '/' + (this.$route.query.redirect || 'home')
-
+      try {
+        await this.$store.dispatch("login", value);
+        const redirectUrl = "/" + (this.$route.query.redirect || "home");
         this.$router.push(redirectUrl);
-
-      }catch(error){
+      } catch (error) {
         this.error = error;
       }
-
-
-
-
-
     },
-     validateEmail(value) {
+    validateEmail(value) {
       // if the field is empty
       if (!value) {
         return "This field is required";
