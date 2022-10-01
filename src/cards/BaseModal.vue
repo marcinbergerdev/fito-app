@@ -56,31 +56,21 @@ export default {
 
 
 <style lang="scss" scoped>
-// @keyframes modalScale {
-//   0% {
-//     transform: scale(0.5);
-//   }
-//   100% {
-//     transform: scale(1);
-//   }
-// }
-
-.dialog-enter-from,
-.dialog-leave-to {
-  transform: scale(0.8);
+@keyframes modalScale {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .dialog-enter-active {
-  transition: all 0.3s ease-out;
+  animation: 0.3s modalScale ease-out;
 }
 
 .dialog-leave-active {
-  transition: all 0.1s ease-in;
-}
-
-.dialog-enter-to,
-.dialog-leave-from {
-  transform: scale(1);
+  animation: 0.3s modalScale alternate-reverse ease-in;
 }
 
 .backDrop {

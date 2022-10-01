@@ -269,6 +269,12 @@ button {
   }
 }
 
+.addImg{
+  width: 12rem;
+  text-align: center;
+  align-self: center;
+}
+
 
 .deleteCard{
   position: absolute;

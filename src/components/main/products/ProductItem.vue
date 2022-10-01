@@ -1,5 +1,5 @@
 <template>
-  <li class="productCard">
+  <li class="productCard" v-bind:style='{ backgroundImage: "url(" + productImg + ")", }'>
     <base-button mode="deleteCard" @click="deleteProduct">
       <app-icon class="delete" icon="ic:baseline-delete-forever" />
     </base-button>
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+
 export default {
   props: {
     id: {

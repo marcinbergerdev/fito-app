@@ -9,14 +9,16 @@
       <p>Product Added!</p>
     </base-modal>
 
-    <base-button mode="iconBorder" @click="selectImage">
+    <base-button mode="iconBorder" @click="selectImg">
       <app-icon class="addPhotoIcon" icon="ic:outline-add-photo-alternate" />
     </base-button>
 
     <transition name="selectImage" mode="out-in">
       <new-image
-        v-if="setImageActivity"
+        v-if="setImgActivity"
+        @setImgSrc="setImgSrc"
         @closeSelection="closeSelection"
+        @closeAll="closeSelection"
       ></new-image>
     </transition>
 
@@ -145,7 +147,7 @@ export default {
   },
   data() {
     return {
-      setImageActivity: false,
+      setImgActivity: false,
       img: "",
       productName: "",
       gram: 0,
@@ -216,11 +218,22 @@ export default {
         (this.productAdded = false),
         (this.isInputEmpty = false);
     },
-    selectImage() {
-      this.setImageActivity = true;
+    selectImg() {
+      this.setImgActivity = true;
+    },
+    setImgSrc(src) {
+      const text = src.text;
+      const file = src.file;
+      console.log(src);
+
+      if (text) {
+        this.img = text;
+      } else {
+        this.img = file;
+      }
     },
     closeSelection() {
-      this.setImageActivity = false;
+      this.setImgActivity = false;
     },
   },
   computed: {
@@ -242,7 +255,7 @@ export default {
     transform: scale(0.9);
   }
   to {
-    transform: translateY(1);
+    transform: scale(1);
   }
 }
 

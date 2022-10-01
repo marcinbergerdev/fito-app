@@ -66,7 +66,7 @@ export default {
   data() {
     return {
       filtersVisibility: false,
-      filters: ["Fruit", "Vegetables", "Sweets"],
+      filters: ["Fruit", "Vegetables", "Sweets", "Spices"],
     };
   },
   methods: {
