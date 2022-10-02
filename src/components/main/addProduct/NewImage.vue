@@ -18,7 +18,7 @@
     <p class="errorSrc" v-if="errorActivity">please complete!</p>
 
     <div class="loadLink">
-      <label for="link">Image Url</label>
+      <label for="link">Image Link</label>
       <input type="text" name="link" id="link" v-model="srcImg.text" />
     </div>
     <base-button mode="addImg" type="flat" @click="confirmImgSrc"

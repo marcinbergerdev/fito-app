@@ -22,17 +22,19 @@
       ></new-image>
     </transition>
 
-    <form @submit.prevent="addProduct">
+    <Form @submit="formAddProduct">
       <div class="productName">
         <label for="name">Product Name</label>
-        <input
-          id="name"
-          :class="emptyInputMessage"
+
+        <Field
+          :class="isEmptyError"
+          name="productName"
           type="text"
-          placeholder="Product name..."
           v-model="productName"
+          :rules="validateName"
+          placeholder="Product name..."
         />
-        <p v-if="isInputEmpty">you need product name</p>
+        <ErrorMessage class="error" name="productName" />
       </div>
 
       <div class="productScale">
@@ -118,32 +120,40 @@
       <div class="productCategory">
         <div v-for="(category, index) in categories" :key="index">
           <label :for="category.id">{{ category.name }}</label>
-          <input
+
+          <Field
             :id="category.id"
-            :value="category.name"
+            name="category"
             type="radio"
             v-model="selectedCategory"
+            :value="category.name"
+            :rules="validateCategory"
           />
         </div>
       </div>
+      <ErrorMessage class="category error" name="category" />
 
-      <base-button mode="addProduct" type="flat" @click="newProduct">
+      <base-button mode="addProduct" type="flat">
         <span>
           <app-icon class="icon" icon="akar-icons:circle-plus" />
         </span>
         Add product
       </base-button>
-    </form>
+    </Form>
   </base-box>
 </template>
 
 
 <script>
+import { Form, Field, ErrorMessage } from "vee-validate";
 import NewImage from "./NewImage.vue";
 
 export default {
   components: {
     NewImage,
+    Form,
+    Field,
+    ErrorMessage,
   },
   data() {
     return {
@@ -159,7 +169,7 @@ export default {
       fiber: 0,
       selectedCategory: "",
       productAdded: false,
-      isInputEmpty: false,
+      isInputNameEmpty: false,
       categories: [
         {
           id: "fruit",
@@ -181,12 +191,7 @@ export default {
     };
   },
   methods: {
-    newProduct() {
-      if (this.productName === "") {
-        this.isInputEmpty = true;
-        return;
-      }
-
+    formAddProduct() {
       this.productAdded = true;
       this.$store.dispatch({
         type: "addNewProduct",
@@ -203,6 +208,21 @@ export default {
           selectedCategory: this.selectedCategory,
         },
       });
+    },
+    validateName(value) {
+      if (!value) {
+        this.isInputNameEmpty = true;
+        return "you need product name!";
+      }
+
+      this.isInputNameEmpty = false;
+      return true;
+    },
+    validateCategory(value) {
+      if (!value) {
+        return "select category!";
+      }
+      return true;
     },
     closeModal() {
       (this.img = ""),
@@ -236,13 +256,8 @@ export default {
     },
   },
   computed: {
-    emptyInputMessage() {
-      return { emptyInput: this.isInputEmpty };
-    },
-  },
-  watch: {
-    productName(inputValue) {
-      if (inputValue) this.isInputEmpty = false;
+    isEmptyError() {
+      return { emptyInput: this.isInputNameEmpty };
     },
   },
 };
@@ -339,9 +354,6 @@ form {
     color: rgb(226, 10, 10);
   }
 }
-.emptyInput {
-  border: 1px solid rgb(226, 10, 10);
-}
 
 .productScale,
 .productIngredients {
@@ -365,5 +377,17 @@ form {
 .productCategory {
   justify-content: space-between;
   width: #{"min(100%, 20rem)"};
+}
+
+.category {
+  margin: 1rem 0;
+}
+.category,
+.error {
+  font-size: 1.3rem;
+  color: rgb(226, 10, 10);
+}
+.emptyInput {
+  border: 1px solid rgb(226, 10, 10);
 }
 </style>

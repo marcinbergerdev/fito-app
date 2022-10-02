@@ -34,7 +34,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     id: {
@@ -68,10 +67,11 @@ export default {
     },
   },
   computed: {
-    setImgBackground(){
-      return { '--bgImage': `url('${this.productImg}')`}
-    }
-  }
+    setImgBackground() {
+      if (!this.productImg) return;
+      return { "--bgImage": `url('${this.productImg}')` };
+    },
+  },
 };
 </script>
 
