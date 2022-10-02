@@ -270,6 +270,7 @@ button {
 }
 
 .addImg{
+  margin-top: 2rem;
   width: 12rem;
   text-align: center;
   align-self: center;

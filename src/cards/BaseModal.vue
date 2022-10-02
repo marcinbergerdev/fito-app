@@ -119,6 +119,7 @@ dialog {
   &__text {
     font-size: 1.6rem;
     font-weight: 200;
+    color: #46cd6f;
   }
 }
 

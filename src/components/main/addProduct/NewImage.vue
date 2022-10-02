@@ -21,17 +21,6 @@
       <label for="link">Image Url</label>
       <input type="text" name="link" id="link" v-model="srcImg.text" />
     </div>
-
-    <div class="loadFromPc">
-      <label for="upload">Upload Image</label>
-      <input
-        type="file"
-        name="upload"
-        id="upload"
-        accept="image/png, image/jpeg"
-        @change="setFile"
-      />
-    </div>
     <base-button mode="addImg" type="flat" @click="confirmImgSrc"
       >Confirm</base-button
     >
@@ -41,7 +30,7 @@
 
 <script>
 export default {
-  emits: ["setImgSrc", "closeAll"],
+  emits: ["setImgSrc", "closeAll", "closeSelection"],
   data() {
     return {
       srcImg: {
@@ -53,11 +42,6 @@ export default {
     };
   },
   methods: {
-    setFile(e) {
-      const imgSrc = e.target.files[0].name;
-      this.srcImg.file = imgSrc;
-    },
-
     confirmImgSrc() {
       if (this.srcImg.text || this.srcImg.file) {
         this.errorActivity = false;
@@ -92,7 +76,7 @@ export default {
   top: 4%;
   display: flex;
   flex-direction: column;
-  gap: 3rem 0;
+  gap: 1rem 0;
   width: 110%;
   padding: 6.5rem 2.5rem 3rem 2.5rem;
   background-color: var(--dark);
@@ -134,8 +118,7 @@ export default {
   }
 }
 
-.loadLink,
-.loadFromPc {
+.loadLink {
   display: flex;
   flex-direction: column;
   gap: 1rem 0;
@@ -153,17 +136,6 @@ export default {
     font-size: 1.4rem;
     background-color: #ffefe6ab;
     border: 0;
-  }
-}
-
-.loadFromPc {
-  label {
-    font-size: 1.6rem;
-    color: var(--primary-orange);
-  }
-
-  input {
-    font-size: 1.4rem;
   }
 }
 
