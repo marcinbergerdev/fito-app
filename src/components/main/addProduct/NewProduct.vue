@@ -224,7 +224,6 @@ export default {
     setImgSrc(src) {
       const text = src.text;
       const file = src.file;
-      console.log(src);
 
       if (text) {
         this.img = text;

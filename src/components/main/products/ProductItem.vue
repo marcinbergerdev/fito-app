@@ -1,5 +1,5 @@
 <template>
-  <li class="productCard" v-bind:style='{ backgroundImage: "url(" + productImg + ")", }'>
+  <li class="productCard" :style="setImgBackground">
     <base-button mode="deleteCard" @click="deleteProduct">
       <app-icon class="delete" icon="ic:baseline-delete-forever" />
     </base-button>
@@ -34,7 +34,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     id: {
@@ -67,6 +66,11 @@ export default {
       this.$store.dispatch("deleteProduct", this.id);
     },
   },
+  computed: {
+    setImgBackground(){
+      return { '--bgImage': `url('${this.productImg}')`}
+    }
+  }
 };
 </script>
 
@@ -106,7 +110,7 @@ export default {
     height: 100%;
     opacity: 0.26;
     z-index: 0;
-    // background-image: url("https://ocdn.eu/pulscms-transforms/1/GkCk9kpTURBXy9hMjZmNTc5NjZlNWU5YTNmYmU1MjJhNGI3YWEwNmZiMi5qcGeTlQMAHc0D6M0CMpMFzQMUzQG8kwmmYTgzYWYwBoGhMAU/czy-mozna-jesc-zielone-ziemniaki.webp");
+    background-image: var(--bgImage);
     background-size: 100% 100%;
   }
 }
