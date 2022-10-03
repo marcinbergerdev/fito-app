@@ -34,7 +34,7 @@
           :rules="validateName"
           placeholder="Product name..."
         />
-        <ErrorMessage class="error" name="productName" />
+        <ErrorMessage class="errorMessageValidation" name="productName" />
       </div>
 
       <div class="productScale">
@@ -131,7 +131,7 @@
           />
         </div>
       </div>
-      <ErrorMessage class="category error" name="category" />
+      <ErrorMessage class="error errorMessageValidation" name="category" />
 
       <base-button mode="addProduct" type="flat">
         <span>
@@ -379,14 +379,10 @@ form {
   width: #{"min(100%, 20rem)"};
 }
 
-.category {
+.error {
   margin: 1rem 0;
 }
-.category,
-.error {
-  font-size: 1.3rem;
-  color: rgb(226, 10, 10);
-}
+
 .emptyInput {
   border: 1px solid rgb(226, 10, 10);
 }

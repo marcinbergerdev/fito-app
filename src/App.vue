@@ -123,8 +123,13 @@ export default {
   }
 }
 
-.errorMessage{
+.errorMessageRegistration{
   font-size: 1.3rem;
   color: var(--primary-orange);;
+}
+
+.errorMessageValidation{
+  font-size: 1.4rem;
+  color: rgb(226, 10, 10);
 }
 </style>

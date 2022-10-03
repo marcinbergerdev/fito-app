@@ -15,7 +15,7 @@
       </dialog>
     </teleport>
 
-    <p class="errorSrc" v-if="errorActivity">please complete!</p>
+    <p class="error errorMessageValidation" v-if="errorActivity">please complete!</p>
 
     <div class="loadLink">
       <label for="link">Image Link</label>
@@ -139,9 +139,7 @@ export default {
   }
 }
 
-.errorSrc {
+.error {
   text-align: center;
-  color: rgb(252, 47, 47);
-  font-size: 1.4rem;
 }
 </style>

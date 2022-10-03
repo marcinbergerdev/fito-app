@@ -35,7 +35,7 @@
             :rules="validateEmail"
             placeholder="user name"
           />
-          <ErrorMessage class="errorMessage" name="email" />
+          <ErrorMessage class="errorMessageRegistration" name="email" />
 
           <Field
             name="password"
@@ -44,7 +44,7 @@
             v-model="inputPassword"
             placeholder="password"
           />
-          <ErrorMessage class="errorMessage" name="password" />
+          <ErrorMessage class="errorMessageRegistration" name="password" />
 
           <Field
             name="confirmPassword"
@@ -52,7 +52,7 @@
             :rules="[validateRegistration, samePassword]"
             placeholder="confirm password"
           />
-          <ErrorMessage class="errorMessage" name="confirmPassword" />
+          <ErrorMessage class="errorMessageRegistration" name="confirmPassword" />
         </div>
 
         <base-button mode="flat">Register</base-button>

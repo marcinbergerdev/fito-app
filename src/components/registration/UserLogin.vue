@@ -18,7 +18,7 @@
             :rules="validateEmail"
             placeholder="user name"
           />
-          <ErrorMessage class="errorMessage" name="email" />
+          <ErrorMessage class="errorMessageRegistration" name="email" />
 
           <Field
             name="password"
@@ -26,12 +26,11 @@
             :rules="validateLogin"
             placeholder="password"
           />
-          <ErrorMessage class="errorMessage" name="password" />
+          <ErrorMessage class="errorMessageRegistration" name="password" />
           <p></p>
         </div>
 
         <base-button type="flat">Log in</base-button>
-        <!-- <base-button link :to="this.$route.query.redirect ? '/home/product' : '/home'" type="flat">Log in</base-button> -->
       </Form>
     </base-registration>
 

@@ -4,14 +4,14 @@
       <h2 class="resultHeader__text">BMI Result</h2>
     </header>
 
-    <div class="resultBox">
-      <span class="resultBox__number">29.32</span>
-      <p class="resultBox__text">Your BMI indicates: overweight</p>
+    <div class="resultBox" :style="{color: rangeData.color}">
+      <span class="resultBox__number"> {{ resultBmi }}</span>
+      <p class="resultBox__text"> {{ rangeData.text }}</p>
     </div>
 
     <ul class="resultList">
       <li class="resultList__ranges" v-for="(range, id) in ranges" :key="id">
-        <p>{{ range }}</p>
+        <p>{{ range.text }}</p>
       </li>
     </ul>
 
@@ -23,20 +23,17 @@
 
 <script>
 export default {
-  data(){
-    return{
-       ranges: [
-        "BMI Value ranges:",
-        "16 - 16.99 - emaciation",
-        "17 - 18.49 - underweight",
-        "18.5 - 24.99 - normal value",
-        "25 - 29.99 - overweight",
-        "30 - 34.99 - 1st degree of obesity",
-        "35 - 39.99 - grade II obesity",
-        "over 40 - extreme obesity",
-      ]
-    }
-  },
+  computed: {
+    resultBmi(){
+      return this.$store.getters.resultBmi;
+    },
+    ranges(){
+      return this.$store.getters.ranges;
+    },
+    rangeData(){
+      return this.$store.getters.rangeData;
+    },
+  }
 };
 </script>
 
@@ -51,10 +48,6 @@ export default {
 .resultBox {
   margin: 2rem 0;
 
-  &__number,
-  &__text {
-    color: #bf891b;
-  }
   &__number {
     font-size: 5rem;
   }

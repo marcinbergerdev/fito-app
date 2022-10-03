@@ -15,12 +15,24 @@
         <label for="gender">Gender:</label>
 
         <div>
-          <input id="male" type="radio" name="gender" />
+          <input
+            id="male"
+            type="radio"
+            value="male"
+            name="gender"
+            v-model="gender"
+          />
           <label for="male">Male</label>
         </div>
 
         <div>
-          <input id="female" type="radio" name="gender" />
+          <input
+            id="female"
+            type="radio"
+            value="female"
+            name="gender"
+            v-model="gender"
+          />
           <label for="female">Female</label>
         </div>
       </div>
@@ -28,16 +40,20 @@
       <div class="setData">
         <div>
           <label for="weight">Weight:</label>
-          <input type="number" />
+          <input type="number" step="0.1" v-model="kg" />
           <span>kg</span>
         </div>
 
         <div>
           <label for="height">Height:</label>
-          <input type="number" />
+          <input type="number" step="0.1" v-model="height" />
           <span>cm</span>
         </div>
       </div>
+
+      <p class="errorMessageValidation" v-if="errorMessage">
+        complete all fields!
+      </p>
 
       <base-button mode="bmiButton" type="flat">
         <span>
@@ -51,8 +67,30 @@
 
 <script>
 export default {
+  data() {
+    return {
+      gender: "",
+      kg: 95,
+      height: 181,
+      errorMessage: false,
+    };
+  },
   methods: {
     calcBmi() {
+      if (!this.gender || !this.kg || !this.height) {
+        this.errorMessage = true;
+        return;
+      }
+      this.errorMessage = false;
+
+      this.$store.dispatch({
+        type: "calculateYourBmi",
+        data: {
+          kg: this.kg,
+          height: this.height,
+        },
+      });
+      this.$store.dispatch('showRange');
       this.$router.push("/home/result");
     },
   },
