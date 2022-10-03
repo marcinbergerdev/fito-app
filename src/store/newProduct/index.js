@@ -6,7 +6,9 @@ import actions from "./actions";
 export default {
   state() {
     return{
-      products: []
+      products: [],
+      newProductList: []
+
     }
   },
   getters,

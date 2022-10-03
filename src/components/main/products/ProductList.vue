@@ -11,7 +11,7 @@
           Add product
         </base-button>
 
-        <input type="text" placeholder="Search..." />
+        <input type="text" placeholder="Search..." v-model="searchProduct" />
       </div>
 
       <div class="filterSection">
@@ -27,11 +27,18 @@
         <ul class="filterList" v-if="filtersVisibility">
           <li
             class="filterList__option"
-            v-for="(filter, id) in filters"
-            :key="id"
+            v-for="filter in filters"
+            :key="filter.id"
           >
-            <input type="checkbox" />
-            <label for="">{{ filter }}</label>
+            <input
+              type="radio"
+              :id="filter.id"
+              name="categories"
+              :value="filter.id"
+              @change="selectCategory"
+              :checked="filter.id === 'all'"
+            />
+            <label :for="filter.id">{{ filter.name }}</label>
           </li>
         </ul>
       </div>
@@ -39,11 +46,11 @@
 
     <ul class="productsList">
       <li v-if="isEmpty">
-        <p class='emptyList'>your product lists in empty...</p>
+        <p class="emptyList">your product lists in empty...</p>
       </li>
 
       <product-item
-        v-for="(product,index) in products"
+        v-for="(product, index) in products"
         :key="index"
         :id="index"
         :name="product.name"
@@ -66,7 +73,14 @@ export default {
   data() {
     return {
       filtersVisibility: false,
-      filters: ["Fruit", "Vegetables", "Sweets", "Spices"],
+      filters: [
+        { id: "all", name: "All" },
+        { id: "fruit", name: "Fruit" },
+        { id: "sweets", name: "Sweets" },
+        { id: "vegetable", name: "Vegetables" },
+        { id: "spices", name: "Spices" },
+      ],
+      searchProduct: "",
     };
   },
   methods: {
@@ -81,15 +95,24 @@ export default {
       }
       if (userWidth >= 768) this.filtersVisibility = true;
     },
-    loadProducts(){
-      this.$store.dispatch('loadProducts');
-    }
+    async loadProducts() {
+      try {
+        await this.$store.dispatch("loadProducts");
+        this.$store.dispatch("selectCategory", "all");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    selectCategory(e) {
+      const category = e.target.value;
+      this.$store.dispatch("selectCategory", category);
+    },
   },
   computed: {
-    products(){
+    products() {
       return this.$store.getters.allProducts;
     },
-    isEmpty(){
+    isEmpty() {
       return this.$store.getters.allProducts.length <= 0;
     },
   },
@@ -97,9 +120,9 @@ export default {
     this.userWidth();
     window.addEventListener("resize", this.userWidth);
   },
-  created(){
+  created() {
     this.loadProducts();
-  }
+  },
 };
 </script>
 
@@ -153,11 +176,12 @@ export default {
   }
 
   @media (min-width: 768px) {
-    width: auto;
+    width: initial;
     flex-direction: row;
     gap: 0 2rem;
+
     input {
-      width: auto;
+      width: 100%;
       opacity: 0.8;
       &:focus {
         opacity: 1;
@@ -230,7 +254,7 @@ export default {
   }
 }
 
-.emptyList{
+.emptyList {
   margin-top: 2rem;
   font-size: 2rem;
 }
@@ -246,7 +270,7 @@ export default {
   overflow: auto;
   text-align: center;
   box-shadow: inset 0 -2px 30px rgba(0, 0, 0, 0.4);
-  li{
+  li {
     list-style: none;
   }
 

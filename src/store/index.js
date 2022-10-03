@@ -5,12 +5,13 @@ import newProductModule from './newProduct/index.js';
 import calculateBmiModule from './calculateBmi/index.js';
 
 
+
 const store = createStore({
   modules: {
     auth: authenticationModule,
     mobileMenu: mobileMenuModule,
     newProduct: newProductModule,
-    calculateBmi: calculateBmiModule
+    calculateBmi: calculateBmiModule,
   },
 });
 

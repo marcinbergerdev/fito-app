@@ -33,7 +33,7 @@
             name="email"
             type="email"
             :rules="validateEmail"
-            placeholder="user name"
+            placeholder="admin@admin.com"
           />
           <ErrorMessage class="errorMessageRegistration" name="email" />
 
@@ -42,7 +42,7 @@
             type="password"
             :rules="validateRegistration"
             v-model="inputPassword"
-            placeholder="password"
+            placeholder="qwerty"
           />
           <ErrorMessage class="errorMessageRegistration" name="password" />
 
@@ -50,7 +50,7 @@
             name="confirmPassword"
             type="password"
             :rules="[validateRegistration, samePassword]"
-            placeholder="confirm password"
+            placeholder="qwerty"
           />
           <ErrorMessage class="errorMessageRegistration" name="confirmPassword" />
         </div>

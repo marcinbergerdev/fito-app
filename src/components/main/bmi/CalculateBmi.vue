@@ -70,8 +70,8 @@ export default {
   data() {
     return {
       gender: "",
-      kg: 95,
-      height: 181,
+      kg: 0,
+      height: 0,
       errorMessage: false,
     };
   },

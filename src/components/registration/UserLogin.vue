@@ -16,7 +16,7 @@
             name="email"
             type="email"
             :rules="validateEmail"
-            placeholder="user name"
+            placeholder="test@test.com"
           />
           <ErrorMessage class="errorMessageRegistration" name="email" />
 
@@ -24,7 +24,7 @@
             name="password"
             type="password"
             :rules="validateLogin"
-            placeholder="password"
+            placeholder="qwerty"
           />
           <ErrorMessage class="errorMessageRegistration" name="password" />
           <p></p>

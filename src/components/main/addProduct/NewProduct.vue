@@ -126,8 +126,7 @@
             name="category"
             type="radio"
             v-model="selectedCategory"
-            :value="category.name"
-            :rules="validateCategory"
+            :value="category.id"
           />
         </div>
       </div>
@@ -167,7 +166,7 @@ export default {
       protein: 0,
       salt: 0,
       fiber: 0,
-      selectedCategory: "",
+      selectedCategory: "fruit",
       productAdded: false,
       isInputNameEmpty: false,
       categories: [
@@ -176,7 +175,7 @@ export default {
           name: "Fruit",
         },
         {
-          id: "sweet",
+          id: "sweets",
           name: "Sweet",
         },
         {
@@ -216,12 +215,6 @@ export default {
       }
 
       this.isInputNameEmpty = false;
-      return true;
-    },
-    validateCategory(value) {
-      if (!value) {
-        return "select category!";
-      }
       return true;
     },
     closeModal() {

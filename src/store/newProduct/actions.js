@@ -51,8 +51,6 @@ export default {
       }
    },
 
-
-
    async loadProducts(context) {
       const userId = context.rootState.auth.userId;
 
@@ -73,8 +71,6 @@ export default {
       if(!responseData) return
       context.commit("loadProducts", responseData);
    },
-
-
 
    async deleteProduct(context, id){
       const userId = context.rootState.auth.userId;
@@ -97,6 +93,10 @@ export default {
          throw error;
       }
       context.commit("loadProducts", products);
+   },
+
+   selectCategory(context, category){
+      context.commit('selectCategory', category);
    },
 
 

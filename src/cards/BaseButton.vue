@@ -258,7 +258,6 @@ button {
 
   @media (min-width: 768px) {
     position: static;
-    width: auto;
     padding: 0 3rem;
   }
 }
