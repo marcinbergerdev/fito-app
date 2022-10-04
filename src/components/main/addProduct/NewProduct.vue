@@ -125,8 +125,9 @@
             :id="category.id"
             name="category"
             type="radio"
-            v-model="selectedCategory"
             :value="category.id"
+            :rules="validateCategory"
+            v-model="selectedCategory"
           />
         </div>
       </div>
@@ -146,6 +147,7 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import NewImage from "./NewImage.vue";
+import {v4 as uuidv4} from 'uuid';
 
 export default {
   components: {
@@ -191,10 +193,12 @@ export default {
   },
   methods: {
     formAddProduct() {
+      let myuuid = uuidv4();
       this.productAdded = true;
       this.$store.dispatch({
         type: "addNewProduct",
         value: {
+          id: myuuid,
           img: this.img,
           name: this.productName,
           gram: this.gram,
@@ -215,6 +219,12 @@ export default {
       }
 
       this.isInputNameEmpty = false;
+      return true;
+    },
+    validateCategory(value) {
+      if (!value) {
+        return "select category!";
+      }
       return true;
     },
     closeModal() {

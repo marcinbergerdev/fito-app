@@ -1,19 +1,9 @@
 export default {
-   loadProducts(state, data) {
-      state.products = Object.values(data);
+   loadProducts(state, products) {
+      state.products = products;
    },
-   selectCategory(state, category) {
-      const products = state.products;
-
-      if (category === "all") {
-         state.newProductList = products;
-         return;
-      }
-      const filteredList = products.filter(
-         (product) => product.selectedCategory === category
-      );
-
-      state.newProductList = filteredList;
+   searchProduct(state, list){
+      state.products = list;
    },
    clearProductList(state) {
       state.products = [];

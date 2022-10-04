@@ -1,5 +1,6 @@
 export default {
    allProducts(state) {
-      return state.newProductList;
+      return state.products;
    },
+
 };

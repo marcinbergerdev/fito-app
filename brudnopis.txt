@@ -1,32 +1,54 @@
-  <!-- <base-modal :show="!!this.error" title="lorem, dupa i rozporem" confirm="Cancel" @close="closeError">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
-      accusantium?
-    </p>
-  </base-modal> -->
+ selectCategory(state, category) {
+      console.log(category);
+      const products = state.products;
+
+      if (category === "all") {
+         state.newProductList = products;
+         return;
+      }
+      const filteredList = products.filter(
+         (product) => product.selectedCategory === category
+      );
+
+      state.newProductList = filteredList;
+   },
 
 
-    // const dates = Object.values(responseData);
 
 
 
-      // async deleteProduct(context, id){
-   //    const userId = context.rootState.auth.userId;
-   //    const token = context.rootState.auth.token;
-   //    console.log(userId);
-   //    console.log(id);
 
-   //    const response = await fetch(
-   //       `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${id}.json?auth=${token}`,
-   //       {
-   //          method: 'DELETE',
-   //       }
-   //    );
+   selectCategory(state, category) {
+      const products = state.products;
 
-   //    const responseData = response.json();
+      if (category === "all") {
+         state.newProductList = products;
 
-   //    if(!response.ok){
-   //       const error = new Error(responseData.message || "Sorry, you can't delete this data!. Try later");
-   //       throw error
-   //    }
-   // },
+         return;
+      }
+      const filteredList = products.filter(
+         (product) => product.selectedCategory === category
+      );
+      state.newProductList = filteredList;
+   },
+
+
+
+
+
+    async loadProducts() {
+      try {
+        await this.$store.dispatch("loadProducts");
+        this.$store.dispatch("selectCategory", "all");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+
+     // selectCategory(e) {
+    //   if(!e) return this.$store.dispatch("selectCategory");
+
+    //   const category = e.target.value;
+    //   this.$store.dispatch("selectCategory", category);
+    // },

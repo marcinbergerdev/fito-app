@@ -11,7 +11,11 @@
           Add product
         </base-button>
 
-        <input type="text" placeholder="Search..." v-model="searchProduct" />
+        <input
+          type="text"
+          placeholder="Search..."
+          v-model="searchProductName"
+        />
       </div>
 
       <div class="filterSection">
@@ -36,7 +40,8 @@
               name="categories"
               :value="filter.id"
               @change="selectCategory"
-              :checked="filter.id === 'all'"
+              v-model="currentCategory"
+              :checked="filter.checked"
             />
             <label :for="filter.id">{{ filter.name }}</label>
           </li>
@@ -50,14 +55,16 @@
       </li>
 
       <product-item
-        v-for="(product, index) in products"
-        :key="index"
-        :id="index"
+        v-for="product in products"
+        :key="product.id"
+        :id="product.id"
         :name="product.name"
         :gram="product.gram"
         :kcal="product.kcal"
         :product-img="product.img"
         :nutritional-values="product.nutritionalValues"
+        :selectedCategory="product.selectedCategory"
+        @deleteProduct="deleteProduct"
       ></product-item>
     </ul>
   </article>
@@ -74,13 +81,14 @@ export default {
     return {
       filtersVisibility: false,
       filters: [
-        { id: "all", name: "All" },
+        { id: "all", name: "All", checked: "true" },
         { id: "fruit", name: "Fruit" },
         { id: "sweets", name: "Sweets" },
         { id: "vegetable", name: "Vegetables" },
         { id: "spices", name: "Spices" },
       ],
-      searchProduct: "",
+      searchProductName: "",
+      currentCategory: "all",
     };
   },
   methods: {
@@ -95,17 +103,22 @@ export default {
       }
       if (userWidth >= 768) this.filtersVisibility = true;
     },
-    async loadProducts() {
-      try {
-        await this.$store.dispatch("loadProducts");
-        this.$store.dispatch("selectCategory", "all");
-      } catch (error) {
-        console.log(error);
-      }
+    loadProducts() {
+      this.$store.dispatch("loadProducts");
     },
     selectCategory(e) {
       const category = e.target.value;
       this.$store.dispatch("selectCategory", category);
+    },
+    deleteProduct(id, category) {
+      const allProducts = "all";
+      let selectedCategory = category;
+      if (this.currentCategory === "all") selectedCategory = allProducts;
+
+      this.$store.dispatch("deleteProduct", {
+        id: id,
+        category: selectedCategory,
+      });
     },
   },
   computed: {
@@ -114,6 +127,14 @@ export default {
     },
     isEmpty() {
       return this.$store.getters.allProducts.length <= 0;
+    },
+  },
+  watch: {
+    searchProductName(text) {
+      this.$store.dispatch("searchProduct", {
+        text: text,
+        category: this.currentCategory,
+      });
     },
   },
   mounted() {
@@ -248,7 +269,7 @@ export default {
     position: static;
     justify-content: space-between;
     flex-direction: row;
-    gap: 0 2rem;
+    gap: 0 0.5rem;
     width: 100%;
     margin: 0;
   }

@@ -60,10 +60,14 @@ export default {
       type: Object,
       required: true,
     },
+    selectedCategory: {
+      type: String,
+      required: true,
+    },
   },
   methods: {
     deleteProduct() {
-      this.$store.dispatch("deleteProduct", this.id);
+      this.$emit('deleteProduct', this.id, this.selectedCategory);
     },
   },
   computed: {

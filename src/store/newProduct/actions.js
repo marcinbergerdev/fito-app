@@ -2,9 +2,10 @@ export default {
    async addNewProduct(context, data) {
       const userId = context.rootState.auth.userId;
       const token = context.rootState.auth.token;
-      let selectedProducts = context.state.products
+      const productId = data.value.id;
 
       const newProduct = {
+         id: data.value.id,
          img: data.value.img,
          name: data.value.name,
          gram: data.value.gram,
@@ -33,19 +34,18 @@ export default {
          ],
          selectedCategory: data.value.selectedCategory,
       };
-      selectedProducts.push(newProduct)
 
-      const API_LINK = `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}.json?auth=${token}`;
+      const API_LINK = `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${productId}.json?auth=${token}`;
       const response = await fetch(API_LINK, {
          method: "PUT",
-         body: JSON.stringify(selectedProducts),
+         body: JSON.stringify(newProduct),
       });
 
       const responseData = await response.json();
 
       if (!response.ok) {
          const error = new Error(
-            responseData.message || "Adding new product not correct!"
+            responseData.message || "Something goes wrong try logging in again!"
          );
          throw error;
       }
@@ -67,40 +67,80 @@ export default {
          const error = new Error(responseData.message || "Data Base Fails!");
          throw error;
       }
+      if (!responseData) return;
 
-      if(!responseData) return
-      context.commit("loadProducts", responseData);
+      const loadedProducts = Object.values(responseData);
+      context.commit("loadProducts", loadedProducts);
    },
 
-   async deleteProduct(context, id){
+   async selectCategory(context, category) {
+      const userId = context.rootState.auth.userId;
+
+      const response = await fetch(
+         `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}.json`,
+         {
+            method: "GET",
+         }
+      );
+
+      const responseData = await response.json();
+
+      if (!response.ok) {
+         const error = new Error(responseData.message || "Data Base Fails!");
+         throw error;
+      }
+
+      if (!responseData) return (context.rootState.newProduct.products = []);
+
+      const loadedProducts = Object.values(responseData);
+
+      if (!category || category === "all") {
+         context.commit("loadProducts", loadedProducts);
+         return;
+      }
+
+      const filteredList = loadedProducts.filter(
+         (product) => product.selectedCategory === category
+      );
+
+      context.commit("loadProducts", filteredList);
+   },
+
+   async deleteProduct(context, product) {
       const userId = context.rootState.auth.userId;
       const token = context.rootState.auth.token;
-      const products = context.state.products;
-      products.splice(id, 1);
 
-      const API_LINK = `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}.json?auth=${token}`;
+      const API_LINK = `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${product.id}.json?auth=${token}`;
       const response = await fetch(API_LINK, {
-         method: "PUT",
-         body: JSON.stringify(products),
+         method: "DELETE",
       });
 
       const responseData = await response.json();
 
       if (!response.ok) {
          const error = new Error(
-            responseData.message || "Adding new product not correct!"
+            responseData.message || "Something goes wrong try logging in again!"
          );
          throw error;
       }
-      context.commit("loadProducts", products);
-   },
-
-   selectCategory(context, category){
-      context.commit('selectCategory', category);
+      context.dispatch("selectCategory", product.category);
    },
 
 
-   clearProductList(context) {
-      context.commit("clearProductList");
+   searchProduct(context, data){
+      const products = context.rootState.newProduct.products;
+      const text = data.text;
+      const category = data.category;
+
+      if(!text) return context.dispatch('selectCategory', category);
+
+      const filteredList = products.filter(
+         (product) => product.name.toLowerCase().trim('').includes(text.toLowerCase().trim(''))
+      );
+      context.commit('searchProduct', filteredList);
    },
+
+   clearProductList(context){
+      context.commit('clearProductList');
+   }
 };

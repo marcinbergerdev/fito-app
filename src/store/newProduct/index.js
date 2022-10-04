@@ -7,8 +7,6 @@ export default {
   state() {
     return{
       products: [],
-      newProductList: []
-
     }
   },
   getters,
