@@ -39,7 +39,6 @@
               :id="filter.id"
               name="categories"
               :value="filter.id"
-              @change="selectCategory"
               v-model="currentCategory"
               :checked="filter.checked"
             />
@@ -106,18 +105,13 @@ export default {
     loadProducts() {
       this.$store.dispatch("loadProducts");
     },
-    selectCategory(e) {
-      const category = e.target.value;
-      this.$store.dispatch("selectCategory", category);
-    },
     deleteProduct(id, category) {
-      const allProducts = "all";
-      let selectedCategory = category;
-      if (this.currentCategory === "all") selectedCategory = allProducts;
+      let selectCategory = category;
+      if (this.currentCategory === "all") selectCategory = 'all';
 
       this.$store.dispatch("deleteProduct", {
         id: id,
-        category: selectedCategory,
+        category: selectCategory,
       });
     },
   },
@@ -136,6 +130,9 @@ export default {
         category: this.currentCategory,
       });
     },
+    currentCategory(category){
+      this.$store.dispatch("selectCategory", category);
+    }
   },
   mounted() {
     this.userWidth();

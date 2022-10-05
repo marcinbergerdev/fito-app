@@ -132,7 +132,7 @@ export default {
       const text = data.text;
       const category = data.category;
 
-      if(!text) return context.dispatch('selectCategory', category);
+      if(!text.trim()) return context.dispatch('selectCategory', category);
 
       const filteredList = products.filter(
          (product) => product.name.toLowerCase().trim('').includes(text.toLowerCase().trim(''))
