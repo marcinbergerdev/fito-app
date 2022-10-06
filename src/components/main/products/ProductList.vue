@@ -28,7 +28,7 @@
           Filters
         </base-button>
 
-        <ul class="filterList" v-if="filtersVisibility">
+        <ul class="filterList" v-show="filtersVisibility">
           <li
             class="filterList__option"
             v-for="filter in filters"
@@ -48,7 +48,7 @@
       </div>
     </section>
 
-    <ul class="productsList">
+    <transition-group tag="ul" class="productsList" name="list" mode="out-in">
       <li v-if="isEmpty">
         <p class="emptyList">your product lists in empty...</p>
       </li>
@@ -65,7 +65,7 @@
         :selectedCategory="product.selectedCategory"
         @deleteProduct="deleteProduct"
       ></product-item>
-    </ul>
+    </transition-group>
   </article>
 </template>
 
@@ -88,6 +88,7 @@ export default {
       ],
       searchProductName: "",
       currentCategory: "all",
+      deleteAnimation: false,
     };
   },
   methods: {
@@ -107,7 +108,7 @@ export default {
     },
     deleteProduct(id, category) {
       let selectCategory = category;
-      if (this.currentCategory === "all") selectCategory = 'all';
+      if (this.currentCategory === "all") selectCategory = "all";
 
       this.$store.dispatch("deleteProduct", {
         id: id,
@@ -130,9 +131,9 @@ export default {
         category: this.currentCategory,
       });
     },
-    currentCategory(category){
+    currentCategory(category) {
       this.$store.dispatch("selectCategory", category);
-    }
+    },
   },
   mounted() {
     this.userWidth();
@@ -145,6 +146,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
+
+.list-enter-from,
+.list-leave-to {
+  transform: scale(0.6);
+  opacity: 0;
+}
+
+.list-move,
+.list-leave-active,
+.list-enter-active {
+  transition: all .450s ease;
+}
+
+.list-enter-to,
+.list-leave-from {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.list-leave-active {
+  position: absolute;
+  z-index: -1;
+}
+
+
+
+
+
+
 .filterIcon {
   font-size: 1.7rem;
 }
@@ -219,7 +251,7 @@ export default {
 .filterList {
   position: absolute;
   right: 0;
-  z-index: 10;
+  z-index: 20;
 
   display: flex;
   flex-direction: column;
@@ -278,6 +310,8 @@ export default {
 }
 
 .productsList {
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
