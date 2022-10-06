@@ -146,9 +146,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
-
 .list-enter-from,
 .list-leave-to {
   transform: scale(0.6);
@@ -171,11 +168,6 @@ export default {
   position: absolute;
   z-index: -1;
 }
-
-
-
-
-
 
 .filterIcon {
   font-size: 1.7rem;

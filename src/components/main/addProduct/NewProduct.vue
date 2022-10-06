@@ -122,16 +122,14 @@
           <label :for="category.id">{{ category.name }}</label>
 
           <Field
+            type="radio"
             :id="category.id"
             name="category"
-            type="radio"
             :value="category.id"
-            :rules="validateCategory"
             v-model="selectedCategory"
           />
         </div>
       </div>
-      <ErrorMessage class="error errorMessageValidation" name="category" />
 
       <base-button mode="addProduct" type="flat">
         <span>
@@ -147,7 +145,7 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import NewImage from "./NewImage.vue";
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 export default {
   components: {
@@ -168,9 +166,9 @@ export default {
       protein: 0,
       salt: 0,
       fiber: 0,
+      isProductNameEmpty: false,
       selectedCategory: "fruit",
       productAdded: false,
-      isInputNameEmpty: false,
       categories: [
         {
           id: "fruit",
@@ -193,12 +191,13 @@ export default {
   },
   methods: {
     formAddProduct() {
-      let myuuid = uuidv4();
+      let productId = uuidv4();
+
       this.productAdded = true;
       this.$store.dispatch({
         type: "addNewProduct",
         value: {
-          id: myuuid,
+          id: productId,
           img: this.img,
           name: this.productName,
           gram: this.gram,
@@ -214,32 +213,24 @@ export default {
     },
     validateName(value) {
       if (!value) {
-        this.isInputNameEmpty = true;
+        this.isProductNameEmpty = true;
         return "you need product name!";
       }
 
-      this.isInputNameEmpty = false;
-      return true;
-    },
-    validateCategory(value) {
-      if (!value) {
-        return "select category!";
-      }
+      this.isProductNameEmpty = false;
       return true;
     },
     closeModal() {
-      (this.img = ""),
-        (this.productName = ""),
-        (this.gram = 0),
-        (this.kcal = 0),
-        (this.fat = 0),
-        (this.carbs = 0),
-        (this.protein = 0),
-        (this.salt = 0),
-        (this.fiber = 0),
-        (this.selectedCategory = ""),
-        (this.productAdded = false),
-        (this.isInputEmpty = false);
+      this.img = "";
+      this.productName = "";
+      this.gram = 0;
+      this.kcal = 0;
+      this.fat = 0;
+      this.carbs = 0;
+      this.protein = 0;
+      this.salt = 0;
+      this.fiber = 0;
+      this.productAdded = false;
     },
     selectImg() {
       this.setImgActivity = true;
@@ -260,7 +251,7 @@ export default {
   },
   computed: {
     isEmptyError() {
-      return { emptyInput: this.isInputNameEmpty };
+      return { emptyInput: this.isProductNameEmpty };
     },
   },
 };
