@@ -44,28 +44,43 @@ export default {
 
       //Set expiriesIn and expirationData(Current time + expiriesIn/1h)
       const expiresIn = +responseData.expiresIn * 1000;
+
       const expirationData = new Date().getTime() + expiresIn;
+
       localStorage.setItem("expiresIn", expirationData);
 
-      //Timer after expiriesIn logout
-      timer = setTimeout(() => {
-         context.dispatch("logout");
-      }, expiresIn);
 
+      context.dispatch('autoLogout', expiresIn)
       context.commit("setUser", responseData);
    },
+
+
+
+
+
+
 
    tryLogin(context) {
       const userId = localStorage.getItem("userId");
       const token = localStorage.getItem("token");
-      const currentTime = new Date().getTime();
-      const expiresIn = +localStorage.getItem("expiresIn");
 
-      //Check how many time left
+      const tokenExpiration = localStorage.getItem("tokenExpiration");
+      const refreshExpirationTime = new Date().getTime() + tokenExpiration * 1000;
+
+
+      const autoExpiresIn = tokenExpiration * 1000;
+      const expiresIn = +localStorage.getItem("expiresIn");
+      const currentTime = new Date().getTime();
+
+      console.log(expiresIn - currentTime);
+
       if (expiresIn - currentTime < 0) {
          context.dispatch("logout");
          return;
       }
+
+      context.dispatch('autoLogout', autoExpiresIn)
+      localStorage.setItem("expiresIn", refreshExpirationTime);
 
       context.commit("setUser", {
          localId: userId,
@@ -92,4 +107,12 @@ export default {
          idToken: null,
       });
    },
+
+   autoLogout(context, time){
+      console.log(time);
+      //Timer after expiriesIn logout
+      timer = setTimeout(() => {
+         context.dispatch("logout");
+      }, time);
+   }
 };
