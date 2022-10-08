@@ -23,7 +23,6 @@ export default {
     logout(){
       this.$store.dispatch('logout');
       this.$store.dispatch('clearProductList');
-      this.$router.replace('/home');
     }
   },
   computed: {

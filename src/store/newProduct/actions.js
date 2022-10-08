@@ -140,6 +140,7 @@ export default {
       context.commit('searchProduct', filteredList);
    },
 
+
    clearProductList(context){
       context.commit('clearProductList');
    }
