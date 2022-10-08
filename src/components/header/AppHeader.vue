@@ -88,7 +88,7 @@ export default {
 
   display: flex;
   align-items: flex-start;
-  padding: 1.9rem 1.5rem;
+  padding: 1.6rem 1.5rem;
   width: 100%;
   animation: menuDropDown;
   animation: menuDropDown 0.4s ease-in-out;
