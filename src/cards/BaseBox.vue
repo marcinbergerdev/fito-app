@@ -47,6 +47,7 @@ export default {
   &::before {
     background-image: var(--bgImage);
     opacity: 0.1;
+    border-radius: 2rem;
   }
 }
 

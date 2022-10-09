@@ -52,9 +52,8 @@ export default {
 
   @media (min-width: 768px) {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("./assets/background.jpg"), center, no-repeat;
+      url("./assets/background.jpg"),center,no-repeat;
     background-size: 100% 100%;
-    /* do poprawy */
   }
 }
 
@@ -135,7 +134,6 @@ export default {
     width: 100%;
     height: 100%;
     background-image: var(--bgImage);
-    border-radius: 2rem;
   }
 }
 
