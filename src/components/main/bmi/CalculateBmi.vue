@@ -14,7 +14,7 @@
       <div class="formGender">
         <label for="gender">Gender:</label>
 
-        <div>
+        <div class='inputColors'>
           <input
             id="male"
             type="radio"
@@ -25,9 +25,10 @@
           <label for="male">Male</label>
         </div>
 
-        <div>
+        <div class='inputColors'>
           <input
             id="female"
+            class='inputColors'
             type="radio"
             value="female"
             name="gender"
@@ -38,15 +39,15 @@
       </div>
 
       <div class="setData">
-        <div>
+        <div class='inputColors'>
           <label for="weight">Weight:</label>
-          <input type="number" step="0.1" v-model="kg" />
+          <input id="weight" class='inputColors' type="number" step="0.1" v-model="kg" />
           <span>kg</span>
         </div>
 
-        <div>
+        <div class='inputColors'>
           <label for="height">Height:</label>
-          <input type="number" step="0.1" v-model="height" />
+          <input id='height' class='inputColors' type="number" step="0.1" v-model="height" />
           <span>cm</span>
         </div>
       </div>
@@ -181,14 +182,6 @@ form {
       margin: 0 0.5rem;
       padding: 0.5rem 1rem;
       font-size: 1.1rem;
-      color: var(--white);
-      background-color: var(--primary-borderBg);
-      border: 1px solid var(--primary-border);
-      outline: none;
-
-      &:focus {
-        border: 1px solid var(--primary-borderFocus);
-      }
     }
     span {
       width: 10%;

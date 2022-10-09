@@ -155,7 +155,7 @@ export default {
 .list-move,
 .list-leave-active,
 .list-enter-active {
-  transition: all .450s ease;
+  transition: all 0.45s ease;
 }
 
 .list-enter-to,
@@ -314,6 +314,19 @@ export default {
   overflow: auto;
   text-align: center;
   box-shadow: inset 0 -2px 30px rgba(0, 0, 0, 0.4);
+
+  &::-webkit-scrollbar {
+    width: 1.5rem;
+    background-color: var(--dark-light);
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px var(--dark);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--dark);
+    outline: none;
+  }
+
   li {
     list-style: none;
   }

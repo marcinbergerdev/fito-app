@@ -23,10 +23,11 @@
     </transition>
 
     <Form @submit="formAddProduct">
-      <div class="productName">
+      <div class="productName inputColors">
         <label for="name">Product Name</label>
 
         <Field
+          id="name"
           :class="isEmptyError"
           name="productName"
           type="text"
@@ -38,7 +39,7 @@
       </div>
 
       <div class="productScale">
-        <div>
+        <div class='inputColors'>
           <label for="gram">Grams</label>
           <input
             id="gram"
@@ -48,7 +49,7 @@
             v-model="gram"
           />
         </div>
-        <div>
+        <div class='inputColors'>
           <label for="kcal">Kcal</label>
           <input
             id="kcal"
@@ -61,7 +62,7 @@
       </div>
 
       <div class="productIngredients">
-        <div>
+        <div class='inputColors'>
           <label for="fat">Fat</label>
           <input
             id="fat"
@@ -72,7 +73,7 @@
           />
         </div>
 
-        <div>
+        <div class='inputColors'>
           <label for="carbs">Carbs</label>
           <input
             id="carbs"
@@ -83,7 +84,7 @@
           />
         </div>
 
-        <div>
+        <div class='inputColors'>
           <label for="protein">Protein</label>
           <input
             id="protein"
@@ -94,7 +95,7 @@
           />
         </div>
 
-        <div>
+        <div class='inputColors'>
           <label for="salt">Salt</label>
           <input
             id="salt"
@@ -105,7 +106,7 @@
           />
         </div>
 
-        <div>
+        <div class='inputColors'>
           <label for="fiber">Fiber</label>
           <input
             id="fiber"
@@ -122,8 +123,9 @@
           <label :for="category.id">{{ category.name }}</label>
 
           <Field
-            type="radio"
             :id="category.id"
+            class='inputColors'
+            type="radio"
             name="category"
             :value="category.id"
             v-model="selectedCategory"
@@ -303,14 +305,6 @@ form {
     input {
       padding: 0.4rem 1rem;
       font-size: 1.4rem;
-      outline: none;
-      color: var(--white);
-      background-color: var(--primary-borderBg);
-      border: 1px solid var(--primary-border);
-
-      &:focus {
-        border: 1px solid var(--primary-borderFocus);
-      }
       @media (min-width: 768px) {
         cursor: pointer;
       }

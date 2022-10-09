@@ -11,7 +11,7 @@
       <Form @submit="formSubmit" class="formBox">
         <h2 class="formBox__header">Log in</h2>
 
-        <div class="registerInputs">
+        <div class="registerInputs inputColors">
           <Field
             name="email"
             type="email"

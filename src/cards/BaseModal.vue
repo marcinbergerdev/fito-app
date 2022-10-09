@@ -86,7 +86,6 @@ export default {
 dialog {
   position: fixed;
   top: 35vh;
-  left: 10%;
   z-index: 100;
 
   display: flex;
@@ -94,16 +93,12 @@ dialog {
   justify-content: center;
   align-items: flex-start;
   width: #{"min(80%, 40rem)"};
-
+  margin: 0 auto;
   background-color: #646464;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.26);
   border-radius: 1.5rem;
   border: 0;
   overflow: hidden;
-
-  @media (min-width: 768px) {
-    left: calc(50% - 20rem);
-  }
 }
 
 .dialogHeader,

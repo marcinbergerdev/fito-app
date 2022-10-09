@@ -6,9 +6,9 @@
 
 <script>
 export default {
-  created(){
-    this.$store.dispatch('tryLogin');
-  }
+  created() {
+    this.$store.dispatch("tryLogin");
+  },
 };
 </script>
 
@@ -107,23 +107,27 @@ export default {
   input {
     padding: 1rem;
     font-size: 1.5rem;
+  }
+}
+
+.inputColors {
+  input {
     color: var(--white);
     background-color: var(--primary-borderBg);
     border: 1px solid var(--primary-border);
     outline: none;
-
     &:focus {
       border: 1px solid var(--primary-borderFocus);
     }
   }
 }
 
-.errorMessageRegistration{
+.errorMessageRegistration {
   font-size: 1.3rem;
-  color: var(--primary-orange);;
+  color: var(--primary-orange);
 }
 
-.errorMessageValidation{
+.errorMessageValidation {
   font-size: 1.4rem;
   color: rgb(226, 10, 10);
 }
