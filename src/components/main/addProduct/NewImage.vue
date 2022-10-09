@@ -15,11 +15,13 @@
       </dialog>
     </teleport>
 
-    <p class="error errorMessageValidation" v-if="errorActivity">please complete!</p>
+    <p class="error errorMessageValidation" v-if="errorActivity">
+      please complete!
+    </p>
 
     <div class="loadLink">
       <label for="link">Image Link</label>
-      <input type="text" name="link" id="link" v-model="srcImg.text" />
+      <input type="text" name="link" id="link" v-model="srcImg" />
     </div>
     <base-button mode="addImg" type="flat" @click="confirmImgSrc"
       >Confirm</base-button
@@ -33,17 +35,14 @@ export default {
   emits: ["setImgSrc", "closeAll", "closeSelection"],
   data() {
     return {
-      srcImg: {
-        text: "",
-        file: "",
-      },
+      srcImg: "",
       errorActivity: false,
       selectedLink: false,
     };
   },
   methods: {
     confirmImgSrc() {
-      if (this.srcImg.text || this.srcImg.file) {
+      if (this.srcImg) {
         this.errorActivity = false;
         this.selectedLink = true;
         return;
@@ -57,13 +56,8 @@ export default {
     },
   },
   watch: {
-    srcImg: {
-      handler(src) {
-        const text = src.text;
-        const file = src.file;
-        if (text || file) this.errorActivity = false;
-      },
-      deep: true,
+    srcImg(src) {
+      if (src) this.errorActivity = false;
     },
   },
 };

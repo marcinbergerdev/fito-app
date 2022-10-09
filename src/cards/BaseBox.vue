@@ -1,6 +1,6 @@
 <template>
   <article class="boxContainer">
-    <section class="formContainer" :class="size">
+    <section class="formContainer" :class="size" :style="setImgBackground">
       <slot></slot>
     </section>
   </article>
@@ -12,6 +12,16 @@ export default {
     size: {
       type: String,
       required: false,
+    },
+    imgLink: {
+      type: String,
+      required: false,
+    },
+  },
+  computed: {
+    setImgBackground() {
+      if (!this.imgLink) return;
+      return { "--bgImage": `url('${this.imgLink}')` };
     },
   },
 };
@@ -27,13 +37,17 @@ export default {
 }
 
 .formContainer {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: #{"min(80%, 400px)"};
   background-color: var(--dark);
   border-radius: 2rem;
+
+  &::before {
+    background-image: var(--bgImage);
+    opacity: 0.1;
+  }
 }
 
 .calc {

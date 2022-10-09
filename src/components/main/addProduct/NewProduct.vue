@@ -1,5 +1,5 @@
 <template>
-  <base-box size="smallPadding">
+  <base-box size="smallPadding" :imgLink="img">
     <base-modal
       :show="productAdded"
       title="Success!"
@@ -238,14 +238,7 @@ export default {
       this.setImgActivity = true;
     },
     setImgSrc(src) {
-      const text = src.text;
-      const file = src.file;
-
-      if (text) {
-        this.img = text;
-      } else {
-        this.img = file;
-      }
+      this.img = src;
     },
     closeSelection() {
       this.setImgActivity = false;

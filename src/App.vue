@@ -43,8 +43,6 @@ export default {
   --primary-borderBg: #c94d051c;
 }
 
-
-
 .appContainer {
   width: 100%;
   min-height: 100vh;
@@ -119,6 +117,25 @@ export default {
     &:focus {
       border: 1px solid var(--primary-borderFocus);
     }
+  }
+}
+
+.formContainer,
+.productCard {
+  position: relative;
+  z-index: 0;
+  background-color: var(--dark);
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bgImage);
+    border-radius: 2rem;
   }
 }
 

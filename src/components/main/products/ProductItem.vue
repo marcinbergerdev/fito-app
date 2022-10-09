@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     deleteProduct() {
-      this.$emit('deleteProduct', this.id, this.selectedCategory);
+      this.$emit("deleteProduct", this.id, this.selectedCategory);
     },
   },
   computed: {
@@ -98,25 +98,15 @@ export default {
 }
 
 .productCard {
-  position: relative;
   margin-bottom: 2rem;
   padding: 1.5rem;
   width: #{"min(100%, 24rem)"};
   list-style: none;
-  background-color: var(--dark);
   border: 1px solid var(--primary-orange);
 
   &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.26;
-    z-index: 0;
     background-image: var(--bgImage);
-    background-size: 100% 100%;
+    opacity: 0.3;
   }
 }
 
