@@ -1,3 +1,102 @@
 {
-   
+  "addBtn": "Produkt hinzufügen",
+  "ok": "Ok",
+
+
+  "menuNav": {
+    "myProduct": "Meine Produkte",
+    "home": "Startseite",
+    "bmi": "BMI"
+  },
+  "registration": {
+    "logIn": "Anmeldung",
+    "signUp": "Registrierung",
+    "signOut": "Abmelden",
+
+    "infoSignUp": "Sie haben noch kein Konto?",
+    "RegisterBtn": "Registrieren"
+  },
+  "homePage": {
+    "header": "Achten Sie auf Ihre Gesundheit",
+    "addProduct": "Mit uns können Sie Ihre Lieblingsprodukte zusammen mit ihrem Makro hinzufügen, geben Sie einfach die relevanten Informationen ein und genießen Sie eine sehr einfache und intuitive Schnittstelle.",
+    "addProductBtm": "Produkt hinzufügen",
+    "calcBmi": "Bei der Berechnung des BMI wird das Körpergewicht, das in Kilogramm angegeben wird, durch das Quadrat der Körpergröße, die in Metern gemessen wird, geteilt.",
+    "calcBmiBtn": "BMI",
+    "footer": "Denken Sie daran, sich gesund zu ernähren, viel Wasser zu trinken und Sport zu treiben."
+  },
+  "bmiCalculate": {
+    "header": "Berechnen Sie Ihren BMI",
+    "gender": {
+      "label": "Gender",
+      "male": "männlich",
+      "female": "weiblich"
+    },
+    "weight": "Gewicht",
+    "height": "Höhe",
+    "calcBtn": "Berechnen"
+  },
+  "bmiResult": {
+    "header": "BMI Ergebnis",
+    "ranges": [
+      {
+        "text": "BMI-Wertebereiche:"
+      },
+      {
+        "text": "16 - 16.99 - Auszehrung"
+      },
+      {
+        "text": "17 - 18.49 - Untergewicht"
+      },
+      {
+        "text": "18.5 - 24.99 - Normalwert"
+      },
+      {
+        "text": "25 - 29.99 - Übergewicht"
+      },
+      {
+        "text": "30 - 34.99 - Fettleibigkeit 1. Grades"
+      },
+      {
+        "text": "35 - 39.99 - Fettleibigkeit 2. Grades"
+      },
+      {
+        "text": "over 40 - extreme Fettleibigkeit"
+      }
+    ],
+    "back": "Zurück"
+  },
+  "newProduct": {
+    "lnkLabel": "Bild Link",
+    "linkConfirm": "Bestätigen",
+    "linkError": "bitte ausfüllen!",
+
+    "name": "Produktname",
+    "namePlaceholder": "Produktname...",
+    "nameError": "Produktname erforderlich!",
+    "values": {
+      "grams": "Grams",
+      "energy": "Energiewert",
+      "kcal": "Kcal",
+      "fat": "Fett",
+      "carbs": "Kohlenhydrate",
+      "protein": "Eiweiß",
+      "salt": "Salz",
+      "fiber": "Faser"
+    },
+    "category": {
+      "all": "Alle",
+      "fruit": "Obst",
+      "sweet": "Süße",
+      "vegetable": "Gemüse",
+      "spices": "Gewürze"
+    }
+  },
+  "modal": {
+    "success": "Erfolgreich!",
+    "error": "Störung!",
+    "loading": "Laden...",
+    "added": "Produkt hinzugefügt!",
+    "errorAdded": "Etwas geht schief, fügen Sie es erneut hinzu!",
+    "created": "Das Konto wurde erstellt!"
+  }
 }

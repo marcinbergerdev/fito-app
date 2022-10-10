@@ -1,3 +1,103 @@
 {
+  "addBtn": "Dodaj Product",
+  "ok": "Ok",
+
+  "menuNav": {
+    "myProduct": "Moje produkty",
+    "home": "Strona Główna",
+    "bmi": "BMI"
+  },
+  "registration": {
+    "logIn": "Zaloguj",
+    "signUp": "Zarejestruj",
+    "signOut": "Wyloguj",
+    "infoSignUp": "Nie masz jeszcze swojego konta?",
+    "RegisterBtn": "Zarejestruj"
+  },
+  "homePage": {
+    "header": "Zadbaj o swoje zdrowie",
+    "addProduct": "U nas możesz dodać swoje ulubione produkty wraz z ich makro, wystarczy wprowadzić odpowiednie informacje i cieszyć się bardzo prostym i intuicyjnym interfejsem.",
+    "addProductBtm": "Dodaj Product",
+    "calcBmi": "Obliczanie wskaźnika BMI polega na podzieleniu masy ciała, która wyrażona jest w kilogramach, przez kwadrat wysokości ciała, która mierzona jest w metrach, oblicz swoje.",
+    "calcBmiBtn": "BMI",
+    "footer": "Pamiętaj aby zdrowo się odżywiać, pić dużo, wody i uprawiać sport."
+  },
+  "bmiCalculate": {
+    "header": "Oblicz swoje BMI",
+    "gender": {
+      "label": "Płeć",
+      "male": "Męszczyzna",
+      "female": "Kobieta"
+    },
+    "weight": "Waga",
+    "height": "Wzrost",
+    "calcBtn": "Oblicz"
+  },
+  "bmiResult": {
+    "header": "BMI Wynik",
+    "ranges": [
+      {
+        "text": "BMI Value ranges:"
+      },
+      {
+        "text": "16 - 16.99 - wychudzenie"
+      },
+      {
+        "text": "17 - 18.49 - niedowaga"
+      },
+      {
+        "text": "18.5 - 24.99 - normalna wartość"
+      },
+      {
+        "text": "25 - 29.99 - nadwaga"
+      },
+      {
+        "text": "30 - 34.99 - otyłość I stopnia"
+      },
+      {
+        "text": "35 - 39.99 - otyłość II stopnia"
+      },
+      {
+        "text": "over 40 - skrajna otyłość"
+      }
+    ],
+    "back": "Wróć"
+  },
+  "newProduct": {
+    "lnkLabel": "Link Zdjęcia",
+    "linkConfirm": "Potwierdź",
+    "linkError": "prosze wypełnij!",
+
+    "name": "Nazwa Productu",
+    "namePlaceholder": "Nazwa Productu...",
+    "nameError": "nazwa produktu wymagana!",
+
+    "values": {
+      "grams": "Gram",
+      "energy": "Wartość energetyczna",
+      "kcal": "Kcal",
+      "fat": "Tłuszcz",
+      "carbs": "Węgle",
+      "protein": "Białko",
+      "salt": "Sól",
+      "fiber": "Błonnik"
+    },
+    "category": {
+      "all": "Wszystkie",
+      "fruit": "Owoce",
+      "sweet": "Słodycze",
+      "vegetable": "Warzywa",
+      "spices": "Przyprawy"
+    }
+  },
+  "modal": {
+    "succes": "Sukces!",
+    "error": "Błąd!",
+    "loading": "Ładowanie...",
+    "added": "Product dodany!",
+    "errorAdded": "Coś poszło nie tak spróbuj dodać jeszcze raz!",
+    "created": "Konto zostało utworzone!"
+  }
+
 
 }

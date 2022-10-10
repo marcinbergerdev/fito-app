@@ -35,7 +35,7 @@ export default {
          selectedCategory: data.value.selectedCategory,
       };
 
-      const API_LINK = `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${productId}.json?auth=${token}`;
+      const API_LINK = `https://fitto-authentication-c968e-defau-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${productId}.json?auth=${token}`;
       const response = await fetch(API_LINK, {
          method: "PUT",
          body: JSON.stringify(newProduct),
@@ -44,9 +44,8 @@ export default {
       const responseData = await response.json();
 
       if (!response.ok) {
-         const error = new Error(
-            responseData.message || "Something goes wrong try logging in again!"
-         );
+         const error = (responseData.message || "Something goes wrong try adding again!");
+
          throw error;
       }
    },
@@ -126,22 +125,23 @@ export default {
       context.dispatch("selectCategory", product.category);
    },
 
-
-   searchProduct(context, data){
+   searchProduct(context, data) {
       const products = context.rootState.newProduct.products;
       const text = data.text;
       const category = data.category;
 
-      if(!text.trim()) return context.dispatch('selectCategory', category);
+      if (!text.trim()) return context.dispatch("selectCategory", category);
 
-      const filteredList = products.filter(
-         (product) => product.name.toLowerCase().trim('').includes(text.toLowerCase().trim(''))
+      const filteredList = products.filter((product) =>
+         product.name
+            .toLowerCase()
+            .trim("")
+            .includes(text.toLowerCase().trim(""))
       );
-      context.commit('searchProduct', filteredList);
+      context.commit("searchProduct", filteredList);
    },
 
-
-   clearProductList(context){
-      context.commit('clearProductList');
-   }
+   clearProductList(context) {
+      context.commit("clearProductList");
+   },
 };

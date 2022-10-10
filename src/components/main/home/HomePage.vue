@@ -7,10 +7,9 @@
     <section class="containerRedirection">
       <div class="boxRedirection">
         <p class="boxRedirection__text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere
-          accusantium eveniet ex quisquam? Harum, earum aliquid mollitia eius
-          odio ducimus eveniet voluptatum nesciunt consequuntur sunt quam
-          doloribus rem debitis?
+          U nas możesz dodać swoje ulubione produkty wraz z ich makro, wystarczy
+          wprowadzić odpowiednie informacje i cieszyć się bardzo prostym i
+          intuicyjnym interfejsem.
         </p>
 
         <base-button link :to="isLoggedIn" mode="homePageButton" type="outline">
@@ -20,10 +19,9 @@
 
       <div class="boxRedirection">
         <p class="boxRedirection__text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere
-          accusantium eveniet ex quisquam? Harum, earum aliquid mollitia eius
-          odio ducimus eveniet voluptatum nesciunt consequuntur sunt quam
-          doloribus rem debitis?
+          Obliczanie wskaźnika BMI polega na podzieleniu masy ciała, która
+          wyrażona jest w kilogramach, przez kwadrat wysokości ciała, która
+          mierzona jest w metrach, oblicz swoje.
         </p>
 
         <base-button link to="/home/bmi" mode="homePageButton" type="outline">

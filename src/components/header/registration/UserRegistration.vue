@@ -6,7 +6,7 @@
 
     <li class="registrationList__link" v-if="!isLoggedIn">
       <base-button link to="/registration" mode="signInBtn"
-        >Sign in</base-button
+        >Sign up</base-button
       >
     </li>
 

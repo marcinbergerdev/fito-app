@@ -2,11 +2,11 @@
   <base-box size="smallPadding" :imgLink="img">
     <base-modal
       :show="productAdded"
-      title="Success!"
+      :title="modalTitle"
       confirm="Ok"
       @close="closeModal"
     >
-      <p>Product Added!</p>
+      <p> {{modalDescription}} </p>
     </base-modal>
 
     <base-button mode="iconBorder" @click="selectImg">
@@ -39,7 +39,7 @@
       </div>
 
       <div class="productScale">
-        <div class='inputColors'>
+        <div class="inputColors">
           <label for="gram">Grams</label>
           <input
             id="gram"
@@ -49,7 +49,7 @@
             v-model="gram"
           />
         </div>
-        <div class='inputColors'>
+        <div class="inputColors">
           <label for="kcal">Kcal</label>
           <input
             id="kcal"
@@ -62,7 +62,7 @@
       </div>
 
       <div class="productIngredients">
-        <div class='inputColors'>
+        <div class="inputColors">
           <label for="fat">Fat</label>
           <input
             id="fat"
@@ -73,7 +73,7 @@
           />
         </div>
 
-        <div class='inputColors'>
+        <div class="inputColors">
           <label for="carbs">Carbs</label>
           <input
             id="carbs"
@@ -84,7 +84,7 @@
           />
         </div>
 
-        <div class='inputColors'>
+        <div class="inputColors">
           <label for="protein">Protein</label>
           <input
             id="protein"
@@ -95,7 +95,7 @@
           />
         </div>
 
-        <div class='inputColors'>
+        <div class="inputColors">
           <label for="salt">Salt</label>
           <input
             id="salt"
@@ -106,7 +106,7 @@
           />
         </div>
 
-        <div class='inputColors'>
+        <div class="inputColors">
           <label for="fiber">Fiber</label>
           <input
             id="fiber"
@@ -124,7 +124,7 @@
 
           <Field
             :id="category.id"
-            class='inputColors'
+            class="inputColors"
             type="radio"
             name="category"
             :value="category.id"
@@ -171,6 +171,7 @@ export default {
       isProductNameEmpty: false,
       selectedCategory: "fruit",
       productAdded: false,
+      error: null,
       categories: [
         {
           id: "fruit",
@@ -192,26 +193,31 @@ export default {
     };
   },
   methods: {
-    formAddProduct() {
+    async formAddProduct() {
       let productId = uuidv4();
 
       this.productAdded = true;
-      this.$store.dispatch({
-        type: "addNewProduct",
-        value: {
-          id: productId,
-          img: this.img,
-          name: this.productName,
-          gram: this.gram,
-          kcal: this.kcal,
-          fat: this.fat,
-          carbs: this.carbs,
-          protein: this.protein,
-          salt: this.salt,
-          fiber: this.fiber,
-          selectedCategory: this.selectedCategory,
-        },
-      });
+
+      try {
+        await this.$store.dispatch({
+          type: "addNewProduct",
+          value: {
+            id: productId,
+            img: this.img,
+            name: this.productName,
+            gram: this.gram,
+            kcal: this.kcal,
+            fat: this.fat,
+            carbs: this.carbs,
+            protein: this.protein,
+            salt: this.salt,
+            fiber: this.fiber,
+            selectedCategory: this.selectedCategory,
+          },
+        });
+      } catch (error) {
+        this.error = error;
+      }
     },
     validateName(value) {
       if (!value) {
@@ -248,6 +254,13 @@ export default {
     isEmptyError() {
       return { emptyInput: this.isProductNameEmpty };
     },
+    modalTitle(){
+      return this.error ? 'Error!': 'Success!'
+    },
+    modalDescription(){
+      return this.error ? this.error : 'Product Added!'
+    }
+
   },
 };
 </script>

@@ -1,18 +1,14 @@
 <template>
   <base-modal
     :show="successModal"
-    :title="afterSigUpTitle"
+    :title="modalTitle"
     confirm="Okay"
     @close="closeModal"
   >
-    <p>{{ afterSigUpInformation }}</p>
+    <p>{{ modalDescription }}</p>
   </base-modal>
 
-  <base-modal
-    :show="isLoading"
-    title="Loading..."
-    confirm="Okay"
-  >
+  <base-modal :show="isLoading" title="Loading..." confirm="Okay">
     <base-spinner></base-spinner>
   </base-modal>
 
@@ -52,7 +48,10 @@
             :rules="[validateRegistration, samePassword]"
             placeholder="qwerty"
           />
-          <ErrorMessage class="errorMessageRegistration" name="confirmPassword" />
+          <ErrorMessage
+            class="errorMessageRegistration"
+            name="confirmPassword"
+          />
         </div>
 
         <base-button mode="flat">Register</base-button>
@@ -77,7 +76,7 @@ export default {
       inputPassword: "",
       successModal: false,
       isLoading: false,
-      error: false,
+      error: null,
     };
   },
   methods: {
@@ -127,15 +126,18 @@ export default {
       return true;
     },
     closeModal() {
-      this.$router.replace("/home");
-      this.modalActivity = false;
+      if (!this.error) {
+        this.$router.replace("/home");
+      }
+      this.error = null;
+      this.successModal = false;
     },
   },
   computed: {
-    afterSigUpTitle() {
-      return this.error ? "Error" : "Success!";
+    modalTitle() {
+      return this.error ? "Error!" : "Success!";
     },
-    afterSigUpInformation() {
+    modalDescription() {
       return this.error ? this.error : "Account has been created";
     },
   },

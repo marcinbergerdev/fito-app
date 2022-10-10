@@ -1,5 +1,5 @@
 <template>
-  <select name="languages" id="languages" class="languageList" :class="activeLanguage">
+  <select name="languages" id="languages" class="languageList" :class="activeLanguage" v-model="selectedLanguage" @change="setLanguage">
     <option value="en">English</option>
     <option value="de">Deutsch</option>
     <option value="pl">Polish</option>
@@ -9,10 +9,23 @@
 
 <script>
 export default {
+  data(){
+    return {
+      selectedLanguage: 'en'
+    }
+  },
+  methods: {
+    setLanguage(){
+      console.log(this.selectedLanguage);
+    }
+  },
   computed: {
     activeLanguage() {
       return { activeLanguage: this.$store.getters.mobileMenuActiveStatus };
     },
+  },
+  created(){
+    this.setLanguage('en');
   }
 };
 
