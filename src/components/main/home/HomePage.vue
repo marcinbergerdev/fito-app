@@ -1,7 +1,7 @@
 <template>
   <article class="homePageContainer">
     <header class="homeHeader">
-      <h1 class="homeHeader__title">Take care of your health</h1>
+      <h1 class="homeHeader__title">{{ $t("homePage.header") }}</h1>
     </header>
 
     <section class="containerRedirection">

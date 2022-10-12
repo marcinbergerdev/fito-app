@@ -1,17 +1,17 @@
 <template>
   <base-box size="result">
     <header class="resultHeader">
-      <h2 class="resultHeader__text">BMI Result</h2>
+      <h2 class="resultHeader__text">{{$t("bmiResult.header")}}</h2>
     </header>
 
     <div class="resultBox" :style="{color: rangeData.color}">
       <span class="resultBox__number"> {{ resultBmi }}</span>
       <p class="resultBox__text"> {{ rangeData.text }}</p>
-    </div>
+    </div>  
 
     <ul class="resultList">
       <li class="resultList__ranges" v-for="(range, id) in ranges" :key="id">
-        <p>{{ range.text }}</p>
+        <p>{{ $t( `bmiResult.ranges[${id}].text` ) }}</p>
       </li>
     </ul>
 

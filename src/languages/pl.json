@@ -1,6 +1,9 @@
 {
   "addBtn": "Dodaj Product",
   "ok": "Ok",
+  "confirm": "Potwierdź",
+  "back": "Wróć",
+
 
   "menuNav": {
     "myProduct": "Moje produkty",
@@ -31,13 +34,14 @@
     },
     "weight": "Waga",
     "height": "Wzrost",
-    "calcBtn": "Oblicz"
+    "calcBtn": "Oblicz",
+    "fields": "uzupełnij wszystkie pola!"
   },
   "bmiResult": {
     "header": "BMI Wynik",
     "ranges": [
       {
-        "text": "BMI Value ranges:"
+        "text": "BMI Zakresy wartości:"
       },
       {
         "text": "16 - 16.99 - wychudzenie"
@@ -60,28 +64,22 @@
       {
         "text": "over 40 - skrajna otyłość"
       }
-    ],
-    "back": "Wróć"
+    ]
   },
   "newProduct": {
-    "lnkLabel": "Link Zdjęcia",
-    "linkConfirm": "Potwierdź",
+    "linkLabel": "Link Zdjęcia",
     "linkError": "prosze wypełnij!",
-
     "name": "Nazwa Productu",
     "namePlaceholder": "Nazwa Productu...",
     "nameError": "nazwa produktu wymagana!",
-
-    "values": {
-      "grams": "Gram",
-      "energy": "Wartość energetyczna",
-      "kcal": "Kcal",
-      "fat": "Tłuszcz",
-      "carbs": "Węgle",
-      "protein": "Białko",
-      "salt": "Sól",
-      "fiber": "Błonnik"
-    },
+    "grams": "Gram",
+    "energy": "Wartość energetyczna",
+    "kcal": "Kcal",
+    "fat": "Tłuszcz",
+    "carbs": "Węgle",
+    "protein": "Białko",
+    "salt": "Sól",
+    "fiber": "Błonnik",
     "category": {
       "all": "Wszystkie",
       "fruit": "Owoce",
@@ -97,7 +95,9 @@
     "added": "Product dodany!",
     "errorAdded": "Coś poszło nie tak spróbuj dodać jeszcze raz!",
     "created": "Konto zostało utworzone!"
-  }
-
-
+  },
+  "required": "To pole jest wymagane",
+  "email": "To pole musi być prawidłowym e-mailem",
+  "password": "Hasło jest inne",
+  "minChar": "Hasło powinno mieć min 6 znaków"
 }

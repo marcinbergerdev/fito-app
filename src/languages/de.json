@@ -1,6 +1,8 @@
 {
   "addBtn": "Produkt hinzufügen",
   "ok": "Ok",
+  "confirm": "Bestätigen",
+  "back": "Zurück",
 
 
   "menuNav": {
@@ -12,7 +14,6 @@
     "logIn": "Anmeldung",
     "signUp": "Registrierung",
     "signOut": "Abmelden",
-
     "infoSignUp": "Sie haben noch kein Konto?",
     "RegisterBtn": "Registrieren"
   },
@@ -25,7 +26,7 @@
     "footer": "Denken Sie daran, sich gesund zu ernähren, viel Wasser zu trinken und Sport zu treiben."
   },
   "bmiCalculate": {
-    "header": "Berechnen Sie Ihren BMI",
+    "header": "Berechnen Ihren BMI",
     "gender": {
       "label": "Gender",
       "male": "männlich",
@@ -33,7 +34,8 @@
     },
     "weight": "Gewicht",
     "height": "Höhe",
-    "calcBtn": "Berechnen"
+    "calcBtn": "Berechnen",
+    "fields": "alle Felder ausfüllen!"
   },
   "bmiResult": {
     "header": "BMI Ergebnis",
@@ -62,27 +64,22 @@
       {
         "text": "over 40 - extreme Fettleibigkeit"
       }
-    ],
-    "back": "Zurück"
+    ]
   },
   "newProduct": {
-    "lnkLabel": "Bild Link",
-    "linkConfirm": "Bestätigen",
+    "linkLabel": "Bild Link",
     "linkError": "bitte ausfüllen!",
-
     "name": "Produktname",
     "namePlaceholder": "Produktname...",
     "nameError": "Produktname erforderlich!",
-    "values": {
-      "grams": "Grams",
-      "energy": "Energiewert",
-      "kcal": "Kcal",
-      "fat": "Fett",
-      "carbs": "Kohlenhydrate",
-      "protein": "Eiweiß",
-      "salt": "Salz",
-      "fiber": "Faser"
-    },
+    "grams": "Grams",
+    "energy": "Energiewert",
+    "kcal": "Kcal",
+    "fat": "Fett",
+    "carbs": "Kohlenhydrate",
+    "protein": "Eiweiß",
+    "salt": "Salz",
+    "fiber": "Faser",
     "category": {
       "all": "Alle",
       "fruit": "Obst",
@@ -98,5 +95,11 @@
     "added": "Produkt hinzugefügt!",
     "errorAdded": "Etwas geht schief, fügen Sie es erneut hinzu!",
     "created": "Das Konto wurde erstellt!"
+  },
+  "validation": {
+    "required": "Dieses Feld ist erforderlich",
+    "email": "Dieses Feld muss eine gültige E-Mail sein",
+    "password": "Das Passwort ist unterschiedlich",
+    "minChar": "Das Passwort sollte mindestens 6 Zeichen haben"
   }
 }

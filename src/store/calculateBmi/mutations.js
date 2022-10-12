@@ -1,14 +1,6 @@
 export default {
-   calculateYourBmi(store, data) {
-      const kg = data.kg;
-      const height = data.height;
-      let result = 0;
-
-      result = (kg / Math.pow(height, 2)) * 10000;
-      store.resultBmi = result.toFixed(2);
-   },
-   showRange(store) {
-      const result = store.resultBmi;
+   calculateYourBmi(store, result) {
+      store.resultBmi = result;
 
       if (result <= 16.99) {
          store.rangeData = store.ranges[1];

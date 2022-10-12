@@ -11,20 +11,20 @@
 
       <dialog open class="addedModal" v-if="selectedLink">
         <app-icon class="addedModal__checked" icon="ps:checked" />
-        <base-button mode="flat" @click="confirmLink">Ok</base-button>
+        <base-button mode="flat" @click="confirmLink">{{ $t("ok") }}</base-button>
       </dialog>
     </teleport>
 
     <p class="error errorMessageValidation" v-if="errorActivity">
-      please complete!
+      {{ $t("newProduct.linkError") }}
     </p>
 
     <div class="loadLink">
-      <label for="link">Image Link</label>
+      <label for="link">{{ $t("newProduct.linkLabel") }}</label>
       <input type="text" name="link" id="link" v-model="srcImg" />
     </div>
     <base-button mode="addImg" type="flat" @click="confirmImgSrc"
-      >Confirm</base-button
+      >{{ $t("confirm") }}</base-button
     >
   </section>
 </template>

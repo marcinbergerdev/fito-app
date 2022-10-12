@@ -1,7 +1,8 @@
 {
   "addBtn": "Add Product",
   "ok": "Ok",
-
+  "confirm": "Confirm",
+  "back": "Back",
 
   "menuNav": {
     "myProduct": "My Products",
@@ -12,7 +13,6 @@
     "logIn": "Log in",
     "signUp": "Sign up",
     "signOut": "Sign out",
-
     "infoSignUp": "You don't have an account yet?",
     "RegisterBtn": "Register"
   },
@@ -33,7 +33,8 @@
     },
     "weight": "Weight",
     "height": "Height",
-    "calcBtn": "Calculate"
+    "calcBtn": "Calculate",
+    "fields": "complete all fields!"
   },
   "bmiResult": {
     "header": "BMI Result",
@@ -62,27 +63,22 @@
       {
         "text": "over 40 - extreme obesity"
       }
-    ],
-    "back": "Back"
+    ]
   },
   "newProduct": {
-    "lnkLabel": "Image Link",
-    "linkConfirm": "Confirm",
+    "linkLabel": "Image Link",
     "linkError": "please complete!",
-
     "name": "Product Name",
     "namePlaceholder": "Product name...",
     "nameError": "you need product name!",
-    "values": {
-      "grams": "Grams",
-      "energy": "Energy value",
-      "kcal": "Kcal",
-      "fat": "Fat",
-      "carbs": "Carbs",
-      "protein": "Protein",
-      "salt": "Salt",
-      "fiber": "Fiber"
-    },
+    "grams": "Grams",
+    "energy": "Energy value",
+    "kcal": "Kcal",
+    "fat": "Fat",
+    "carbs": "Carbs",
+    "protein": "Protein",
+    "salt": "Salt",
+    "fiber": "Fiber",
     "category": {
       "all": "All",
       "fruit": "Fruit",
@@ -98,5 +94,11 @@
     "added": "Product Added!",
     "errorAdded": "Something goes wrong try adding again!",
     "created": "Account has been created!"
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "This field must be a valid email",
+    "password": "The password is different",
+    "minChar": "The password should have min 6 characters"
   }
 }

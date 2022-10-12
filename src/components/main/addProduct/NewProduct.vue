@@ -3,7 +3,7 @@
     <base-modal
       :show="productAdded"
       :title="modalTitle"
-      confirm="Ok"
+      :confirm="$t('ok')"
       @close="closeModal"
     >
       <p> {{modalDescription}} </p>
@@ -24,7 +24,7 @@
 
     <Form @submit="formAddProduct">
       <div class="productName inputColors">
-        <label for="name">Product Name</label>
+        <label for="name">{{ $t("newProduct.name")}}</label>
 
         <Field
           id="name"
@@ -33,14 +33,14 @@
           type="text"
           v-model="productName"
           :rules="validateName"
-          placeholder="Product name..."
+          :placeholder="$t('newProduct.namePlaceholder')"
         />
         <ErrorMessage class="errorMessageValidation" name="productName" />
       </div>
 
       <div class="productScale">
         <div class="inputColors">
-          <label for="gram">Grams</label>
+          <label for="gram">{{ $t("newProduct.grams")}}</label>
           <input
             id="gram"
             type="number"
@@ -50,7 +50,7 @@
           />
         </div>
         <div class="inputColors">
-          <label for="kcal">Kcal</label>
+          <label for="kcal">{{ $t("newProduct.kcal")}}</label>
           <input
             id="kcal"
             type="number"
@@ -63,7 +63,7 @@
 
       <div class="productIngredients">
         <div class="inputColors">
-          <label for="fat">Fat</label>
+          <label for="fat">{{ $t("newProduct.fat")}}</label>
           <input
             id="fat"
             type="number"
@@ -74,7 +74,7 @@
         </div>
 
         <div class="inputColors">
-          <label for="carbs">Carbs</label>
+          <label for="carbs">{{ $t("newProduct.carbs")}}</label>
           <input
             id="carbs"
             type="number"
@@ -85,7 +85,7 @@
         </div>
 
         <div class="inputColors">
-          <label for="protein">Protein</label>
+          <label for="protein">{{ $t("newProduct.protein")}}</label>
           <input
             id="protein"
             type="number"
@@ -96,7 +96,7 @@
         </div>
 
         <div class="inputColors">
-          <label for="salt">Salt</label>
+          <label for="salt">{{ $t("newProduct.salt")}}</label>
           <input
             id="salt"
             type="number"
@@ -107,7 +107,7 @@
         </div>
 
         <div class="inputColors">
-          <label for="fiber">Fiber</label>
+          <label for="fiber">{{ $t("newProduct.fiber")}}</label>
           <input
             id="fiber"
             type="number"
@@ -137,7 +137,7 @@
         <span>
           <app-icon class="icon" icon="akar-icons:circle-plus" />
         </span>
-        Add product
+        {{ $t("addBtn")}}
       </base-button>
     </Form>
   </base-box>

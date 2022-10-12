@@ -7,12 +7,12 @@
     </base-button>
 
     <header class="formHeader">
-      <h1 class="formHeader__text">Calculate your BMI</h1>
+      <h1 class="formHeader__text">{{ $t("bmiCalculate.header") }}</h1>
     </header>
 
     <form @submit.prevent="calcBmi">
       <div class="formGender">
-        <label for="gender">Gender:</label>
+        <label for="gender">{{ $t("bmiCalculate.gender.label") }}:</label>
 
         <div class='inputColors'>
           <input
@@ -22,7 +22,7 @@
             name="gender"
             v-model="gender"
           />
-          <label for="male">Male</label>
+          <label for="male">{{ $t("bmiCalculate.gender.male") }}:</label>
         </div>
 
         <div class='inputColors'>
@@ -34,33 +34,33 @@
             name="gender"
             v-model="gender"
           />
-          <label for="female">Female</label>
+          <label for="female">{{ $t("bmiCalculate.gender.female") }}:</label>
         </div>
       </div>
 
       <div class="setData">
         <div class='inputColors'>
-          <label for="weight">Weight:</label>
+          <label for="weight">{{ $t("bmiCalculate.weight") }}:</label>
           <input id="weight" class='inputColors' type="number" step="0.1" v-model="kg" />
           <span>kg</span>
         </div>
 
         <div class='inputColors'>
-          <label for="height">Height:</label>
+          <label for="height">{{ $t("bmiCalculate.height") }}:</label>
           <input id='height' class='inputColors' type="number" step="0.1" v-model="height" />
           <span>cm</span>
         </div>
       </div>
 
       <p class="errorMessageValidation" v-if="errorMessage">
-        complete all fields!
+        {{ $t("bmiCalculate.fields") }}
       </p>
 
       <base-button mode="bmiButton" type="flat">
         <span>
           <app-icon class="icon" icon="ic:outline-calculate" />
         </span>
-        Calculate
+        {{ $t("bmiCalculate.calcBtn") }}
       </base-button>
     </form>
   </base-box>
@@ -88,10 +88,9 @@ export default {
         type: "calculateYourBmi",
         data: {
           kg: this.kg,
-          height: this.height,
+          cm: this.height,
         },
       });
-      this.$store.dispatch('showRange');
       this.$router.push("/home/result");
     },
   },

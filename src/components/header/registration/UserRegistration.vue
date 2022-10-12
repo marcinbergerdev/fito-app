@@ -1,17 +1,17 @@
 <template>
   <ul class="registrationList" :class="activeRegistration">
     <li class="registrationList__link" v-if="!isLoggedIn">
-      <base-button link to="/login" mode="logInBtn">Log in</base-button>
+      <base-button link to="/login" mode="logInBtn">{{ $t("registration.logIn") }}</base-button>
     </li>
 
     <li class="registrationList__link" v-if="!isLoggedIn">
       <base-button link to="/registration" mode="signInBtn"
-        >Sign up</base-button
+        >{{ $t("registration.signUp") }}</base-button
       >
     </li>
 
     <li class="registrationList__link" v-if="isLoggedIn">
-      <base-button mode="signOutBtn" @click="logout">Sign out</base-button>
+      <base-button mode="signOutBtn" @click="logout">{{ $t("registration.signOut") }}</base-button>
     </li>
   </ul>
 </template>
