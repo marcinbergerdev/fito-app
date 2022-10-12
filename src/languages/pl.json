@@ -41,28 +41,36 @@
     "header": "BMI Wynik",
     "ranges": [
       {
-        "text": "BMI Zakresy wartości:"
+        "text": "BMI Zakresy wartości:",
+        "color": "#fff"
       },
       {
-        "text": "16 - 16.99 - wychudzenie"
+        "text": "16 - 16.99 - wychudzenie",
+        "color": "#fff"
       },
       {
-        "text": "17 - 18.49 - niedowaga"
+        "text": "17 - 18.49 - niedowaga",
+        "color": "#00c1fb"
       },
       {
-        "text": "18.5 - 24.99 - normalna wartość"
+        "text": "18.5 - 24.99 - normalna wartość",
+        "color": "#1aff61"
       },
       {
-        "text": "25 - 29.99 - nadwaga"
+        "text": "25 - 29.99 - nadwaga",
+        "color": "#ffa500"
       },
       {
-        "text": "30 - 34.99 - otyłość I stopnia"
+        "text": "30 - 34.99 - otyłość I stopnia",
+        "color": "#f72420"
       },
       {
-        "text": "35 - 39.99 - otyłość II stopnia"
+        "text": "35 - 39.99 - otyłość II stopnia",
+        "color": "#f72420"
       },
       {
-        "text": "over 40 - skrajna otyłość"
+        "text": "over 40 - skrajna otyłość",
+        "color": "#f72420"
       }
     ]
   },

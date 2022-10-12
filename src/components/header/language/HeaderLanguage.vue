@@ -16,6 +16,7 @@ export default {
   },
   methods: {
     setLanguage(){
+      localStorage.setItem('lang', this.selectedLanguage);
       this.$i18n.locale = this.selectedLanguage;
     }
   },
@@ -24,6 +25,12 @@ export default {
       return { activeLanguage: this.$store.getters.mobileMenuActiveStatus };
     },
   },
+  created(){
+    const lang = localStorage.getItem('lang');
+    if(!lang) return localStorage.setItem('lang', 'en');
+    this.selectedLanguage = lang;
+    this.setLanguage();
+  }
 };
 
 
