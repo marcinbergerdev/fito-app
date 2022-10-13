@@ -22,7 +22,7 @@
 
       <!-- Global Styles in App.vue -->
       <Form @submit="formSubmit" class="formBox">
-        <h2 class="formBox__header">Sign up</h2>
+        <h2 class="formBox__header">{{ $t("registration.signUp") }}</h2>
 
         <div class="registerInputs inputColors">
           <Field
@@ -54,7 +54,7 @@
           />
         </div>
 
-        <base-button mode="flat">Register</base-button>
+        <base-button mode="flat">{{ $t("registration.register") }}</base-button>
       </Form>
     </base-registration>
   </article>

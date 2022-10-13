@@ -9,7 +9,7 @@
 
       <!-- Global Styles in App.vue -->
       <Form @submit="formSubmit" class="formBox">
-        <h2 class="formBox__header">Log in</h2>
+        <h2 class="formBox__header"> {{ $t("registration.logIn") }}</h2>
 
         <div class="registerInputs inputColors">
           <Field
@@ -30,18 +30,18 @@
           <p></p>
         </div>
 
-        <base-button type="flat">Log in</base-button>
+        <base-button type="flat">{{ $t("registration.logIn") }}</base-button>
       </Form>
     </base-registration>
 
     <base-registration view="mobileHidden" radius="signUpRadius">
       <header class="singUpInfo">
-        <h2>Sign up</h2>
-        <p>You don't have an account yet?</p>
+        <h2>{{ $t("registration.signUp") }}</h2>
+        <p>{{ $t("registration.infoSignUp") }}</p>
       </header>
 
       <base-button link to="/registration" type="signInOutline"
-        >Sign up</base-button
+        >{{ $t("registration.signUp") }}</base-button
       >
     </base-registration>
   </article>

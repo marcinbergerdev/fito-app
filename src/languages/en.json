@@ -3,6 +3,8 @@
   "ok": "Ok",
   "confirm": "Confirm",
   "back": "Back",
+  "search": "Search...",
+  "filters": "Filters",
   "menuNav": {
     "myProduct": "My Products",
     "home": "Home",
@@ -13,7 +15,7 @@
     "signUp": "Sign up",
     "signOut": "Sign out",
     "infoSignUp": "You don't have an account yet?",
-    "RegisterBtn": "Register"
+    "registerBtn": "Register"
   },
   "homePage": {
     "header": "Take care of your health",
@@ -78,13 +80,23 @@
     "protein": "Protein",
     "salt": "Salt",
     "fiber": "Fiber",
-    "category": {
-      "all": "All",
-      "fruit": "Fruit",
-      "sweet": "Sweet",
-      "vegetable": "Vegetable",
-      "spices": "Spices"
-    }
+    "category": [
+      {
+        "name": "All"
+      },
+      {
+        "name": "Fruit"
+      },
+      {
+        "name": "Sweet"
+      },
+      {
+        "name": "Vegetable"
+      },
+      {
+        "name": "Spices"
+      }
+    ]
   },
   "modal": {
     "success": "Success!",

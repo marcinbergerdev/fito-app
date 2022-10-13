@@ -3,9 +3,11 @@
   "ok": "Ok",
   "confirm": "Potwierdź",
   "back": "Wróć",
+  "search": "Wyszukaj...",
+  "filters": "Filtry",
   "menuNav": {
     "myProduct": "Moje produkty",
-    "home": "Strona Główna",
+    "home": "Strona główna",
     "bmi": "BMI"
   },
   "registration": {
@@ -13,13 +15,13 @@
     "signUp": "Zarejestruj",
     "signOut": "Wyloguj",
     "infoSignUp": "Nie masz jeszcze swojego konta?",
-    "RegisterBtn": "Zarejestruj"
+    "register": "Zarejestruj"
   },
   "homePage": {
     "header": "Zadbaj o swoje zdrowie",
     "addProduct": "U nas możesz dodać swoje ulubione produkty wraz z ich makro, wystarczy wprowadzić odpowiednie informacje i cieszyć się bardzo prostym i intuicyjnym interfejsem.",
     "addProductBtn": "Dodaj Product",
-    "calcBmi": "Obliczanie wskaźnika BMI polega na podzieleniu masy ciała, która wyrażona jest w kilogramach, przez kwadrat wysokości ciała, która mierzona jest w metrach, oblicz swoje.",
+    "calcBmi": "Obliczanie wskaźnika BMI polega na podzieleniu masy ciała, która wyrażona jest w kilogramach, przez kwadrat wysokości ciała i mierzona jest w metrach, oblicz swoje.",
     "calcBmiBtn": "BMI",
     "footer": "Pamiętaj aby zdrowo się odżywiać, pić dużo, wody i uprawiać sport."
   },
@@ -67,7 +69,7 @@
   "newProduct": {
     "linkLabel": "Link Zdjęcia",
     "linkError": "prosze wypełnij!",
-    "name": "Nazwa Productu",
+    "name": "Nazwa Produktu",
     "namePlaceholder": "Nazwa Productu...",
     "nameError": "nazwa produktu wymagana!",
     "grams": "Gram",
@@ -78,13 +80,23 @@
     "protein": "Białko",
     "salt": "Sól",
     "fiber": "Błonnik",
-    "category": {
-      "all": "Wszystkie",
-      "fruit": "Owoce",
-      "sweet": "Słodycze",
-      "vegetable": "Warzywa",
-      "spices": "Przyprawy"
-    }
+    "category": [
+      {
+        "name": "Wszystkie"
+      },
+      {
+        "name": "Owoce"
+      },
+      {
+        "name": "Słodycze"
+      },
+      {
+        "name": "Warzywa"
+      },
+      {
+        "name": "Przyprawy"
+      }
+    ]
   },
   "modal": {
     "succes": "Sukces!",

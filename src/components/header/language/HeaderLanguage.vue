@@ -1,6 +1,19 @@
 <template>
-  <select name="languages" id="languages" class="languageList" :class="activeLanguage" v-model="$i18n.locale" @change="setLanguage">
-     <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
+  <select
+    name="languages"
+    id="languages"
+    class="languageList"
+    :class="activeLanguage"
+    v-model="$i18n.locale"
+    @change="setLanguage"
+  >
+    <option
+      v-for="locale in $i18n.availableLocales"
+      :key="`locale-${locale}`"
+      :value="locale"
+    >
+      {{ locale }}
+    </option>
   </select>
 </template>
 
@@ -8,9 +21,9 @@
 <script>
 export default {
   methods: {
-    setLanguage(){
-      localStorage.setItem('lang', this.$i18n.locale);
-    }
+    setLanguage() {
+      localStorage.setItem("lang", this.$i18n.locale);
+    },
   },
   computed: {
     activeLanguage() {
@@ -18,12 +31,12 @@ export default {
     },
   },
 };
-
-
 </script>
 
 <style lang="scss" scoped>
 .languageList {
+  margin-right: 2rem;
+  padding: 0.5rem;
   font-weight: 200;
   font-size: 1.2rem;
   background-color: var(--black);
@@ -43,12 +56,12 @@ export default {
   }
 
   @media (min-width: 768px) {
+    padding: 0.2rem;
     cursor: pointer;
   }
 }
 
-.activeLanguage{
+.activeLanguage {
   display: none;
-
 }
 </style>

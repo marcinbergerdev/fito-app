@@ -34,13 +34,13 @@ const router = createRouter({
                name: "BMI",
                path: "bmi",
                component: CalculateBmi,
-               meta: { withoutUserAccount: true },
+               meta: { withoutUserAccount: true, available: true },
             },
             {
                name: "Result",
                path: "result",
                component: ResultBmi,
-               meta: { withoutUserAccount: true },
+               meta: { withoutUserAccount: true, available: true },
             },
             {
                name: "Product",
@@ -73,12 +73,16 @@ const router = createRouter({
    ],
 });
 
-router.beforeEach((to, _, next) => {
+router.beforeEach((to, from, next) => {
    if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
       next("/login");
       return;
+   } else if (!from.meta.available && to.path === '/home/result') {
+      next('/home/bmi');
+      return;
+   } else {
+      next();
    }
-   next();
 });
 
 export default router;

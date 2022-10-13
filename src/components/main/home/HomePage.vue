@@ -99,12 +99,12 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 13rem;
   padding: 0 2rem;
   font-size: 2.3rem;
   line-height: 1.3;
 
   &__text {
-    min-height: 13rem;
     margin-bottom: 1.5rem;
   }
   &__link a {

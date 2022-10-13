@@ -3,6 +3,8 @@
   "ok": "Ok",
   "confirm": "Bestätigen",
   "back": "Zurück",
+  "search": "Suchen...",
+  "filters": "Filter",
   "menuNav": {
     "myProduct": "Meine Produkte",
     "home": "Startseite",
@@ -13,7 +15,7 @@
     "signUp": "Registrierung",
     "signOut": "Abmelden",
     "infoSignUp": "Sie haben noch kein Konto?",
-    "RegisterBtn": "Registrieren"
+    "register": "Registrieren"
   },
   "homePage": {
     "header": "Achten Sie auf Ihre Gesundheit",
@@ -78,13 +80,23 @@
     "protein": "Eiweiß",
     "salt": "Salz",
     "fiber": "Faser",
-    "category": {
-      "all": "Alle",
-      "fruit": "Obst",
-      "sweet": "Süße",
-      "vegetable": "Gemüse",
-      "spices": "Gewürze"
-    }
+    "category": [
+      {
+        "name": "Alle"
+      },
+      {
+        "name": "Obst"
+      },
+      {
+        "name": "Süße"
+      },
+      {
+        "name": "Gemüse"
+      },
+      {
+        "name": "Gewürze"
+      }
+    ]
   },
   "modal": {
     "success": "Erfolgreich!",

@@ -1,17 +1,21 @@
 <template>
   <ul class="registrationList" :class="activeRegistration">
     <li class="registrationList__link" v-if="!isLoggedIn">
-      <base-button link to="/login" mode="logInBtn">{{ $t("registration.logIn") }}</base-button>
+      <base-button link to="/login" mode="logInBtn">{{
+        $t("registration.logIn")
+      }}</base-button>
     </li>
 
     <li class="registrationList__link" v-if="!isLoggedIn">
-      <base-button link to="/registration" mode="signInBtn"
-        >{{ $t("registration.signUp") }}</base-button
-      >
+      <base-button link to="/registration" mode="signInBtn">{{
+        $t("registration.signUp")
+      }}</base-button>
     </li>
 
     <li class="registrationList__link" v-if="isLoggedIn">
-      <base-button mode="signOutBtn" @click="logout">{{ $t("registration.signOut") }}</base-button>
+      <base-button mode="signOutBtn" @click="logout">{{
+        $t("registration.signOut")
+      }}</base-button>
     </li>
   </ul>
 </template>
@@ -20,10 +24,10 @@
 <script>
 export default {
   methods: {
-    logout(){
-      this.$store.dispatch('logout');
-      this.$store.dispatch('clearProductList');
-    }
+    logout() {
+      this.$store.dispatch("logout");
+      this.$store.dispatch("clearProductList");
+    },
   },
   computed: {
     activeRegistration() {
@@ -41,8 +45,8 @@ export default {
         : "outline";
     },
 
-    isLoggedIn(){
-      return (this.$store.getters.userId && this.$store.getters.isAuthenticated)
+    isLoggedIn() {
+      return this.$store.getters.userId && this.$store.getters.isAuthenticated;
     },
   },
 };
@@ -55,7 +59,6 @@ export default {
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
-    margin-left: 2rem;
 
     &__link {
       margin-left: 2rem;

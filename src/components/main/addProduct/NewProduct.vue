@@ -120,7 +120,7 @@
 
       <div class="productCategory">
         <div v-for="(category, index) in categories" :key="index">
-          <label :for="category.id">{{ category.name }}</label>
+          <label :for="category.id">{{ $t(`newProduct.category[${category.idName}].name`) }}</label>
 
           <Field
             :id="category.id"
@@ -175,19 +175,19 @@ export default {
       categories: [
         {
           id: "fruit",
-          name: "Fruit",
+          idName: 1,
         },
         {
           id: "sweets",
-          name: "Sweet",
+          idName: 2,
         },
         {
           id: "vegetable",
-          name: "Vegetable",
+          idName: 3,
         },
         {
           id: "spices",
-          name: "Spices",
+          idName: 4,
         },
       ],
     };
@@ -370,7 +370,7 @@ form {
 
 .productCategory {
   justify-content: space-between;
-  width: #{"min(100%, 20rem)"};
+  width: #{"min(100%, 22rem)"};
 }
 
 .error {

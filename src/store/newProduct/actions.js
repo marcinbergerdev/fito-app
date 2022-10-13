@@ -35,7 +35,7 @@ export default {
          selectedCategory: data.value.selectedCategory,
       };
 
-      const API_LINK = `https://fitto-authentication-c968e-defau-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${productId}.json?auth=${token}`;
+      const API_LINK = `https://fitto-authentication-c968e-default-rtdb.europe-west1.firebasedatabase.app/products/${userId}/${productId}.json?auth=${token}`;
       const response = await fetch(API_LINK, {
          method: "PUT",
          body: JSON.stringify(newProduct),
