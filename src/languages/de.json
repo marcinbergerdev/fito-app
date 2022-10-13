@@ -18,7 +18,7 @@
   "homePage": {
     "header": "Achten Sie auf Ihre Gesundheit",
     "addProduct": "Mit uns können Sie Ihre Lieblingsprodukte zusammen mit ihrem Makro hinzufügen, geben Sie einfach die relevanten Informationen ein und genießen Sie eine sehr einfache und intuitive Schnittstelle.",
-    "addProductBtm": "Produkt hinzufügen",
+    "addProductBtn": "Produkt hinzufügen",
     "calcBmi": "Bei der Berechnung des BMI wird das Körpergewicht, das in Kilogramm angegeben wird, durch das Quadrat der Körpergröße, die in Metern gemessen wird, geteilt.",
     "calcBmiBtn": "BMI",
     "footer": "Denken Sie daran, sich gesund zu ernähren, viel Wasser zu trinken und Sport zu treiben."

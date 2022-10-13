@@ -18,7 +18,7 @@
   "homePage": {
     "header": "Zadbaj o swoje zdrowie",
     "addProduct": "U nas możesz dodać swoje ulubione produkty wraz z ich makro, wystarczy wprowadzić odpowiednie informacje i cieszyć się bardzo prostym i intuicyjnym interfejsem.",
-    "addProductBtm": "Dodaj Product",
+    "addProductBtn": "Dodaj Product",
     "calcBmi": "Obliczanie wskaźnika BMI polega na podzieleniu masy ciała, która wyrażona jest w kilogramach, przez kwadrat wysokości ciała, która mierzona jest w metrach, oblicz swoje.",
     "calcBmiBtn": "BMI",
     "footer": "Pamiętaj aby zdrowo się odżywiać, pić dużo, wody i uprawiać sport."

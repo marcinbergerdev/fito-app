@@ -7,33 +7,31 @@
     <section class="containerRedirection">
       <div class="boxRedirection">
         <p class="boxRedirection__text">
-          U nas możesz dodać swoje ulubione produkty wraz z ich makro, wystarczy
-          wprowadzić odpowiednie informacje i cieszyć się bardzo prostym i
-          intuicyjnym interfejsem.
+
+          {{ $t("homePage.addProduct") }}
         </p>
 
         <base-button link :to="isLoggedIn" mode="homePageButton" type="outline">
-          Add Product
+          {{ $t("homePage.addProductBtn") }}
         </base-button>
       </div>
 
       <div class="boxRedirection">
         <p class="boxRedirection__text">
-          Obliczanie wskaźnika BMI polega na podzieleniu masy ciała, która
-          wyrażona jest w kilogramach, przez kwadrat wysokości ciała, która
-          mierzona jest w metrach, oblicz swoje.
+
+          {{ $t("homePage.calcBmi") }}
         </p>
 
         <base-button link to="/home/bmi" mode="homePageButton" type="outline">
-          BMI
+          {{ $t("homePage.calcBmiBtn") }}
         </base-button>
       </div>
     </section>
 
     <footer class="containerInformation">
       <h3 class="containerInformation__description">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum
-        voluptatem est vitae nobis dolores culpa necessitatibus.
+
+        {{ $t("homePage.footer") }}
       </h3>
     </footer>
   </article>
@@ -83,8 +81,7 @@ export default {
 .containerRedirection {
   display: flex;
   flex-direction: column;
-
-  margin: 5rem 0 5rem 0;
+  margin: 7rem 0 5rem 0;
   gap: 5rem;
   text-align: center;
 
@@ -99,11 +96,15 @@ export default {
 }
 
 .boxRedirection {
-  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 0 2rem;
   font-size: 2.3rem;
   line-height: 1.3;
+
   &__text {
+    min-height: 13rem;
     margin-bottom: 1.5rem;
   }
   &__link a {

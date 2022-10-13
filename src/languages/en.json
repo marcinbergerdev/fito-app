@@ -18,7 +18,7 @@
   "homePage": {
     "header": "Take care of your health",
     "addProduct": "With us you can add your favorite products along with their macro, just enter the relevant information and enjoy a very simple and intuitive interface.",
-    "addProductBtm": "Add Product",
+    "addProductBtn": "Add Product",
     "calcBmi": "Calculating BMI involves dividing body weight, which is expressed in kilograms, by the square of body height, which is measured in meters, calculate yours.",
     "calcBmiBtn": "BMI",
     "footer": "Remember to eat healthy, drink plenty, water and play sports."
