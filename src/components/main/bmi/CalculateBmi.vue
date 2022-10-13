@@ -14,7 +14,7 @@
       <div class="formGender">
         <label for="gender">{{ $t("bmiCalculate.gender.label") }}:</label>
 
-        <div class='inputColors'>
+        <div class="inputColors">
           <input
             id="male"
             type="radio"
@@ -25,10 +25,10 @@
           <label for="male">{{ $t("bmiCalculate.gender.male") }}:</label>
         </div>
 
-        <div class='inputColors'>
+        <div class="inputColors">
           <input
             id="female"
-            class='inputColors'
+            class="inputColors"
             type="radio"
             value="female"
             name="gender"
@@ -39,15 +39,27 @@
       </div>
 
       <div class="setData">
-        <div class='inputColors'>
+        <div class="inputColors">
           <label for="weight">{{ $t("bmiCalculate.weight") }}:</label>
-          <input id="weight" class='inputColors' type="number" step="0.1" v-model="kg" />
+          <input
+            id="weight"
+            class="inputColors"
+            type="number"
+            step="0.1"
+            v-model="kg"
+          />
           <span>kg</span>
         </div>
 
-        <div class='inputColors'>
+        <div class="inputColors">
           <label for="height">{{ $t("bmiCalculate.height") }}:</label>
-          <input id='height' class='inputColors' type="number" step="0.1" v-model="height" />
+          <input
+            id="height"
+            class="inputColors"
+            type="number"
+            step="0.1"
+            v-model="height"
+          />
           <span>cm</span>
         </div>
       </div>
@@ -84,13 +96,13 @@ export default {
       }
       this.errorMessage = false;
 
-      this.$store.dispatch({
-        type: "calculateYourBmi",
-        data: {
+      localStorage.setItem(
+        "bmiData",
+        JSON.stringify({
           kg: this.kg,
           cm: this.height,
-        },
-      });
+        })
+      );
       this.$router.push("/home/result");
     },
   },

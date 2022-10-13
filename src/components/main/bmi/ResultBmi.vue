@@ -1,17 +1,20 @@
 <template>
   <base-box size="result">
     <header class="resultHeader">
-      <h2 class="resultHeader__text">{{$t("bmiResult.header")}}</h2>
+      <h2 class="resultHeader__text">{{ $t("bmiResult.header") }}</h2>
     </header>
 
-    <div class="resultBox" :style="{color: rangeData.color}">
-      <span class="resultBox__number"> {{ resultBmi }}</span>
-      <p class="resultBox__text"> {{ rangeData.text }}</p>
-    </div>  
+    <div class="resultBox" :style="setResultColor">
+      <span class="resultBox__number"> {{ result.bmi }}</span>
+
+      <p class="resultBox__text">
+        {{ $t(`bmiResult.ranges[${result.data.id}].text`) }}
+      </p>
+    </div>
 
     <ul class="resultList">
-      <li class="resultList__ranges" v-for="(range, id) in ranges" :key="id">
-        <p>{{ $t( `bmiResult.ranges[${id}].text` ) }}</p>
+      <li class="resultList__ranges" v-for="range in ranges" :key="range.id">
+        <p>{{ $t(`bmiResult.ranges[${range.id}].text`) }}</p>
       </li>
     </ul>
 
@@ -24,16 +27,22 @@
 <script>
 export default {
   computed: {
-    resultBmi(){
-      return this.$store.getters.resultBmi;
+    result() {
+      return this.$store.getters.result;
     },
-    ranges(){
+    ranges() {
       return this.$store.getters.ranges;
     },
-    rangeData(){
-      return this.$store.getters.rangeData;
+    setResultColor() {
+      return { color: this.result.data.color };
     },
-  }
+  },
+  created() {
+    this.$store.dispatch("calculateYourBmi");
+  },
+  unmounted() {
+    localStorage.removeItem("bmiData");
+  },
 };
 </script>
 

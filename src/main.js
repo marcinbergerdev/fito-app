@@ -18,17 +18,17 @@ const BaseSpinner = defineAsyncComponent(() =>
    import("./cards/BaseSpinner.vue")
 );
 
-import en from "./languages/en.json";
-import pl from "./languages/pl.json";
-import de from "./languages/de.json";
+import EN from "./languages/en.json";
+import PL from "./languages/pl.json";
+import DE from "./languages/de.json";
 
 const i18n = createI18n({
    locale: "en",
    fallbackLocale: "en",
    messages: {
-      en,
-      pl,
-      de,
+      EN,
+      PL,
+      DE,
    },
 });
 

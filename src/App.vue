@@ -7,6 +7,10 @@
 <script>
 export default {
   created() {
+    let lang = localStorage.getItem('lang');
+    if(!lang) localStorage.setItem('lang', 'EN');
+    lang = localStorage.getItem('lang')
+    this.$i18n.locale = lang;
     this.$store.dispatch("tryLogin");
   },
 };

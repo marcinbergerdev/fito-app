@@ -3,7 +3,6 @@
   "ok": "Ok",
   "confirm": "Confirm",
   "back": "Back",
-
   "menuNav": {
     "myProduct": "My Products",
     "home": "Home",
@@ -40,36 +39,28 @@
     "header": "BMI Result",
     "ranges": [
       {
-        "text": "BMI Value ranges:",
-        "color": "#fff"
+        "text": "BMI Value ranges:"
       },
       {
-        "text": "16 - 16.99 - emaciation",
-        "color": "#fff"
+        "text": "16 - 16.99 - emaciation"
       },
       {
-        "text": "17 - 18.49 - underweight",
-        "color": "#00c1fb"
+        "text": "17 - 18.49 - underweight"
       },
       {
-        "text": "18.5 - 24.99 - normal value",
-        "color": "#1aff61"
+        "text": "18.5 - 24.99 - normal value"
       },
       {
-        "text": "25 - 29.99 - overweight",
-        "color": "#ffa500"
+        "text": "25 - 29.99 - overweight"
       },
       {
-        "text": "30 - 34.99 - 1st degree of obesity",
-        "color": "#f72420"
+        "text": "30 - 34.99 - 1st degree of obesity"
       },
       {
-        "text": "35 - 39.99 - grade II obesity",
-        "color": "#f72420"
+        "text": "35 - 39.99 - grade II obesity"
       },
       {
-        "text": "over 40 - extreme obesity",
-        "color": "#f72420"
+        "text": "over 40 - extreme obesity"
       }
     ]
   },

@@ -1,23 +1,15 @@
 <template>
-  <select name="languages" id="languages" class="languageList" :class="activeLanguage" v-model="selectedLanguage" @change="setLanguage">
-    <option value="en" selected>English</option>
-    <option value="de">Deutsch</option>
-    <option value="pl">Polish</option>
+  <select name="languages" id="languages" class="languageList" :class="activeLanguage" v-model="$i18n.locale" @change="setLanguage">
+     <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
   </select>
 </template>
 
 
 <script>
 export default {
-  data(){
-    return {
-      selectedLanguage: 'en'
-    }
-  },
   methods: {
     setLanguage(){
-      localStorage.setItem('lang', this.selectedLanguage);
-      this.$i18n.locale = this.selectedLanguage;
+      localStorage.setItem('lang', this.$i18n.locale);
     }
   },
   computed: {
@@ -25,12 +17,6 @@ export default {
       return { activeLanguage: this.$store.getters.mobileMenuActiveStatus };
     },
   },
-  created(){
-    const lang = localStorage.getItem('lang');
-    if(!lang) return localStorage.setItem('lang', 'en');
-    this.selectedLanguage = lang;
-    this.setLanguage();
-  }
 };
 
 
@@ -38,7 +24,6 @@ export default {
 
 <style lang="scss" scoped>
 .languageList {
-  margin-right: 2rem;
   font-weight: 200;
   font-size: 1.2rem;
   background-color: var(--black);

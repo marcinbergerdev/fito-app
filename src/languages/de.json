@@ -3,8 +3,6 @@
   "ok": "Ok",
   "confirm": "Bestätigen",
   "back": "Zurück",
-
-
   "menuNav": {
     "myProduct": "Meine Produkte",
     "home": "Startseite",
@@ -41,36 +39,28 @@
     "header": "BMI Ergebnis",
     "ranges": [
       {
-        "text": "BMI-Wertebereiche:",
-        "color": "#fff"
+        "text": "BMI-Wertebereiche:"
       },
       {
-        "text": "16 - 16.99 - Auszehrung",
-        "color": "#fff"
+        "text": "16 - 16.99 - Auszehrung"
       },
       {
-        "text": "17 - 18.49 - Untergewicht",
-        "color": "#00c1fb"
+        "text": "17 - 18.49 - Untergewicht"
       },
       {
-        "text": "18.5 - 24.99 - Normalwert",
-        "color": "#1aff61"
+        "text": "18.5 - 24.99 - Normalwert"
       },
       {
-        "text": "25 - 29.99 - Übergewicht",
-        "color": "#ffa500"
+        "text": "25 - 29.99 - Übergewicht"
       },
       {
-        "text": "30 - 34.99 - Fettleibigkeit 1. Grades",
-        "color": "#f72420"
+        "text": "30 - 34.99 - Fettleibigkeit 1. Grades"
       },
       {
-        "text": "35 - 39.99 - Fettleibigkeit 2. Grades",
-        "color": "#f72420"
+        "text": "35 - 39.99 - Fettleibigkeit 2. Grades"
       },
       {
-        "text": "over 40 - extreme Fettleibigkeit",
-        "color": "#f72420"
+        "text": "over 40 - extreme Fettleibigkeit"
       }
     ]
   },

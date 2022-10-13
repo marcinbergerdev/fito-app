@@ -1,11 +1,8 @@
 export default {
-   resultBmi(store) {
-      return store.resultBmi;
+   result(store) {
+      return store.result;
    },
    ranges(store) {
       return store.ranges;
-   },
-   rangeData(store) {
-      return store.rangeData;
    },
 };
