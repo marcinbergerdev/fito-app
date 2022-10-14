@@ -214,7 +214,7 @@ button {
   }
 
   @media (min-width: 365px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   @media (min-width: 768px) {

@@ -6,7 +6,7 @@
       :confirm="$t('ok')"
       @close="closeModal"
     >
-      <p> {{modalDescription}} </p>
+      <p>{{ modalDescription }}</p>
     </base-modal>
 
     <base-button mode="iconBorder" @click="selectImg">
@@ -24,7 +24,7 @@
 
     <Form @submit="formAddProduct">
       <div class="productName inputColors">
-        <label for="name">{{ $t("newProduct.name")}}</label>
+        <label for="name">{{ $t("newProduct.name") }}</label>
 
         <Field
           id="name"
@@ -40,7 +40,7 @@
 
       <div class="productScale">
         <div class="inputColors">
-          <label for="gram">{{ $t("newProduct.grams")}}</label>
+          <label for="gram">{{ $t("newProduct.grams") }}</label>
           <input
             id="gram"
             type="number"
@@ -49,8 +49,9 @@
             v-model="gram"
           />
         </div>
+
         <div class="inputColors">
-          <label for="kcal">{{ $t("newProduct.kcal")}}</label>
+          <label for="kcal">{{ $t("newProduct.kcal") }}</label>
           <input
             id="kcal"
             type="number"
@@ -62,65 +63,29 @@
       </div>
 
       <div class="productIngredients">
-        <div class="inputColors">
-          <label for="fat">{{ $t("newProduct.fat")}}</label>
+        <div
+          v-for="(ingredient, id) in ingredients"
+          :key="ingredient.id"
+          class="inputColors"
+        >
+          <label :for="ingredient.id">{{
+            $t(`newProduct.ingredients[${id}].name`)
+          }}</label>
           <input
-            id="fat"
+            :id="ingredient.id"
             type="number"
             step="0.1"
             placeholder="0.0"
-            v-model="fat"
-          />
-        </div>
-
-        <div class="inputColors">
-          <label for="carbs">{{ $t("newProduct.carbs")}}</label>
-          <input
-            id="carbs"
-            type="number"
-            step="0.1"
-            placeholder="0.0"
-            v-model="carbs"
-          />
-        </div>
-
-        <div class="inputColors">
-          <label for="protein">{{ $t("newProduct.protein")}}</label>
-          <input
-            id="protein"
-            type="number"
-            step="0.1"
-            placeholder="0.0"
-            v-model="protein"
-          />
-        </div>
-
-        <div class="inputColors">
-          <label for="salt">{{ $t("newProduct.salt")}}</label>
-          <input
-            id="salt"
-            type="number"
-            step="0.1"
-            placeholder="0.0"
-            v-model="salt"
-          />
-        </div>
-
-        <div class="inputColors">
-          <label for="fiber">{{ $t("newProduct.fiber")}}</label>
-          <input
-            id="fiber"
-            type="number"
-            step="0.1"
-            placeholder="0.0"
-            v-model="fiber"
+            :v-model="ingredient.id"
           />
         </div>
       </div>
 
       <div class="productCategory">
-        <div v-for="(category, index) in categories" :key="index">
-          <label :for="category.id">{{ $t(`newProduct.category[${category.idName}].name`) }}</label>
+        <div v-for="(category, id) in categories" :key="id">
+          <label :for="category.id">{{
+            $t(`newProduct.category[${category.idName}].name`)
+          }}</label>
 
           <Field
             :id="category.id"
@@ -137,7 +102,7 @@
         <span>
           <app-icon class="icon" icon="akar-icons:circle-plus" />
         </span>
-        {{ $t("addBtn")}}
+        {{ $t("addBtn") }}
       </base-button>
     </Form>
   </base-box>
@@ -172,6 +137,25 @@ export default {
       selectedCategory: "fruit",
       productAdded: false,
       error: null,
+
+      ingredients: [
+        {
+          id: "fat",
+        },
+        {
+          id: "carbs",
+        },
+        {
+          id: "protein",
+        },
+        {
+          id: "salt",
+        },
+        {
+          id: "fiber",
+        },
+      ],
+
       categories: [
         {
           id: "fruit",
@@ -222,7 +206,7 @@ export default {
     validateName(value) {
       if (!value) {
         this.isProductNameEmpty = true;
-        return "you need product name!";
+        return this.$t('newProduct.nameError');
       }
 
       this.isProductNameEmpty = false;
@@ -254,13 +238,12 @@ export default {
     isEmptyError() {
       return { emptyInput: this.isProductNameEmpty };
     },
-    modalTitle(){
-      return this.error ? 'Error!': 'Success!'
+    modalTitle() {
+      return this.error ? this.$t('modal.error') : this.$t('modal.success');
     },
-    modalDescription(){
-      return this.error ? this.error : 'Product Added!'
-    }
-
+    modalDescription() {
+      return this.error ? this.error : this.$t('modal.added');
+    },
   },
 };
 </script>

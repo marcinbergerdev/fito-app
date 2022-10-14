@@ -75,11 +75,28 @@
     "grams": "Grams",
     "energy": "Energiewert",
     "kcal": "Kcal",
-    "fat": "Fett",
-    "carbs": "Kohlenhydrate",
-    "protein": "Eiweiß",
-    "salt": "Salz",
-    "fiber": "Faser",
+
+    "ingredients": [
+      {
+        "name": "Fett"
+      },
+      {
+        "name": "Kohlenhydrate"
+      },
+      {
+        "name": "Eiweiß"
+      },
+      {
+        "name": "Salz"
+      },
+      {
+        "name": "Faser"
+      }
+    ],
+
+
+
+
     "category": [
       {
         "name": "Alle"
@@ -104,12 +121,14 @@
     "loading": "Laden...",
     "added": "Produkt hinzugefügt!",
     "errorAdded": "Etwas geht schief, fügen Sie es erneut hinzu!",
-    "created": "Das Konto wurde erstellt!"
+    "created": "Das Konto wurde erstellt!",
+    "wrong": "Etwas geht schief, versuchen Sie es noch einmal!"
   },
   "validation": {
     "required": "Dieses Feld ist erforderlich",
     "email": "Dieses Feld muss eine gültige E-Mail sein",
     "password": "Das Passwort ist unterschiedlich",
-    "minChar": "Das Passwort sollte mindestens 6 Zeichen haben"
+    "minChar": "Das Passwort sollte mindestens 6 Zeichen haben",
+    "wrongData": "Ihr Login oder Passwort ist falsch!"
   }
 }

@@ -74,12 +74,28 @@
     "nameError": "nazwa produktu wymagana!",
     "grams": "Gram",
     "energy": "Wartość energetyczna",
+
     "kcal": "Kcal",
-    "fat": "Tłuszcz",
-    "carbs": "Węgle",
-    "protein": "Białko",
-    "salt": "Sól",
-    "fiber": "Błonnik",
+
+    "ingredients": [
+      {
+        "name": "Tłuszcz"
+      },
+      {
+        "name": "Węgle"
+      },
+      {
+        "name": "Białko"
+      },
+      {
+        "name": "Sól"
+      },
+      {
+        "name": "Błonnik"
+      }
+    ],
+
+
     "category": [
       {
         "name": "Wszystkie"
@@ -99,15 +115,19 @@
     ]
   },
   "modal": {
-    "succes": "Sukces!",
+    "success": "Sukces!",
     "error": "Błąd!",
     "loading": "Ładowanie...",
     "added": "Product dodany!",
     "errorAdded": "Coś poszło nie tak spróbuj dodać jeszcze raz!",
-    "created": "Konto zostało utworzone!"
+    "created": "Konto zostało utworzone!",
+    "wrong": "Coś idzie nie tak, spróbuj jeszcze raz!"
   },
+  "validation": {
   "required": "To pole jest wymagane",
   "email": "To pole musi być prawidłowym e-mailem",
   "password": "Hasło jest inne",
-  "minChar": "Hasło powinno mieć min 6 znaków"
+  "minChar": "Hasło powinno mieć min 6 znaków",
+  "wrongData": "Twój login lub hasło jest nieprawidłowe!"
+  }
 }

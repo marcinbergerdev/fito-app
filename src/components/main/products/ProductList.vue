@@ -31,8 +31,8 @@
         <ul class="filterList" v-show="filtersVisibility">
           <li
             class="filterList__option"
-            v-for="filter in filters"
-            :key="filter.id"
+            v-for="(filter, id) in filters"
+            :key="id"
           >
             <input
               type="radio"
@@ -42,7 +42,7 @@
               v-model="currentCategory"
               :checked="filter.checked"
             />
-            <label :for="filter.id">{{ $t(`newProduct.category[${filter.idName}].nam`) }}</label>
+            <label :for="filter.id">{{ $t(`newProduct.category[${id}].name`) }}</label>
           </li>
         </ul>
       </div>
@@ -80,11 +80,11 @@ export default {
     return {
       filtersVisibility: false,
       filters: [
-        { id: "all", idName: "0", checked: "true" },
-        { id: "fruit", idName: "1" },
-        { id: "sweets", idName: "2" },
-        { id: "vegetable", idName: "3" },
-        { id: "spices", idName: "4" },
+        { id: "all", checked: "true" },
+        { id: "fruit" },
+        { id: "sweets"},
+        { id: "vegetable"},
+        { id: "spices"},
       ],
       searchProductName: "",
       currentCategory: "all",

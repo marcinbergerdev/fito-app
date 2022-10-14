@@ -2,13 +2,13 @@
   <base-modal
     :show="successModal"
     :title="modalTitle"
-    confirm="Okay"
+    :confirm="$t('ok')"
     @close="closeModal"
   >
     <p>{{ modalDescription }}</p>
   </base-modal>
 
-  <base-modal :show="isLoading" title="Loading..." confirm="Okay">
+  <base-modal :show="isLoading" :title="$t('modal.loading')" :confirm="$t('ok')">
     <base-spinner></base-spinner>
   </base-modal>
 
@@ -86,7 +86,7 @@ export default {
       try {
         await this.$store.dispatch("registration", value);
       } catch (error) {
-        this.error = error || "Something goes wrong, try again.";
+        this.error = error || this.$t('modal.wrong');
       }
 
       this.isLoading = false;
@@ -96,12 +96,12 @@ export default {
     validateEmail(value) {
       // if the field is empty
       if (!value) {
-        return "This field is required";
+        return this.$t(`validation.required`);
       }
       // if the field is not a valid email
       const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
       if (!regex.test(value)) {
-        return "This field must be a valid email";
+        return this.$t(`validation.email`);
       }
       // All is good
       return true;
@@ -109,10 +109,10 @@ export default {
     validateRegistration(value) {
       // if the field is empty
       if (!value) {
-        return "This field is required";
+        return this.$t(`validation.required`);
       }
       if (value.length < 6) {
-        return "The password should have min 6 characters";
+        return this.$t(`validation.minChar`);
       }
       // All is good
       return true;
@@ -120,7 +120,7 @@ export default {
     samePassword(value) {
       // if password is different
       if (value !== this.inputPassword) {
-        return "The password is different";
+        return this.$t(`validation.password`);
       }
       // All is good
       return true;
@@ -135,10 +135,10 @@ export default {
   },
   computed: {
     modalTitle() {
-      return this.error ? "Error!" : "Success!";
+      return this.error ? this.$t(`modal.error`) : this.$t(`modal.success`);
     },
     modalDescription() {
-      return this.error ? this.error : "Account has been created";
+      return this.error ? this.error : this.$t(`modal.created`);
     },
   },
 };

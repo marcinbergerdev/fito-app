@@ -75,11 +75,30 @@
     "grams": "Grams",
     "energy": "Energy value",
     "kcal": "Kcal",
-    "fat": "Fat",
-    "carbs": "Carbs",
-    "protein": "Protein",
-    "salt": "Salt",
-    "fiber": "Fiber",
+
+
+
+    "ingredients": [
+      {
+        "name": "Fat"
+      },
+      {
+        "name": "Carbs"
+      },
+      {
+        "name": "Protein"
+      },
+      {
+        "name": "Salt"
+      },
+      {
+        "name": "Fiber"
+      }
+    ],
+
+
+
+
     "category": [
       {
         "name": "All"
@@ -104,12 +123,14 @@
     "loading": "Loading...",
     "added": "Product Added!",
     "errorAdded": "Something goes wrong try adding again!",
-    "created": "Account has been created!"
+    "created": "Account has been created!",
+    "wrong": "Something goes wrong, try again!"
   },
   "validation": {
     "required": "This field is required",
     "email": "This field must be a valid email",
     "password": "The password is different",
-    "minChar": "The password should have min 6 characters"
+    "minChar": "The password should have min 6 characters",
+    "wrongData": "Your login or password is incorrect!"
   }
 }

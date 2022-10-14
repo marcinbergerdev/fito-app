@@ -9,7 +9,7 @@
 
       <!-- Global Styles in App.vue -->
       <Form @submit="formSubmit" class="formBox">
-        <h2 class="formBox__header"> {{ $t("registration.logIn") }}</h2>
+        <h2 class="formBox__header">{{ $t("registration.logIn") }}</h2>
 
         <div class="registerInputs inputColors">
           <Field
@@ -40,9 +40,9 @@
         <p>{{ $t("registration.infoSignUp") }}</p>
       </header>
 
-      <base-button link to="/registration" type="signInOutline"
-        >{{ $t("registration.signUp") }}</base-button
-      >
+      <base-button link to="/registration" type="signInOutline">{{
+        $t("registration.signUp")
+      }}</base-button>
     </base-registration>
   </article>
 </template>
@@ -61,6 +61,7 @@ export default {
   data() {
     return {
       error: null,
+      loginInput: "",
     };
   },
   methods: {
@@ -76,23 +77,24 @@ export default {
     validateEmail(value) {
       // if the field is empty
       if (!value) {
-        return "This field is required";
+        return this.$t(`validation.required`);
       }
       // if the field is not a valid email
       const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
       if (!regex.test(value)) {
-        return "This field must be a valid email";
+        return this.$t(`validation.email`);
       }
       // All is good
       return true;
     },
     validateLogin(value) {
       // if the field is empty
+
       if (!value) {
-        return "This field is required";
+        return this.$t(`validation.required`);
       }
       if (value.length < 6) {
-        return "The password should have min 6 characters";
+        return this.$t(`validation.minChar`);
       }
       // All is good
       return true;

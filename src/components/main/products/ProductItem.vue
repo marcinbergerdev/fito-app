@@ -26,7 +26,7 @@
         v-for="(value, id) in nutritionalValues"
         :key="id"
       >
-        <span> {{ value.name }} </span>
+        <span> {{ $t(`newProduct.ingredients[${id}].name`) }} </span>
         <span> {{ value.value.toFixed(1) }} g</span>
       </li>
     </ul>
