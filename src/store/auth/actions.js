@@ -65,7 +65,7 @@ export default {
       // current time + tokenExpiration(3600s)
       const refreshExpirationTime = currentTime + tokenExpiration * 1000;
 
-      if(!expiresIn && !tokenExpiration) return;
+      if (!expiresIn && !tokenExpiration) return;
 
       if (expiresIn - currentTime < 0) {
          context.dispatch("logout");

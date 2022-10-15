@@ -40,9 +40,6 @@ export default {
   created() {
     this.$store.dispatch("calculateYourBmi");
   },
-  unmounted() {
-    localStorage.removeItem("bmiData");
-  },
 };
 </script>
 

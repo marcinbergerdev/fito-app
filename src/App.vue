@@ -7,9 +7,9 @@
 <script>
 export default {
   created() {
-    let lang = localStorage.getItem('lang');
-    if(!lang) localStorage.setItem('lang', 'EN');
-    lang = localStorage.getItem('lang')
+    let lang = localStorage.getItem("lang");
+    if (!lang) localStorage.setItem("lang", "EN");
+    lang = localStorage.getItem("lang");
     this.$i18n.locale = lang;
     this.$store.dispatch("tryLogin");
   },
@@ -56,7 +56,7 @@ export default {
 
   @media (min-width: 768px) {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("./assets/background.jpg"),center,no-repeat;
+      url("./assets/background.jpg"), center, no-repeat;
     background-size: 100% 100%;
   }
 }

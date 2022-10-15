@@ -10,12 +10,12 @@
 
     <section class="productValue">
       <div class="productValue__dose border">
-        <span>{{ $t('newProduct.grams') }}</span>
+        <span>{{ $t("newProduct.grams") }}</span>
         <span> {{ gram }} g</span>
       </div>
 
       <div class="productValue__dose">
-        <span>{{ $t('newProduct.energy') }}</span>
+        <span>{{ $t("newProduct.energy") }}</span>
         <span> {{ kcal }} kcal</span>
       </div>
     </section>

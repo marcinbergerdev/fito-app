@@ -1,6 +1,6 @@
 export default {
-  setUser(state, data){
-    state.userId = data.localId;
-    state.token = data.idToken;
-  },
-}
+   setUser(state, data) {
+      state.userId = data.localId;
+      state.token = data.idToken;
+   },
+};

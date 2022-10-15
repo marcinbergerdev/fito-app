@@ -8,7 +8,7 @@
           place="addProductBtnPosition"
           type="myListOutline"
           ><app-icon class="icon" icon="akar-icons:circle-plus" />
-          {{ $t('addBtn') }}
+          {{ $t("addBtn") }}
         </base-button>
 
         <input
@@ -25,7 +25,7 @@
           @click="showFilters"
         >
           <app-icon class="filterIcon" icon="bi:filter-left" />
-          {{ $t('filters') }}
+          {{ $t("filters") }}
         </base-button>
 
         <ul class="filterList" v-show="filtersVisibility">
@@ -42,7 +42,9 @@
               v-model="currentCategory"
               :checked="filter.checked"
             />
-            <label :for="filter.id">{{ $t(`newProduct.category[${id}].name`) }}</label>
+            <label :for="filter.id">{{
+              $t(`newProduct.category[${id}].name`)
+            }}</label>
           </li>
         </ul>
       </div>
@@ -82,9 +84,9 @@ export default {
       filters: [
         { id: "all", checked: "true" },
         { id: "fruit" },
-        { id: "sweets"},
-        { id: "vegetable"},
-        { id: "spices"},
+        { id: "sweets" },
+        { id: "vegetable" },
+        { id: "spices" },
       ],
       searchProductName: "",
       currentCategory: "all",

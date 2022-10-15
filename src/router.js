@@ -77,8 +77,8 @@ router.beforeEach((to, from, next) => {
    if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
       next("/login");
       return;
-   } else if (!from.meta.available && to.path === '/home/result') {
-      next('/home/bmi');
+   } else if (!from.meta.available && to.path === "/home/result") {
+      next("/home/bmi");
       return;
    } else {
       next();

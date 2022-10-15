@@ -9,7 +9,6 @@
   </base-button>
 </template>
 
-
 <script>
 export default {
   computed: {

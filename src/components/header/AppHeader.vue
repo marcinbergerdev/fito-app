@@ -15,7 +15,6 @@
   </header>
 </template>
 
-
 <script>
 import HeaderLogo from "./logo/HeaderLogo.vue";
 import NavMenu from "./nav/NavMenu.vue";
@@ -29,7 +28,7 @@ export default {
     HeaderLogo,
     NavMenu,
     HeaderLanguage,
-   UserNav,
+    UserNav,
     UserRegistration,
     HeaderHamburger,
   },

@@ -3,16 +3,20 @@
     <li v-if="isLoggedIn" :class="addProductLinkIcon">
       <base-button link to="/home/myProduct" type="addProductLink">
         <app-icon class="icon" icon="fluent:apps-list-detail-20-regular" />
-        {{ $t("menuNav.myProduct")  }}
+        {{ $t("menuNav.myProduct") }}
       </base-button>
     </li>
 
     <li>
-      <base-button link to="/home" mode="navMenuOption">{{ $t("menuNav.home") }}</base-button>
+      <base-button link to="/home" mode="navMenuOption">{{
+        $t("menuNav.home")
+      }}</base-button>
     </li>
 
     <li>
-      <base-button link to="/home/bmi" mode="navMenuOption">{{ $t("menuNav.bmi") }}</base-button>
+      <base-button link to="/home/bmi" mode="navMenuOption">{{
+        $t("menuNav.bmi")
+      }}</base-button>
     </li>
   </ul>
 </template>

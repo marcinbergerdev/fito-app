@@ -75,7 +75,6 @@
     "grams": "Grams",
     "energy": "Energiewert",
     "kcal": "Kcal",
-
     "ingredients": [
       {
         "name": "Fett"
@@ -93,10 +92,6 @@
         "name": "Faser"
       }
     ],
-
-
-
-
     "category": [
       {
         "name": "Alle"

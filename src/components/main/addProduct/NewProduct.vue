@@ -76,7 +76,7 @@
             type="number"
             step="0.1"
             placeholder="0.0"
-            :v-model="ingredient.id"
+            v-model="ingredient.value"
           />
         </div>
       </div>
@@ -128,11 +128,6 @@ export default {
       productName: "",
       gram: 0,
       kcal: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0,
-      salt: 0,
-      fiber: 0,
       isProductNameEmpty: false,
       selectedCategory: "fruit",
       productAdded: false,
@@ -141,18 +136,23 @@ export default {
       ingredients: [
         {
           id: "fat",
+          value: 0,
         },
         {
           id: "carbs",
+          value: 0,
         },
         {
           id: "protein",
+          value: 0,
         },
         {
           id: "salt",
+          value: 0,
         },
         {
           id: "fiber",
+          value: 0,
         },
       ],
 
@@ -179,25 +179,30 @@ export default {
   methods: {
     async formAddProduct() {
       let productId = uuidv4();
-
       this.productAdded = true;
 
       try {
+        const data = {
+          id: productId,
+          img: this.img,
+          name: this.productName,
+          gram: this.gram,
+          kcal: this.kcal,
+          fat: 0,
+          carbs: 0,
+          protein: 0,
+          salt: 0,
+          fiber: 0,
+          selectedCategory: this.selectedCategory,
+        };
+
+        for (const ingredient of this.ingredients) {
+          data[ingredient.id] = ingredient.value;
+        }
+
         await this.$store.dispatch({
           type: "addNewProduct",
-          value: {
-            id: productId,
-            img: this.img,
-            name: this.productName,
-            gram: this.gram,
-            kcal: this.kcal,
-            fat: this.fat,
-            carbs: this.carbs,
-            protein: this.protein,
-            salt: this.salt,
-            fiber: this.fiber,
-            selectedCategory: this.selectedCategory,
-          },
+          value: data,
         });
       } catch (error) {
         this.error = error;
@@ -206,7 +211,7 @@ export default {
     validateName(value) {
       if (!value) {
         this.isProductNameEmpty = true;
-        return this.$t('newProduct.nameError');
+        return this.$t("newProduct.nameError");
       }
 
       this.isProductNameEmpty = false;
@@ -217,11 +222,9 @@ export default {
       this.productName = "";
       this.gram = 0;
       this.kcal = 0;
-      this.fat = 0;
-      this.carbs = 0;
-      this.protein = 0;
-      this.salt = 0;
-      this.fiber = 0;
+      for (const ingredient of this.ingredients) {
+        ingredient.value = 0;
+      }
       this.productAdded = false;
     },
     selectImg() {
@@ -239,10 +242,10 @@ export default {
       return { emptyInput: this.isProductNameEmpty };
     },
     modalTitle() {
-      return this.error ? this.$t('modal.error') : this.$t('modal.success');
+      return this.error ? this.$t("modal.error") : this.$t("modal.success");
     },
     modalDescription() {
-      return this.error ? this.error : this.$t('modal.added');
+      return this.error ? this.error : this.$t("modal.added");
     },
   },
 };
@@ -350,16 +353,13 @@ form {
   flex-flow: row wrap;
   margin: 3rem 0;
 }
-
 .productCategory {
   justify-content: space-between;
   width: #{"min(100%, 22rem)"};
 }
-
 .error {
   margin: 1rem 0;
 }
-
 .emptyInput {
   border: 1px solid rgb(226, 10, 10);
 }

@@ -1,5 +1,5 @@
 export default {
-  mobileMenuActiveStatus(state){
-    return state.mobileMenuActivity;
-  },
-}
+   mobileMenuActiveStatus(state) {
+      return state.mobileMenuActivity;
+   },
+};

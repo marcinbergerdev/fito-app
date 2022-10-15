@@ -44,7 +44,8 @@ export default {
       const responseData = await response.json();
 
       if (!response.ok) {
-         const error = (responseData.message || "Something goes wrong try adding again!");
+         const error =
+            responseData.message || "Something goes wrong try adding again!";
 
          throw error;
       }

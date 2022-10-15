@@ -2,7 +2,7 @@ export default {
    loadProducts(state, products) {
       state.products = products;
    },
-   searchProduct(state, list){
+   searchProduct(state, list) {
       state.products = list;
    },
    clearProductList(state) {

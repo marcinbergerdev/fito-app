@@ -27,7 +27,9 @@
             placeholder="qwerty"
           />
           <ErrorMessage class="errorMessageRegistration" name="password" />
-          <p></p>
+          <p v-if="error" class="errorMessageRegistration">
+            {{ $t("validation.wrongData") }}
+          </p>
         </div>
 
         <base-button type="flat">{{ $t("registration.logIn") }}</base-button>
@@ -60,8 +62,8 @@ export default {
   },
   data() {
     return {
-      error: null,
       loginInput: "",
+      error: false,
     };
   },
   methods: {
@@ -70,12 +72,13 @@ export default {
         await this.$store.dispatch("login", value);
         const redirectUrl = "/" + (this.$route.query.redirect || "home");
         this.$router.push(redirectUrl);
-      } catch (error) {
-        this.error = error;
+      } catch {
+        this.error = true;
       }
     },
     validateEmail(value) {
       // if the field is empty
+      this.error = false;
       if (!value) {
         return this.$t(`validation.required`);
       }
@@ -89,7 +92,7 @@ export default {
     },
     validateLogin(value) {
       // if the field is empty
-
+      this.error = false;
       if (!value) {
         return this.$t(`validation.required`);
       }

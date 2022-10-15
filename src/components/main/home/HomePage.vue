@@ -7,7 +7,6 @@
     <section class="containerRedirection">
       <div class="boxRedirection">
         <p class="boxRedirection__text">
-
           {{ $t("homePage.addProduct") }}
         </p>
 
@@ -18,7 +17,6 @@
 
       <div class="boxRedirection">
         <p class="boxRedirection__text">
-
           {{ $t("homePage.calcBmi") }}
         </p>
 
@@ -30,7 +28,6 @@
 
     <footer class="containerInformation">
       <h3 class="containerInformation__description">
-
         {{ $t("homePage.footer") }}
       </h3>
     </footer>

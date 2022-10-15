@@ -47,6 +47,7 @@
             type="number"
             step="0.1"
             v-model="kg"
+            placeholder="0.0"
           />
           <span>kg</span>
         </div>
@@ -59,6 +60,7 @@
             type="number"
             step="0.1"
             v-model="height"
+            placeholder="0.0"
           />
           <span>cm</span>
         </div>
@@ -83,8 +85,8 @@ export default {
   data() {
     return {
       gender: "",
-      kg: 0,
-      height: 0,
+      kg: null,
+      height: null,
       errorMessage: false,
     };
   },
@@ -105,6 +107,9 @@ export default {
       );
       this.$router.push("/home/result");
     },
+  },
+  created() {
+    localStorage.removeItem("bmiData");
   },
 };
 </script>

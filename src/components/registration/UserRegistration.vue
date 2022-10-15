@@ -8,7 +8,11 @@
     <p>{{ modalDescription }}</p>
   </base-modal>
 
-  <base-modal :show="isLoading" :title="$t('modal.loading')" :confirm="$t('ok')">
+  <base-modal
+    :show="isLoading"
+    :title="$t('modal.loading')"
+    :confirm="$t('ok')"
+  >
     <base-spinner></base-spinner>
   </base-modal>
 
@@ -86,7 +90,7 @@ export default {
       try {
         await this.$store.dispatch("registration", value);
       } catch (error) {
-        this.error = error || this.$t('modal.wrong');
+        this.error = error || this.$t("modal.wrong");
       }
 
       this.isLoading = false;

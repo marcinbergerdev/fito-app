@@ -268,15 +268,14 @@ button {
   }
 }
 
-.addImg{
+.addImg {
   margin-top: 2rem;
   width: 12rem;
   text-align: center;
   align-self: center;
 }
 
-
-.deleteCard{
+.deleteCard {
   position: absolute;
   top: 0.5rem;
   right: 1rem;

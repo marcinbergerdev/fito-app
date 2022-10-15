@@ -4,8 +4,6 @@
   </section>
 </template>
 
-
-
 <script>
 export default {
   props: {
@@ -26,8 +24,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 .registrationCard {
   position: relative;
   display: flex;
@@ -73,15 +69,12 @@ export default {
   }
 }
 
-.registrationCard,.mobileHidden{
-   @media (min-width: 768px) {
+.registrationCard,
+.mobileHidden {
+  @media (min-width: 768px) {
     min-height: 40rem;
   }
 }
-
-
-
-
 
 .default {
   background-color: var(--dark);
@@ -108,5 +101,4 @@ export default {
     border-radius: 0 1.5rem 1.5rem 0;
   }
 }
-
 </style>
