@@ -29,7 +29,7 @@
     "header": "Oblicz swoje BMI",
     "gender": {
       "label": "Płeć",
-      "male": "Męszczyzna",
+      "male": "Mężczyzna",
       "female": "Kobieta"
     },
     "weight": "Waga",
