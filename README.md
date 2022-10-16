@@ -1,4 +1,4 @@
-# Check your Bmi and save your favorite dish with nutrients 🍀🍏🍋🍕🍔🍟😎.
+# Check your BMI and save your favorite dish with nutrients 🍀🍏🍋🍕🍔🍟😎.
 # Live here 👉 https://fito-app.netlify.app/home
 
 ## How it works?
