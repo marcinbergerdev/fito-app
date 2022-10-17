@@ -58,7 +58,9 @@
           />
         </div>
 
-        <base-button mode="flat">{{ $t("registration.registerBtn") }}</base-button>
+        <base-button mode="flat">{{
+          $t("registration.registerBtn")
+        }}</base-button>
       </Form>
     </base-registration>
   </article>
@@ -83,12 +85,26 @@ export default {
       error: null,
     };
   },
+  computed: {
+    modalTitle() {
+      return this.error ? this.$t(`modal.error`) : this.$t(`modal.success`);
+    },
+    modalDescription() {
+      return this.error ? this.error : this.$t(`modal.created`);
+    },
+    registrationApi() {
+      return this.$store.getters.registrationApi;
+    },
+  },
   methods: {
     async formSubmit(value) {
       this.isLoading = true;
 
       try {
-        await this.$store.dispatch("registration", value);
+        await this.$store.dispatch("register", {
+          data: value,
+          apiLink: this.registrationApi,
+        });
       } catch (error) {
         this.error = error || this.$t("modal.wrong");
       }
@@ -135,14 +151,6 @@ export default {
       }
       this.error = null;
       this.successModal = false;
-    },
-  },
-  computed: {
-    modalTitle() {
-      return this.error ? this.$t(`modal.error`) : this.$t(`modal.success`);
-    },
-    modalDescription() {
-      return this.error ? this.error : this.$t(`modal.created`);
     },
   },
 };

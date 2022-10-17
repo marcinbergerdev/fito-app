@@ -1,4 +1,10 @@
 export default {
+   registrationApi(state){
+      return state.registrationApi
+   },
+   loginApi(state){
+      return state.loginApi
+   },
    userId(state) {
       return state.userId;
    },

@@ -2,19 +2,10 @@ import router from "@/router";
 let timer;
 
 export default {
-   async registration(_, data) {
-      const link = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA-5zmZKqEAxI3nmtKzO6eTFLVsiqq17Lg`;
+   async register(_, {data, apiLink}) {
       return await this.dispatch("auth", {
          userData: data,
-         API_KEY: link,
-      });
-   },
-
-   async login(_, data) {
-      const link = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA-5zmZKqEAxI3nmtKzO6eTFLVsiqq17Lg`;
-      return await this.dispatch("auth", {
-         userData: data,
-         API_KEY: link,
+         API_KEY: apiLink,
       });
    },
 
@@ -42,27 +33,24 @@ export default {
       localStorage.setItem("token", responseData.idToken);
       localStorage.setItem("tokenExpiration", responseData.expiresIn);
 
-      //Set expiriesIn and expirationData(Current time + expiriesIn/1h)
-      const expiresIn = +responseData.expiresIn * 1000;
-      const expirationData = new Date().getTime() + expiresIn;
-
-      localStorage.setItem("expiresIn", expirationData);
-
-      context.dispatch("autoLogout", expiresIn);
+      context.dispatch("setExpiration", responseData);
       context.commit("setUser", responseData);
+   },
+
+   setExpiration(context, data){
+      const expiresIn = Number(data.expiresIn) * 1000;
+      const expirationData = new Date().getTime() + expiresIn;
+      localStorage.setItem("expiresIn", expirationData);
+      context.dispatch("autoLogout", expiresIn);
    },
 
    tryLogin(context) {
       const userId = localStorage.getItem("userId");
       const token = localStorage.getItem("token");
-      // Time from locale storage
       const tokenExpiration = localStorage.getItem("tokenExpiration");
-      // Time to expires
       const expiresIn = +localStorage.getItem("expiresIn");
-      // Auto expires after login
       const autoExpiresIn = tokenExpiration * 1000;
       const currentTime = new Date().getTime();
-      // current time + tokenExpiration(3600s)
       const refreshExpirationTime = currentTime + tokenExpiration * 1000;
 
       if (!expiresIn && !tokenExpiration) return;
@@ -102,6 +90,8 @@ export default {
    },
 
    autoLogout(context, time) {
+
+      console.log(time);
       timer = setTimeout(() => {
          context.dispatch("logout");
       }, time);
