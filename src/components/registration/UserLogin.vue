@@ -23,7 +23,7 @@
           <Field
             name="password"
             type="password"
-            :rules="validateLogin"
+            :rules="validatePassword"
             placeholder="qwerty"
           />
           <ErrorMessage class="errorMessageRegistration" name="password" />
@@ -62,7 +62,6 @@ export default {
   },
   data() {
     return {
-      loginInput: "",
       error: false,
     };
   },
@@ -90,7 +89,7 @@ export default {
       // All is good
       return true;
     },
-    validateLogin(value) {
+    validatePassword(value) {
       // if the field is empty
       this.error = false;
       if (!value) {

@@ -167,7 +167,7 @@ export default {
       }
     },
     validateName(value) {
-      if (!value) {
+      if (!value || !value.trim()) {
         this.isProductNameEmpty = true;
         return this.$t("newProduct.nameError");
       }

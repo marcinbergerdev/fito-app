@@ -6,10 +6,11 @@
  - Register Account
  - Add Product
 
-## It's made?
+## Tech stack
   - Vue.js (Vue CLI).
   - Vue Routing.
   - Vue Transition.
+  - Vuex.
   - Firebase.
 
 

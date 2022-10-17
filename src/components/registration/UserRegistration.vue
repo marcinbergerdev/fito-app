@@ -58,7 +58,7 @@
           />
         </div>
 
-        <base-button mode="flat">{{ $t("registration.register") }}</base-button>
+        <base-button mode="flat">{{ $t("registration.registerBtn") }}</base-button>
       </Form>
     </base-registration>
   </article>
