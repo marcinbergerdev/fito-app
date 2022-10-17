@@ -1,6 +1,6 @@
 export default {
-   result(store) {
-      return store.result;
+   userBmiResult(store) {
+      return store.userBmiResult;
    },
    ranges(store) {
       return store.ranges;

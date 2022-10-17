@@ -66,22 +66,21 @@ export default {
     };
   },
   computed: {
-    loginApi(){
+    loginApi() {
       return this.$store.getters.loginApi;
-    }
+    },
   },
   methods: {
     async formSubmit(value) {
       try {
         await this.$store.dispatch("register", {
           data: value,
-          apiLink: this.loginApi
+          apiLink: this.loginApi,
         });
         const redirectUrl = "/" + (this.$route.query.redirect || "home");
         this.$router.push(redirectUrl);
-      } catch (error1){
+      } catch {
         this.error = true;
-    console.log(error1);
       }
     },
     validateEmail(value) {

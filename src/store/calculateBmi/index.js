@@ -5,7 +5,7 @@ import actions from "./actions";
 export default {
    state() {
       return {
-         result: {
+         userBmiResult: {
             bmi: 0,
             data: {},
          },

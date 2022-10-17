@@ -5,10 +5,10 @@
     </header>
 
     <div class="resultBox" :style="setResultColor">
-      <span class="resultBox__number"> {{ result.bmi }}</span>
+      <span class="resultBox__number"> {{ userBmiResult.bmi }}</span>
 
       <p class="resultBox__text">
-        {{ $t(`bmiResult.ranges[${result.data.id}].text`) }}
+        {{ $t(`bmiResult.ranges[${userBmiResult.data.id}].text`) }}
       </p>
     </div>
 
@@ -27,14 +27,14 @@
 <script>
 export default {
   computed: {
-    result() {
-      return this.$store.getters.result;
+    userBmiResult() {
+      return this.$store.getters.userBmiResult;
     },
     ranges() {
       return this.$store.getters.ranges;
     },
     setResultColor() {
-      return { color: this.result.data.color };
+      return { color: this.userBmiResult.data.color };
     },
   },
   created() {

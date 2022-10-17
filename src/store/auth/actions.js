@@ -2,7 +2,7 @@ import router from "@/router";
 let timer;
 
 export default {
-   async register(_, {data, apiLink}) {
+   async register(_, { data, apiLink }) {
       return await this.dispatch("auth", {
          userData: data,
          API_KEY: apiLink,
@@ -37,7 +37,7 @@ export default {
       context.commit("setUser", responseData);
    },
 
-   setExpiration(context, data){
+   setExpiration(context, data) {
       const expiresIn = Number(data.expiresIn) * 1000;
       const expirationData = new Date().getTime() + expiresIn;
       localStorage.setItem("expiresIn", expirationData);
@@ -90,8 +90,6 @@ export default {
    },
 
    autoLogout(context, time) {
-
-      console.log(time);
       timer = setTimeout(() => {
          context.dispatch("logout");
       }, time);
