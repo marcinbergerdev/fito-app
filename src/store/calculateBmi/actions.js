@@ -1,11 +1,10 @@
 export default {
    calculateYourBmi(context) {
-      const data = JSON.parse(localStorage.getItem("bmiData"));
-      const kg = data.kg;
-      const cm = data.cm;
+      const {kg, cm} = JSON.parse(localStorage.getItem("bmiData"));
       let result = 0;
+      const calculatedUserBmi = kg / Math.pow(cm, 2);
 
-      result = ((kg / Math.pow(cm, 2)) * 10000).toFixed(2);
+      result = (calculatedUserBmi * 10000).toFixed(2);
       context.commit("calculateYourBmi", result);
    },
 };
